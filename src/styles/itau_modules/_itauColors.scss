@@ -1,0 +1,97 @@
+.credicard, .credicard-theme-default, .credicard-theme-cashback {
+  --accent: #000B59;
+  --text-dark: #000B59;
+  --text-black: #231D19;
+  --text-gray: #56504C;
+  --icon: #CC1B85;
+
+  --background-app: #eaeff2;
+  --background-content: #fff;
+
+  --header-title: #000B59;
+  --header-button: #000B59;
+  --header-subtitle: #000B59;
+
+  --item-title: #000B59;
+  --item-text: #000B59;
+
+  --border: #efe9e5;
+
+  --shadow: #ccc;
+
+  --title-primary: #000659;
+  --title-secondary: #000659;
+
+  --text-primary: #000B59;
+  --text-secondary: #000B59;
+
+  --button-primary: #000B59;
+  --button-primary-text: #fff;
+
+  --button-secondary: #fff;
+  --button-secondary-text: #000659;
+
+  --button-tertiary: #CC1B85;
+  --button-tertiary-text: #fff;
+
+  --button-disabled: rgba(0,0,0,0.25);
+
+  --link: #000659;
+  --link-default: #000659;
+
+  --title-modal: #000B59;
+  --link-modal: #002fb4;
+  --icon-modal: #002fb4;
+
+  --nps-radio-label: #000B59;
+  --nps-label-border: #14F7C1;
+  --nps-label-text: #002fb4;
+}
+
+$accent: var(--accent);
+$text-dark: var(--text-dark);
+$text-black: var(--text-black);
+$text-gray: var(--text-gray);
+$icon: var(--icon);
+
+$background-app: var(--background-app);
+$background-content: var(--background-content);
+
+$header-title: var(--header-title);
+$header-button: var(--header-button);
+$header-subtitle: var(--header-subtitle);
+
+$item-title: var(--item-title);
+$item-text: var(--item-text);
+
+$border: var(--border);
+
+$shadow: var(--shadow);
+
+$title-primary: var(--title-primary);
+$title-secondary: var(--title-secondary);
+
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+
+$button-primary: var(--button-primary);
+$button-primary-text: var(--button-primary-text);
+
+$button-secondary: var(--button-secondary);
+$button-secondary-text: var(--button-secondary-text);
+
+$button-tertiary: var(--button-tertiary);
+$button-tertiary-text: var(--button-tertiary-text);
+
+$button-disabled: var(--button-disabled);
+
+$link: var(--link);
+$link-default: var(--link-default);
+
+$title-modal: var(--title-modal);
+$link-modal: var(--link-modal);
+$icon-modal: var(--icon-modal);
+
+$nps-radio-label: var(--nps-radio-label);
+$nps-label-border: var(--nps-label-border);
+$nps-label-text: var(--nps-label-text);

@@ -1,0 +1,15 @@
+@import "../../../styles/itau_modules/_itauColors.scss";
+
+.button-back {
+  left: 0;
+  top: 0;
+  padding: 16px;
+  position: absolute;
+  background-color: transparent;
+
+  .icon {
+    font-size: 24px;
+    color: $header-button;
+    line-height: 16px;
+  }
+}

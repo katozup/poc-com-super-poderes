@@ -21,7 +21,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build:localhost": "REACT_APP_ENVIRONMENT=localhost react-scripts build",
+    "build:dev": "REACT_APP_ENVIRONMENT=development react-scripts build",
+    "build:qa": "REACT_APP_ENVIRONMENT=quality react-scripts build",
+    "build:hml": "REACT_APP_ENVIRONMENT=homolog react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

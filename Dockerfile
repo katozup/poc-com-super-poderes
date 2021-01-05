@@ -7,7 +7,6 @@ COPY . .
 
 RUN yarn install
 RUN yarn run build:${envProfile}
-RUN yarn run test:coverage
 
 FROM nginx:stable-alpine
 

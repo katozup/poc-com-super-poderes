@@ -46,17 +46,17 @@ node {
         dockerk8sGroup = "cartoes"
       }
     }
-    stage('SonarQube analysis') {
-      def workspace = pwd()
-      nodejs(nodeJSInstallationName: 'NodeJSAuto', configId: '') {
-        script {
-          def scannerHome = tool 'Sonar Zup';
-          withSonarQubeEnv('Sonar Zup') {
-            sh "${scannerHome}/bin/sonar-scanner"
-          }
-        }
-      }
-    }
+    // stage('SonarQube analysis') {
+    //   def workspace = pwd()
+    //   nodejs(nodeJSInstallationName: 'NodeJSAuto', configId: '') {
+    //     script {
+    //       def scannerHome = tool 'Sonar Zup';
+    //       withSonarQubeEnv('Sonar Zup') {
+    //         sh "${scannerHome}/bin/sonar-scanner"
+    //       }
+    //     }
+    //   }
+    // }
   } catch (e) {
     notifyBuildStatus {
       buildStatus = "ABORTED"

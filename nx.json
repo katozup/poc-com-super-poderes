@@ -1,0 +1,41 @@
+{
+  "npmScope": "nx-react-preset",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "workspace.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    ".eslintrc.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "itau-mgm-nx-preset": {
+      "tags": []
+    },
+    "itau-mgm-nx-preset-e2e": {
+      "tags": [],
+      "implicitDependencies": ["itau-mgm-nx-preset"]
+    },
+    "promoter-credicard": {
+      "tags": []
+    },
+    "promoter-credicard-e2e": {
+      "tags": [],
+      "implicitDependencies": ["promoter-credicard"]
+    }
+  }
+}

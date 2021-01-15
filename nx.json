@@ -36,6 +36,13 @@
     "promoter-credicard-e2e": {
       "tags": [],
       "implicitDependencies": ["promoter-credicard"]
+    },
+    "nx-test-garrito": {
+      "tags": []
+    },
+    "nx-test-garrito-e2e": {
+      "tags": [],
+      "implicitDependencies": ["nx-test-garrito"]
     }
   }
 }

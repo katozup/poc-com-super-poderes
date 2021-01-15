@@ -126,10 +126,8 @@
             "main": "apps/promoter-credicard/src/index.js",
             "polyfills": "apps/promoter-credicard/src/polyfills.ts",
             "tsConfig": "apps/promoter-credicard/tsconfig.app.json",
-            "assets": [
-            ],
-            "styles": [
-            ],
+            "assets": [],
+            "styles": [],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -234,6 +232,116 @@
           "options": {
             "lintFilePatterns": [
               "apps/promoter-credicard-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "nx-test-garrito": {
+      "root": "apps/nx-test-garrito",
+      "sourceRoot": "apps/nx-test-garrito/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/nx-test-garrito",
+            "index": "apps/nx-test-garrito/src/index.html",
+            "main": "apps/nx-test-garrito/src/main.tsx",
+            "polyfills": "apps/nx-test-garrito/src/polyfills.ts",
+            "tsConfig": "apps/nx-test-garrito/tsconfig.app.json",
+            "assets": [
+              "apps/nx-test-garrito/src/favicon.ico",
+              "apps/nx-test-garrito/src/assets"
+            ],
+            "styles": [
+              "apps/nx-test-garrito/src/styles.scss"
+            ],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/nx-test-garrito/src/environments/environment.ts",
+                  "with": "apps/nx-test-garrito/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "nx-test-garrito:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "nx-test-garrito:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nx-test-garrito/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/nx-test-garrito"
+          ],
+          "options": {
+            "jestConfig": "apps/nx-test-garrito/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nx-test-garrito-e2e": {
+      "root": "apps/nx-test-garrito-e2e",
+      "sourceRoot": "apps/nx-test-garrito-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/nx-test-garrito-e2e/cypress.json",
+            "tsConfig": "apps/nx-test-garrito-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nx-test-garrito:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "nx-test-garrito:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nx-test-garrito-e2e/**/*.{js,ts}"
             ]
           }
         }

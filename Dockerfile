@@ -1,10 +1,10 @@
 FROM node:12-alpine AS build
 
 ARG envProfile
-ARG dockerRepositoryName
+ARG envProject
 
 RUN echo ENV PROFILE: ${envProfile}
-RUN echo DOCKER REPOSITORY NAME: ${dockerRepositoryName}
+RUN echo DOCKER REPOSITORY NAME: ${envProject}
 
 WORKDIR /app
 COPY . .

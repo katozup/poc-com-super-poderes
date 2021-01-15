@@ -53,6 +53,7 @@ node {
       dockerFileLocation = "."
       composeProjectName = dockerSwarm
       envProfile = envName
+      envProject = "bla bla qualquer coisa"
     }
 
     echo "DockerSwarmStack ${dockerSwarm}"

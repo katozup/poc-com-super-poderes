@@ -4,7 +4,7 @@ ARG envProfile
 
 WORKDIR /app
 COPY . .
-
+RUN echo EOOO
 # RUN yarn install
 # RUN yarn run build:${envProfile}
 # RUN yarn nx affected --head=$PR_BRANCH_NAME --target=build

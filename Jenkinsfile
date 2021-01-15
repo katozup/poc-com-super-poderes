@@ -1,27 +1,7 @@
-// node {
-//   withEnv(["HOME=${workspace}"]) {
-//     docker.image('node:latest').inside('--tmpfs /.config') {
-//       stage("Prepare") {
-//         checkout scm
-//         sh 'yarn install'
-//       }
 
-//       stage("Test") {
-//         sh 'yarn nx affected --target=test --base=origin/master'
-//       }
-
-//       stage("Lint") {
-//         sh 'yarn nx affected --target=lint --base=origin/master'
-//       }
-
-//       stage("Build") {
-//         sh 'yarn nx affected --target=build --base=origin/master --prod'
-//       }
-//     }
-//   }
-// }
 
 node {
+  def repos = ['itau-mgm-promoter-credicard']
   def jobName = "${env.JOB_NAME}"
   def projectName = jobName.split('-').first()
   def branchName = jobName.split('/').last().split('-').first()
@@ -45,31 +25,59 @@ node {
   }
 
   try {
+
+    repos.each{ key, value -> 
+      buildWithDockerfileITAU {
+        dockerRepositoryName =  value
+        dockerFileLocation = "./Dockerfile.${value}"
+        composeProjectName = value
+        envProfile = envName
+      }
+    }
+    
+    // if (envName == 'prod') {
+    //   repos.each{ key, value -> 
+    //       deployDockerServiceITAU {
+    //         dockerRepositoryName = value
+    //         dockerSwarmStack = value
+    //         dockerService = "services"
+    //         dockerSwarmGroup = "ITAU"
+    //       }
+    //   }
+    // }
+    
+    // repos.each{ key, value -> 
+    //     deployDockerServiceK8s {
+    //       microservice = value
+    //       dockerk8sGroup = "itau"
+    //     }
+    // }
+
     echo "Ambiente ${envName}"
     echo "DockerSwarmStack ${dockerSwarm}"
     echo "Job ${jobName}"
-    buildWithDockerfileITAU {
-      dockerRepositoryName = dockerSwarm
-      dockerFileLocation = "."
-      composeProjectName = dockerSwarm
-      envProfile = envName
-      envProject = "bla bla qualquer coisa"
-    }
+    // buildWithDockerfileITAU {
+    //   dockerRepositoryName = dockerSwarm
+    //   dockerFileLocation = "."
+    //   composeProjectName = dockerSwarm
+    //   envProfile = envName
+    //   envProject = "bla bla qualquer coisa"
+    // }
 
-    echo "DockerSwarmStack ${dockerSwarm}"
-    echo "Teste build jenkinsfile ${dockerSwarm}"
+    // echo "DockerSwarmStack ${dockerSwarm}"
+    // echo "Teste build jenkinsfile ${dockerSwarm}"
 
-    if (branchName == 'development' || branchName == 'qa' || branchName == 'hml') {
-      deployDockerServiceK8s {
-        microservice = dockerSwarm
-        dockerk8sGroup = "itau"
-      }
-    } else {
-      deployDockerServiceK8s {
-        microservice = dockerSwarm
-        dockerk8sGroup = "cartoes"
-      }
-    }
+    // if (branchName == 'development' || branchName == 'qa' || branchName == 'hml') {
+    //   deployDockerServiceK8s {
+    //     microservice = dockerSwarm
+    //     dockerk8sGroup = "itau"
+    //   }
+    // } else {
+    //   deployDockerServiceK8s {
+    //     microservice = dockerSwarm
+    //     dockerk8sGroup = "cartoes"
+    //   }
+    // }
     // stage('SonarQube analysis') {
     //   def workspace = pwd()
     //   nodejs(nodeJSInstallationName: 'NodeJSAuto', configId: '') {

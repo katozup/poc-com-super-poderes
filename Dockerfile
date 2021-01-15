@@ -7,7 +7,7 @@ COPY . .
 
 RUN yarn install
 # RUN yarn run build:${envProfile}
-RUN yarn nx build promoter-credicard --extractCss --extractLicenses --no-namedChunks --optimization --outputHashing=all --no-sourceMap --no-vendorChunk
+RUN yarn nx build promoter-credicard --production
 
 FROM nginx:stable-alpine
 

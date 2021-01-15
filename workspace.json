@@ -127,10 +127,8 @@
             "polyfills": "apps/promoter-credicard/src/polyfills.ts",
             "tsConfig": "apps/promoter-credicard/tsconfig.app.json",
             "assets": [
-              "apps/promoter-credicard/src/assets"
             ],
             "styles": [
-              "apps/promoter-credicard/src/styles.scss"
             ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
@@ -141,6 +139,28 @@
                 {
                   "replace": "apps/promoter-credicard/src/environments/environment.ts",
                   "with": "apps/promoter-credicard/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/promoter-credicard/src/environments/environment.dev.ts"
                 }
               ],
               "optimization": true,

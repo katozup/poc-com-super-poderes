@@ -3,7 +3,7 @@ FROM node:12-alpine AS build
 ARG envProfile
 ARG dockerRepositoryName
 
-RUN echo ${dockerRepositoryName}
+RUN echo DOCKER REPOSITORY NAME: ${dockerRepositoryName}
 
 WORKDIR /app
 COPY . .
@@ -16,7 +16,7 @@ FROM nginx:stable-alpine
 
 WORKDIR /
 
-COPY --from=dist/apps/ /var/www
+COPY --from=build /app/dist/apps/ /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD nginx -g 'daemon off;'

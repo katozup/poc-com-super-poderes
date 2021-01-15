@@ -3,6 +3,7 @@ FROM node:12-alpine AS build
 ARG envProfile
 ARG dockerRepositoryName
 
+RUN echo ENV PROFILE: ${envProfile}
 RUN echo DOCKER REPOSITORY NAME: ${dockerRepositoryName}
 
 WORKDIR /app

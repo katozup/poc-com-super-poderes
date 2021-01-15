@@ -25,12 +25,11 @@ node {
   }
 
   try {
-
-    repos.each{ key, value -> 
+    repos.each{ repo -> 
       buildWithDockerfileITAU {
-        dockerRepositoryName =  value
-        dockerFileLocation = "./Dockerfile.${value}"
-        composeProjectName = value
+        dockerRepositoryName =  repo
+        dockerFileLocation = "./Dockerfile.${repo}"
+        composeProjectName = repo
         envProfile = envName
       }
     }

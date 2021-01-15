@@ -6,8 +6,8 @@ WORKDIR /app
 COPY . .
 
 RUN yarn install
-# RUN yarn run build:${envProfile}
-RUN yarn nx affected --target=build
+RUN yarn run build:${envProfile}
+# RUN yarn nx affected --target=build
 
 FROM nginx:stable-alpine
 

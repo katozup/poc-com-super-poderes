@@ -45,16 +45,27 @@ node {
     //   }
     // }
     
-    // repos.each{ key, value -> 
-    //     deployDockerServiceK8s {
-    //       microservice = value
-    //       dockerk8sGroup = "itau"
-    //     }
-    // }
-
     echo "Ambiente ${envName}"
     echo "DockerSwarmStack ${dockerSwarm}"
     echo "Job ${jobName}"
+
+    repos.each{ repo -> 
+        // deployDockerServiceK8s {
+        //   microservice = repo
+        //   dockerk8sGroup = "itau"
+        // }
+      if (branchName == 'development' || branchName == 'qa' || branchName == 'hml') {
+        deployDockerServiceK8s {
+          microservice = repo
+          dockerk8sGroup = "itau"
+        }
+      } else {
+        deployDockerServiceK8s {
+          microservice = dockerSwarm
+          dockerk8sGroup = "repo"
+        }
+      }
+    }
     // buildWithDockerfileITAU {
     //   dockerRepositoryName = dockerSwarm
     //   dockerFileLocation = "."

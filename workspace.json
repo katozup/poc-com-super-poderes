@@ -18,7 +18,6 @@
             "polyfills": "apps/itau-mgm-nx-preset/src/polyfills.ts",
             "tsConfig": "apps/itau-mgm-nx-preset/tsconfig.app.json",
             "assets": [
-              "apps/itau-mgm-nx-preset/src/favicon.ico",
               "apps/itau-mgm-nx-preset/src/assets"
             ],
             "styles": [
@@ -128,7 +127,6 @@
             "polyfills": "apps/promoter-credicard/src/polyfills.ts",
             "tsConfig": "apps/promoter-credicard/tsconfig.app.json",
             "assets": [
-              "apps/promoter-credicard/src/favicon.ico",
               "apps/promoter-credicard/src/assets"
             ],
             "styles": [

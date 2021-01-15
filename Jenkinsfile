@@ -28,7 +28,7 @@ node {
     repos.each{ repo -> 
       buildWithDockerfileITAU {
         dockerRepositoryName =  repo
-        dockerFileLocation = "./Dockerfile.${repo}"
+        dockerFileLocation = "."
         composeProjectName = repo
         envProfile = envName
       }

@@ -43,6 +43,13 @@
     "nx-test-garrito-e2e": {
       "tags": [],
       "implicitDependencies": ["nx-test-garrito"]
+    },
+    "itau-mgm-promoter-credicard": {
+      "tags": []
+    },
+    "itau-mgm-promoter-credicard-e2e": {
+      "tags": [],
+      "implicitDependencies": ["itau-mgm-promoter-credicard"]
     }
   }
 }

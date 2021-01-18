@@ -1,5 +1,3 @@
-
-
 node {
   def repos = ['itau-mgm-promoter-credicard']
   def jobName = "${env.JOB_NAME}"
@@ -31,7 +29,7 @@ node {
         dockerFileLocation = "."
         composeProjectName = repo
         envProfile = envName
-        repoName = "newVar"
+        repoName = repo
       }
     }
     
@@ -63,7 +61,7 @@ node {
       } else {
         deployDockerServiceK8s {
           microservice = dockerSwarm
-          dockerk8sGroup = "repo"
+          dockerk8sGroup = "cartoes"
         }
       }
     }

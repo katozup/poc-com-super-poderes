@@ -31,6 +31,7 @@ node {
         dockerFileLocation = "."
         composeProjectName = repo
         envProfile = envName
+        repoName = "newVar"
       }
     }
     

@@ -7,7 +7,7 @@ COPY . .
 
 RUN yarn install
 # RUN yarn run build:${envProfile}
-RUN yarn nx build nx-test-garrito --production
+RUN yarn nx build nx-test-garrito --${envProfile}
 
 FROM nginx:stable-alpine
 

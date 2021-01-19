@@ -18,7 +18,6 @@
             "polyfills": "apps/itau-mgm-nx-preset/src/polyfills.ts",
             "tsConfig": "apps/itau-mgm-nx-preset/tsconfig.app.json",
             "assets": [
-              "apps/itau-mgm-nx-preset/src/favicon.ico",
               "apps/itau-mgm-nx-preset/src/assets"
             ],
             "styles": [
@@ -127,22 +126,39 @@
             "main": "apps/promoter-credicard/src/index.js",
             "polyfills": "apps/promoter-credicard/src/polyfills.ts",
             "tsConfig": "apps/promoter-credicard/tsconfig.app.json",
-            "assets": [
-              "apps/promoter-credicard/src/favicon.ico",
-              "apps/promoter-credicard/src/assets"
-            ],
-            "styles": [
-              "apps/promoter-credicard/src/styles.scss"
-            ],
+            "assets": [],
+            "styles": [],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "fileReplacements": [
                 {
                   "replace": "apps/promoter-credicard/src/environments/environment.ts",
                   "with": "apps/promoter-credicard/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/promoter-credicard/src/environments/environment.dev.ts"
                 }
               ],
               "optimization": true,
@@ -216,6 +232,248 @@
           "options": {
             "lintFilePatterns": [
               "apps/promoter-credicard-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "nx-test-garrito": {
+      "root": "apps/nx-test-garrito",
+      "sourceRoot": "apps/nx-test-garrito/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/nx-test-garrito",
+            "index": "apps/nx-test-garrito/src/index.html",
+            "main": "apps/nx-test-garrito/src/main.tsx",
+            "polyfills": "apps/nx-test-garrito/src/polyfills.ts",
+            "tsConfig": "apps/nx-test-garrito/tsconfig.app.json",
+            "assets": [
+              "apps/nx-test-garrito/src/favicon.ico",
+              "apps/nx-test-garrito/src/assets"
+            ],
+            "styles": [
+              "apps/nx-test-garrito/src/styles.scss"
+            ],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/nx-test-garrito/src/environments/environment.ts",
+                  "with": "apps/nx-test-garrito/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "nx-test-garrito:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "nx-test-garrito:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nx-test-garrito/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/nx-test-garrito"
+          ],
+          "options": {
+            "jestConfig": "apps/nx-test-garrito/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "nx-test-garrito-e2e": {
+      "root": "apps/nx-test-garrito-e2e",
+      "sourceRoot": "apps/nx-test-garrito-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/nx-test-garrito-e2e/cypress.json",
+            "tsConfig": "apps/nx-test-garrito-e2e/tsconfig.e2e.json",
+            "devServerTarget": "nx-test-garrito:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "nx-test-garrito:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/nx-test-garrito-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "itau-mgm-promoter-credicard": {
+      "root": "apps/itau-mgm-promoter-credicard",
+      "sourceRoot": "apps/itau-mgm-promoter-credicard/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/itau-mgm-promoter-credicard",
+            "index": "apps/itau-mgm-promoter-credicard/src/index.html",
+            "main": "apps/itau-mgm-promoter-credicard/src/index.js",
+            "polyfills": "apps/itau-mgm-promoter-credicard/src/polyfills.ts",
+            "tsConfig": "apps/itau-mgm-promoter-credicard/tsconfig.app.json",
+            "assets": [
+              "apps/itau-mgm-promoter-credicard/src/favicon.ico",
+              "apps/itau-mgm-promoter-credicard/src/assets"
+            ],
+            "styles": [
+              "apps/itau-mgm-promoter-credicard/src/styles.scss"
+            ],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "prod": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/promoter-credicard/src/environments/environment.dev.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "itau-mgm-promoter-credicard:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "itau-mgm-promoter-credicard:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/itau-mgm-promoter-credicard/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/itau-mgm-promoter-credicard"
+          ],
+          "options": {
+            "jestConfig": "apps/itau-mgm-promoter-credicard/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "itau-mgm-promoter-credicard-e2e": {
+      "root": "apps/itau-mgm-promoter-credicard-e2e",
+      "sourceRoot": "apps/itau-mgm-promoter-credicard-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/itau-mgm-promoter-credicard-e2e/cypress.json",
+            "tsConfig": "apps/itau-mgm-promoter-credicard-e2e/tsconfig.e2e.json",
+            "devServerTarget": "itau-mgm-promoter-credicard:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "itau-mgm-promoter-credicard:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/itau-mgm-promoter-credicard-e2e/**/*.{js,ts}"
             ]
           }
         }

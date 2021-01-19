@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import mdrEngine from '../mesozoicDecapodRevolutionEngine/mdrEngine';
 import payload02 from '../payload_02.json';
@@ -45,6 +45,18 @@ export default function Routes() {
 
   return (
     <BrowserRouter>
+    <ul>
+      <li>
+        <Link to="/">home</Link>
+      </li>
+      <li>
+        <Link to="/2">rota2</Link>
+      </li>
+      <li>
+        <Link to="/3">rota3</Link>
+      </li>
+
+    </ul>
       <Switch>
         {appRoutes}
       </Switch>

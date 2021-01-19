@@ -15,7 +15,7 @@ FROM nginx:stable-alpine
 
 WORKDIR /
 
-COPY --from=build /app/dist/apps/{repoName} /var/www
+COPY --from=build /app/dist/apps/itau-mgm-promoter-credicard /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD nginx -g 'daemon off;'

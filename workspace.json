@@ -374,7 +374,7 @@
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
           "configurations": {
-            "prod": {
+            "production": {
               "fileReplacements": [
                 {
                   "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",

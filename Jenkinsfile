@@ -54,6 +54,7 @@ node {
         //   dockerk8sGroup = "itau"
         // }
       if (branchName == 'development' || branchName == 'qa' || branchName == 'hml') {
+        echo "Repo ${repo}"
         deployDockerServiceK8s {
           microservice = repo
           dockerk8sGroup = "itau"

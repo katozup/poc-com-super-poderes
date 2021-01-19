@@ -9,7 +9,7 @@ COPY . .
 RUN echo repoName: ${repoName}
 RUN yarn install
 # RUN yarn run build:${envProfile}
-RUN yarn nx affected:build --${envProfile}
+RUN yarn nx affected:build --prod
 
 FROM nginx:stable-alpine
 

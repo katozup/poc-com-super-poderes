@@ -9,7 +9,7 @@ COPY . .
 RUN echo repoName: ${repoName}
 RUN yarn install
 # RUN yarn run build:${envProfile}
-RUN yarn nx affected:build --prod
+RUN yarn nx nx build itau-mgm-promoter-credicard --prod
 
 FROM nginx:stable-alpine
 

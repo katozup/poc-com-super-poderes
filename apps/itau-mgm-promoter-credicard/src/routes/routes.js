@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import mdrEngine from '../mesozoicDecapodRevolutionEngine/mdrEngine';
 import payload02 from '../payload_02.json';
@@ -59,6 +59,7 @@ export default function Routes() {
     </ul>
       <Switch>
         {appRoutes}
+        <Redirect from='*' to='/' />
       </Switch>
     </BrowserRouter>
   );

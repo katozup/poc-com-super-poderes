@@ -4,5 +4,6 @@ module.exports = {
     "<rootDir>/apps/promoter-credicard",
     "<rootDir>/apps/nx-test-garrito",
     "<rootDir>/apps/itau-mgm-promoter-credicard",
+    "<rootDir>/apps/itau-mgm-promoter-itaucard",
   ],
 };

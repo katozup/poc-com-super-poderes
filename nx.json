@@ -50,6 +50,13 @@
     "itau-mgm-promoter-credicard-e2e": {
       "tags": [],
       "implicitDependencies": ["itau-mgm-promoter-credicard"]
+    },
+    "itau-mgm-promoter-itaucard": {
+      "tags": []
+    },
+    "itau-mgm-promoter-itaucard-e2e": {
+      "tags": [],
+      "implicitDependencies": ["itau-mgm-promoter-itaucard"]
     }
   }
 }

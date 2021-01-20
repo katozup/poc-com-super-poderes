@@ -1,12 +1,10 @@
 FROM node:12-alpine AS build
 
 ARG envProfile
-ARG repoName
 
 WORKDIR /app
 COPY . .
 
-RUN echo repoName: ${repoName}
 RUN yarn install
 # RUN yarn run build:${envProfile}
 RUN yarn nx build itau-mgm-promoter-credicard --prod

@@ -28,13 +28,12 @@ node {
       echo "Ambiente ${envName}"
       // echo "DockerSwarmStack ${dockerSwarm}"
       echo "Job ${jobName}"
-      echo "Dockerfile Location ./dockerfile.${repo}"
+
       buildWithDockerfileITAU {
         dockerRepositoryName =  repo
-        dockerFileLocation = "--file Dockerfile.file.${repo} ."
+        dockerFileLocation = "--file Dockerfile.${repo} ."
         composeProjectName = repo
         envProfile = envName
-        repoName = repo
       }
     
       if (branchName == 'development' || branchName == 'qa' || branchName == 'hml') {

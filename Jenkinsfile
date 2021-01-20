@@ -31,7 +31,7 @@ node {
       echo "Dockerfile Location ./dockerfile.${repo}"
       buildWithDockerfileITAU {
         dockerRepositoryName =  repo
-        dockerFileLocation = " -f ./dockerfile.${repo}/"
+        dockerFileLocation = "--file Dockerfile.file.${repo}/"
         composeProjectName = repo
         envProfile = envName
         repoName = repo

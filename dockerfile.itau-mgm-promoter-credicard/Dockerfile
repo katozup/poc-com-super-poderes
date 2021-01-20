@@ -9,6 +9,7 @@ COPY . .
 
 RUN echo repoName: ${repoName}
 RUN yarn install
+RUN echo ls
 # RUN yarn run build:${envProfile}
 RUN yarn nx build itau-mgm-promoter-credicard --prod
 

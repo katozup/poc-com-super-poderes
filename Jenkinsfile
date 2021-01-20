@@ -19,14 +19,13 @@ node {
   }
 
   if (branchName.contains('release') || branchName == 'master') {
-    envName = 'prod'
+    envName = 'production'
   }
 
   try {
     repos.each{ repo -> 
       echo "Repo ${repo}"
       echo "Ambiente ${envName}"
-      // echo "DockerSwarmStack ${dockerSwarm}"
       echo "Job ${jobName}"
 
       buildWithDockerfileITAU {

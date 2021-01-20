@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 // import configure from './configure';
-// import Routes from './routes/routes';
 // import sentryInitFile from './sentry/sentryInitFile';
 import store from './store';
 // import setAppVersionToWindow from './util/setAppVersionToWindow';
@@ -15,8 +14,6 @@ import './index.css';
 import './styles/base.scss';
 
 // sentryInitFile();
-
-
 
 const init = async () => {
   if (module.hot && process.env.NODE_ENV === 'development') {

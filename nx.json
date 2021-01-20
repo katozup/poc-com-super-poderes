@@ -23,27 +23,6 @@
     }
   },
   "projects": {
-    "itau-mgm-nx-preset": {
-      "tags": []
-    },
-    "itau-mgm-nx-preset-e2e": {
-      "tags": [],
-      "implicitDependencies": ["itau-mgm-nx-preset"]
-    },
-    "promoter-credicard": {
-      "tags": []
-    },
-    "promoter-credicard-e2e": {
-      "tags": [],
-      "implicitDependencies": ["promoter-credicard"]
-    },
-    "nx-test-garrito": {
-      "tags": []
-    },
-    "nx-test-garrito-e2e": {
-      "tags": [],
-      "implicitDependencies": ["nx-test-garrito"]
-    },
     "itau-mgm-promoter-credicard": {
       "tags": []
     },

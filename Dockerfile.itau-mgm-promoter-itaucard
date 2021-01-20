@@ -8,7 +8,7 @@ COPY . .
 
 RUN yarn install
 # RUN yarn run build:${envProfile}
-RUN yarn nx build itau-mgm-promoter-itaucard --prod
+RUN yarn nx build itau-mgm-promoter-itaucard --${envProfile}
 
 FROM nginx:stable-alpine
 

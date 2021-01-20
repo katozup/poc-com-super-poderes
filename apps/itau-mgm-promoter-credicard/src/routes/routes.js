@@ -50,10 +50,10 @@ export default function Routes() {
         <Link to="/">home</Link>
       </li>
       <li>
-        <Link to="/2">rota 2</Link>
+        <Link to="/2">rota2</Link>
       </li>
       <li>
-        <Link to="/3">rota 3</Link>
+        <Link to="/3">rota3</Link>
       </li>
 
     </ul>

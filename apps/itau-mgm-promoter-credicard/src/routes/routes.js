@@ -1,18 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import mdrEngine from '../mesozoicDecapodRevolutionEngine/mdrEngine';
+import mdrEngine from '../mdrEngine/mdrEngine';
 import payload02 from '../payload_02.json';
-
-async function pagesBuilder(routesJson) {
-  return Promise.all(routesJson.map(async (page, index) =>(
-    {
-      id: index,
-      link: page.rota,
-      page: await mdrEngine(page.pagina)
-    }
-  )));
-}
 
 async function routesBuilder() {
   const pages = await pagesBuilder(payload02.rotas);
@@ -32,15 +22,26 @@ async function routesBuilder() {
   return routes;
 }
 
+async function pagesBuilder(routesJson) {
+  return Promise.all(routesJson.map(async (page, index) =>(
+    {
+      id: index,
+      link: page.rota,
+      page: await mdrEngine(page.pagina)
+    }
+  )));
+}
+
 export default function Routes() {
   const [appRoutes, setAppRoutes] = useState();
-  const builderNgineBoi = async() => {
+
+  const savePageToState = async() => {
     const pages = await routesBuilder();
     setAppRoutes(pages);
   };
 
   useEffect(() => {
-    builderNgineBoi();
+    savePageToState();
   }, []);
 
   return (
@@ -59,6 +60,7 @@ export default function Routes() {
     </ul>
       <Switch>
         {appRoutes}
+        <Redirect from='*' to='/' />
       </Switch>
     </BrowserRouter>
   );

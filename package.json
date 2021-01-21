@@ -6,6 +6,8 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
+    "start:prom-cred": "nx serve itau-mgm-promoter-credicard",
+    "start:prom-itau": "nx serve itau-mgm-promoter-itaucard",
     "build:localhost": "REACT_APP_ENVIRONMENT=localhost nx build",
     "build:dev": "REACT_APP_ENVIRONMENT=development nx build",
     "build:qa": "REACT_APP_ENVIRONMENT=quality nx build",

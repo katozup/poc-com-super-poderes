@@ -30,7 +30,7 @@ node {
 
       buildWithDockerfileITAU {
         dockerRepositoryName =  repo
-        dockerFileLocation = "--file Dockerfile.${repo} . repoName=${repo}"
+        dockerFileLocation = "--file Dockerfile.${repo} . --build-arg repoName=${repo}"
         composeProjectName = repo
         envProfile = envName
       }

@@ -7,7 +7,7 @@ ARG repoName
 WORKDIR /app
 COPY . .
 
-RUN echo ${repoName}
+RUN echo repoName: ${repoName}
 RUN yarn install
 # RUN yarn run build:${envProfile}
 RUN yarn nx build itau-mgm-promoter-credicard --${envProfile}

@@ -19,7 +19,7 @@ WORKDIR /
 ARG myvalue=/app/dist/apps/${repoName}
 RUN echo myvalue ${myvalue}
 
-COPY --from=build {myvalue} /var/www
+COPY --from=build ${myvalue} /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD nginx -g 'daemon off;'

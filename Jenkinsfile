@@ -1,5 +1,5 @@
 node {
-  def repos = ['itau-mgm-promoter-credicard', 'itau-mgm-promoter-itaucard']
+  def repos = ['itau-mgm-promoter-credicard']
   def jobName = "${env.JOB_NAME}"
   def projectName = jobName.split('-').first()
   def branchName = jobName.split('/').last().split('-').first()

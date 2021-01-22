@@ -24,13 +24,15 @@ node {
 
   try {
     repos.each{ repo -> 
+      def buildArgsOption = "--build-arg repoName=${repo}"
       echo "Repo ${repo}"
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"
+      echo "buildArgsOption ${buildArgsOption}"
 
       buildWithDockerfileITAU {
         dockerRepositoryName =  repo
-        dockerFileLocation = "--file Dockerfile.${repo} . --build-arg repoName=${repo}"
+        dockerFileLocation = ". ${buildArgsOption}"
         composeProjectName = repo
         envProfile = envName
       }

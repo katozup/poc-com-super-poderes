@@ -17,7 +17,7 @@ FROM nginx:stable-alpine
 WORKDIR /
 
 ARG repoPath
-RUN echo repoPath: ${repoPath}
+
 COPY --from=build ${repoPath} /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 

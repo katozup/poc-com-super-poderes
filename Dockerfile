@@ -1,22 +1,22 @@
 FROM node:12-alpine AS build
-RUN echo ---- Dockerfile promoter credicard ----
 
 ARG envProfile
 ARG repoName
 
+RUN echo ---- Repository Name: ${repoName} ----
+
 WORKDIR /app
 COPY . .
 
-RUN echo repoName: ${repoName}
 RUN yarn install
 # RUN yarn run build:${envProfile}
-RUN yarn nx build itau-mgm-promoter-credicard --${envProfile}
+RUN yarn nx build ${repoName} --${envProfile}
 
 FROM nginx:stable-alpine
 
 WORKDIR /
 
-COPY --from=build /app/dist/apps/itau-mgm-promoter-credicard /var/www
+COPY --from=build /app/dist/apps/${repoName} /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD nginx -g 'daemon off;'

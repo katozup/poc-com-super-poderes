@@ -2,10 +2,12 @@ FROM node:12-alpine AS build
 RUN echo ---- Dockerfile promoter credicard ----
 
 ARG envProfile
+ARG repoName
 
 WORKDIR /app
 COPY . .
 
+RUN echo ${repoName}
 RUN yarn install
 # RUN yarn run build:${envProfile}
 RUN yarn nx build itau-mgm-promoter-credicard --${envProfile}

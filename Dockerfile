@@ -16,7 +16,10 @@ FROM nginx:stable-alpine
 
 WORKDIR /
 
-COPY --from=build /app/dist/apps/itau-mgm-promoter-credicard /var/www
+ARG myvalue=/app/dist/apps/${repoName}
+RUN echo myvalue ${myvalue}
+
+COPY --from=build {myvalue} /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD nginx -g 'daemon off;'

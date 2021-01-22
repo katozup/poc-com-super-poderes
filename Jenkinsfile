@@ -5,6 +5,8 @@ node {
   def branchName = jobName.split('/').last().split('-').first()
   def envName = 'localhost'
   def dockerSwarm = 'itau-mgm-mono-promoter'
+  def nxDefaultBuildPath = '/app/dist/apps/'
+  def arg = '--build-arg'
 
   if (branchName == 'development') {
     envName = 'dev'
@@ -24,7 +26,8 @@ node {
 
   try {
     repos.each{ repo -> 
-      def buildArgsOption = "--build-arg repoName=${repo} --build-arg repoPath=/app/dist/apps/${repo}"
+      def argRepoName = "${arg} repoName=${repo}"
+      def argRepoPath = "${arg} repoPath=${nxDefaultBuildPath+repo}"
       echo "Repo ${repo}"
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"
@@ -32,7 +35,7 @@ node {
 
       buildWithDockerfileITAU {
         dockerRepositoryName =  repo
-        dockerFileLocation = ". ${buildArgsOption}"
+        dockerFileLocation = ". ${argRepoName} ${argRepoPath}"
         composeProjectName = repo
         envProfile = envName
       }

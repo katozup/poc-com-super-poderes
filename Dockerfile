@@ -3,7 +3,7 @@ FROM node:12-alpine AS build
 ARG envProfile
 ARG repoName
 
-RUN echo ---- Repository Name: promoter-credicard ----
+RUN echo ---- Repository Name: ${repoName} ----
 
 WORKDIR /app
 COPY . .

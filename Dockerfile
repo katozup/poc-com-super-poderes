@@ -16,10 +16,10 @@ FROM nginx:stable-alpine
 
 WORKDIR /
 
-ARG myvalue=/app/dist/apps/${repoName}
-RUN echo myvalue ${myvalue}
+ARG repoPath
+RUN echo repoPath: ${repoPath}
 
-COPY --from=build ${myvalue} /var/www
+COPY --from=build ${repoPath} /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 CMD nginx -g 'daemon off;'

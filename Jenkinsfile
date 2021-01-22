@@ -24,7 +24,7 @@ node {
 
   try {
     repos.each{ repo -> 
-      def buildArgsOption = "--build-arg repoName=${repo}"
+      def buildArgsOption = "--build-arg repoName=${repo} --build-arg repoPath=/app/dist/apps/${repo}"
       echo "Repo ${repo}"
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"

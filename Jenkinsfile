@@ -26,8 +26,8 @@ node {
 
   try {
     repos.each{ repo -> 
-      def argRepoName = "${arg} repoName=${repo}"
-      def argRepoPath = "${arg} repoPath=${nxDefaultBuildPath+repo}"
+      def argRepoName = "--build-arg repoName=$repo"
+      def argRepoPath = "--build-arg repoPath=$nxDefaultBuildPath$repo"
       echo "Repo ${repo}"
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"

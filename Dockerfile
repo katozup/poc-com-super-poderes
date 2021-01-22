@@ -2,10 +2,8 @@ FROM node:12-alpine AS build
 
 ARG envProfile
 ARG repoName
-ARG repoPath
 
 RUN echo ---- Repository Name: ${repoName} ----
-RUN echo repoPath: ${repoPath}
 
 WORKDIR /app
 COPY . .
@@ -18,6 +16,7 @@ FROM nginx:stable-alpine
 
 WORKDIR /
 
+ARG repoPath
 RUN echo repoPath: ${repoPath}
 COPY --from=build ${repoPath} /var/www
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf

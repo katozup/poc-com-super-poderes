@@ -17,13 +17,14 @@
     "paths": {
       "@itau-mgm/ActionButton": ["libs/ActionButton/src/lib/ActionButton"],
       "@itau-mgm/BtnBack": ["libs/BtnBack/src/lib/BtnBack"],
-      "@itau-mgm/SimpleTextParsed": ["libs/SimpleTextParsed/src/index.ts"],
-      "@itau-mgm/TitleH1": ["libs/TitleH1/src/index.ts"],
-      "@itau-mgm/TitleH2Parsed": ["libs/TitleH2Parsed/src/index.ts"],
-      "@itau-mgm/AppPage": ["libs/AppPage/src/index.ts"],
-      "@itau-mgm/ButtonListContent": ["libs/ButtonListContent/src/index.ts"],
-      "@itau-mgm/MainContent": ["libs/MainContent/src/index.ts"],
-      "@itau-mgm/MobileHeader": ["libs/MobileHeader/src/index.ts"]
+      "@itau-mgm/SimpleTextParsed": ["libs/SimpleTextParsed/src/lib/SimpleTextParsed"],
+      "@itau-mgm/TitleH1": ["libs/TitleH1/src/lib/TitleH1"],
+      "@itau-mgm/TitleH2Parsed": ["libs/TitleH2Parsed/src/lib/TitleH2Parsed"],
+      "@itau-mgm/AppPage": ["libs/AppPage/src/lib/AppPage"],
+      "@itau-mgm/ButtonListContent": ["libs/ButtonListContent/src/lib/ButtonListContent"],
+      "@itau-mgm/MainContent": ["libs/MainContent/src/lib/MainContent"],
+      "@itau-mgm/MobileHeader": ["libs/MobileHeader/src/lib/MobileHeader"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

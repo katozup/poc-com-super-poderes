@@ -20,8 +20,7 @@
             "assets": [
               "apps/itau-mgm-promoter-credicard/src/assets"
             ],
-            "styles": [
-            ],
+            "styles": [],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -258,6 +257,231 @@
             "lintFilePatterns": [
               "apps/itau-mgm-promoter-itaucard-e2e/**/*.{js,ts}"
             ]
+          }
+        }
+      }
+    },
+    "ActionButton": {
+      "root": "libs/ActionButton",
+      "sourceRoot": "libs/ActionButton/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ActionButton/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ActionButton"
+          ],
+          "options": {
+            "jestConfig": "libs/ActionButton/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "BtnBack": {
+      "root": "libs/BtnBack",
+      "sourceRoot": "libs/BtnBack/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/BtnBack/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/BtnBack"
+          ],
+          "options": {
+            "jestConfig": "libs/BtnBack/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "MobileHeader": {
+      "root": "libs/MobileHeader",
+      "sourceRoot": "libs/MobileHeader/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/MobileHeader/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/MobileHeader"
+          ],
+          "options": {
+            "jestConfig": "libs/MobileHeader/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "SimpleTextParsed": {
+      "root": "libs/SimpleTextParsed",
+      "sourceRoot": "libs/SimpleTextParsed/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/SimpleTextParsed/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/SimpleTextParsed"
+          ],
+          "options": {
+            "jestConfig": "libs/SimpleTextParsed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "TitleH1": {
+      "root": "libs/TitleH1",
+      "sourceRoot": "libs/TitleH1/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/TitleH1/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/TitleH1"
+          ],
+          "options": {
+            "jestConfig": "libs/TitleH1/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "TitleH2Parsed": {
+      "root": "libs/TitleH2Parsed",
+      "sourceRoot": "libs/TitleH2Parsed/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/TitleH2Parsed/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/TitleH2Parsed"
+          ],
+          "options": {
+            "jestConfig": "libs/TitleH2Parsed/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "AppPage": {
+      "root": "libs/AppPage",
+      "sourceRoot": "libs/AppPage/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/AppPage/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/AppPage"
+          ],
+          "options": {
+            "jestConfig": "libs/AppPage/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ButtonListContent": {
+      "root": "libs/ButtonListContent",
+      "sourceRoot": "libs/ButtonListContent/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ButtonListContent/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ButtonListContent"
+          ],
+          "options": {
+            "jestConfig": "libs/ButtonListContent/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "MainContent": {
+      "root": "libs/MainContent",
+      "sourceRoot": "libs/MainContent/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/MainContent/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/MainContent"
+          ],
+          "options": {
+            "jestConfig": "libs/MainContent/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

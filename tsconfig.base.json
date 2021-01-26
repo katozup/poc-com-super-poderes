@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@itau-mgm/ActionButton": ["libs/ActionButton/src/lib/ActionButton"],
+      "@itau-mgm/BtnBack": ["libs/BtnBack/src/lib/BtnBack"],
+      "@itau-mgm/SimpleTextParsed": ["libs/SimpleTextParsed/src/index.ts"],
+      "@itau-mgm/TitleH1": ["libs/TitleH1/src/index.ts"],
+      "@itau-mgm/TitleH2Parsed": ["libs/TitleH2Parsed/src/index.ts"],
+      "@itau-mgm/AppPage": ["libs/AppPage/src/index.ts"],
+      "@itau-mgm/ButtonListContent": ["libs/ButtonListContent/src/index.ts"],
+      "@itau-mgm/MainContent": ["libs/MainContent/src/index.ts"],
+      "@itau-mgm/MobileHeader": ["libs/MobileHeader/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

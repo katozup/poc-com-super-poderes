@@ -36,6 +36,33 @@
     "itau-mgm-promoter-itaucard-e2e": {
       "tags": [],
       "implicitDependencies": ["itau-mgm-promoter-itaucard"]
+    },
+    "ActionButton": {
+      "tags": []
+    },
+    "BtnBack": {
+      "tags": []
+    },
+    "SimpleTextParsed": {
+      "tags": []
+    },
+    "TitleH1": {
+      "tags": []
+    },
+    "TitleH2Parsed": {
+      "tags": []
+    },
+    "AppPage": {
+      "tags": []
+    },
+    "ButtonListContent": {
+      "tags": []
+    },
+    "MainContent": {
+      "tags": []
+    },
+    "MobileHeader": {
+      "tags": []
     }
   }
 }

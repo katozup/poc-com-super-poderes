@@ -17,8 +17,8 @@ export default async function componentArchitect(type, component, props, actions
 };
 
 async function reactElementBuilder(type, component) {
-  // TODO add validation of components before returning
-  const Component = await import(`../../../components/${type}/${component}`).then(component=>{
+  const Component = await import(`@itau-mgm/AppPage`).then((component) => {
+    console.log('component', component);
     return component.default;
   });
   const element = <Component></Component>;

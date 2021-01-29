@@ -1,548 +1,166 @@
 {
-  "version": "Default",
-  "whiteLabelName": "CREDICARD_ZERO_PROMOTOR",
-  "rotas": [{
-      "rota": "/",
-      "pagina": {
-        "type": "PAGE",
-        "componentName": "AppPage",
-        "properties": [
-
-        ],
-        "actions": [
-
-        ],
-        "analytics": [{
-          "event": "PAGE_LOAD"
-        }],
-        "children": [{
-            "type": "SECTION",
-            "componentName": "MobileHeader",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "BtnBack",
-                "properties": [{
-                    "value": "<",
-                    "key": "iconName"
+  "dn": 2063,
+  "logo": null,
+  "bin": null,
+  "whiteLabel": {
+    "app": "PROMOTER",
+    "version": "Default",
+    "whiteLabelId": "2063",
+    "cssTheme": "credicard-theme-default",
+    "routes": [
+      {
+        "routeName": "HOME",
+        "routeUrl": "/",
+        "page": {
+          "pageKey": "PROMOTER_DEFAULT_2063_HOME",
+          "componentName": "AppPage",
+          "properties": null,
+          "analytics": {
+            "event": "PAGE_LOAD"
+          },
+          "actions": [],
+          "children": [
+            {
+              "type": "SECTION",
+              "componentName": "MobileHeader",
+              "properties": null,
+              "analytics": null,
+              "actions": [],
+              "children": [
+                {
+                  "type": "COMPONENT",
+                  "componentName": "BtnBack",
+                  "properties": {
+                    "iconName": "<",
+                    "alt": "voltar"
                   },
-                  {
-                    "value": "voltar",
-                    "key": "alt"
-                  }
-                ],
-                "actions": [{
-                  "functionName": "closeWebview",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "TitleH1",
-                "properties": [{
-                  "value": "indicar amigos",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              }
-            ]
-          },
-          {
-            "type": "SECTION",
-            "componentName": "MainContent",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "TitleH2Parsed",
-                "properties": [{
-                  "value": "Você ainda tem amigos que pagam <strong>anuidade do cartão?</strong>",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "SimpleTextParsed",
-                "properties": [{
-                  "value": "Indique o Credicard, o cartão sem anuidade e com muitos benefícios. <strong>Compartilhe!</strong>",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              }
-            ]
-          },
-          {
-            "type": "SECTION",
-            "componentName": "ButtonListContent",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "ActionButton",
-                "properties": [{
-                  "value": "WhatsApp",
-                  "key": "text"
-                }],
-                "actions": [{
-                  "functionName": "shareLink",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [{
-                  "event": "CUSTOM_LINK"
-                }],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "ActionButton",
-                "properties": [{
-                  "value": "outros apps",
-                  "key": "text"
-                }],
-                "actions": [{
-                  "functionName": "shareLink",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [{
-                  "event": "CUSTOM_LINK"
-                }],
-                "children": [
-
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "rota": "/2",
-      "pagina": {
-        "type": "PAGE",
-        "componentName": "AppPage",
-        "properties": [
-
-        ],
-        "actions": [
-
-        ],
-        "analytics": [{
-          "event": "PAGE_LOAD"
-        }],
-        "children": [{
-            "type": "SECTION",
-            "componentName": "MobileHeader",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "BtnBack",
-                "properties": [{
-                    "value": "<",
-                    "key": "iconName"
+                  "analytics": null,
+                  "actions": [
+                    {
+                      "functionName": "closeWebview",
+                      "event": "ON_CLICK",
+                      "parameters": {
+                        "variavel": "10"
+                      }
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "COMPONENT",
+                  "componentName": "TitleH1",
+                  "properties": {
+                    "text": "indicar amigos"
                   },
-                  {
-                    "value": "voltar",
-                    "key": "alt"
-                  }
-                ],
-                "actions": [{
-                  "functionName": "closeWebview",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "TitleH1",
-                "properties": [{
-                  "value": "rota 2",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              }
-            ]
-          },
-          {
-            "type": "SECTION",
-            "componentName": "MainContent",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "TitleH2Parsed",
-                "properties": [{
-                  "value": "Rota <strong>2</strong>",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "SimpleTextParsed",
-                "properties": [{
-                  "value": "Indique o Credicard, o cartão sem anuidade e com muitos benefícios. <strong>Compartilhe!</strong>",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              }
-            ]
-          },
-          {
-            "type": "SECTION",
-            "componentName": "ButtonListContent",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "ActionButton",
-                "properties": [{
-                  "value": "WhatsApp",
-                  "key": "text"
-                }],
-                "actions": [{
-                  "functionName": "shareLink",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [{
-                  "event": "CUSTOM_LINK"
-                }],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "ActionButton",
-                "properties": [{
-                  "value": "outros apps",
-                  "key": "text"
-                }],
-                "actions": [{
-                  "functionName": "shareLink",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [{
-                  "event": "CUSTOM_LINK"
-                }],
-                "children": [
-
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "rota": "/3",
-      "pagina": {
-        "type": "PAGE",
-        "componentName": "AppPage",
-        "properties": [
-
-        ],
-        "actions": [
-
-        ],
-        "analytics": [{
-          "event": "PAGE_LOAD"
-        }],
-        "children": [{
-            "type": "SECTION",
-            "componentName": "MobileHeader",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "BtnBack",
-                "properties": [{
-                    "value": "<",
-                    "key": "iconName"
+                  "analytics": null,
+                  "actions": [],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "SECTION",
+              "componentName": "MainContent",
+              "properties": null,
+              "analytics": null,
+              "actions": [],
+              "children": [
+                {
+                  "type": "COMPONENT",
+                  "componentName": "TitleH2Parsed",
+                  "properties": {
+                    "text": "Você ainda tem amigos que pagam <strong>anuidade do cartão?</strong>"
                   },
-                  {
-                    "value": "voltar",
-                    "key": "alt"
-                  }
-                ],
-                "actions": [{
-                  "functionName": "closeWebview",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "TitleH1",
-                "properties": [{
-                  "value": "rota 3",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              }
-            ]
-          },
-          {
-            "type": "SECTION",
-            "componentName": "MainContent",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "TitleH2Parsed",
-                "properties": [{
-                  "value": "Titulo parseado da <strong>rota 3</strong>",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "SimpleTextParsed",
-                "properties": [{
-                  "value": "Indique o Credicard, o cartão sem anuidade e com muitos benefícios. <strong>Compartilhe!</strong>",
-                  "key": "text"
-                }],
-                "actions": [
-
-                ],
-                "analytics": [
-
-                ],
-                "children": [
-
-                ]
-              }
-            ]
-          },
-          {
-            "type": "SECTION",
-            "componentName": "ButtonListContent",
-            "properties": [
-
-            ],
-            "actions": [
-
-            ],
-            "analytics": [
-
-            ],
-            "children": [{
-                "type": "COMPONENT",
-                "componentName": "ActionButton",
-                "properties": [{
-                  "value": "WhatsApp",
-                  "key": "text"
-                }],
-                "actions": [{
-                  "functionName": "shareLink",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [{
-                  "event": "CUSTOM_LINK"
-                }],
-                "children": [
-
-                ]
-              },
-              {
-                "type": "COMPONENT",
-                "componentName": "ActionButton",
-                "properties": [{
-                  "value": "outros apps",
-                  "key": "text"
-                }],
-                "actions": [{
-                  "functionName": "shareLink",
-                  "event": "ON_CLICK",
-                  "parameters": [{
-                    "value": "10",
-                    "key": "variavel"
-                  }]
-                }],
-                "analytics": [{
-                  "event": "CUSTOM_LINK"
-                }],
-                "children": [
-
-                ]
-              }
-            ]
-          }
-        ]
+                  "analytics": null,
+                  "actions": [],
+                  "children": []
+                },
+                {
+                  "type": "COMPONENT",
+                  "componentName": "SimpleTextParsed",
+                  "properties": {
+                    "text": "Indique o Credicard, o cartão sem anuidade e com muitos benefícios. <strong>Compartilhe!</strong>"
+                  },
+                  "analytics": null,
+                  "actions": [],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "SECTION",
+              "componentName": "ButtonListContent",
+              "properties": null,
+              "analytics": null,
+              "actions": [],
+              "children": [
+                {
+                  "type": "COMPONENT",
+                  "componentName": "ActionButton",
+                  "properties": {
+                    "text": "WhatsApp"
+                  },
+                  "analytics": {
+                    "event": "CUSTOM_LINK"
+                  },
+                  "actions": [
+                    {
+                      "functionName": "shareLink",
+                      "event": "ON_CLICK",
+                      "parameters": {
+                        "variavel": "10"
+                      }
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "COMPONENT",
+                  "componentName": "ActionButton",
+                  "properties": {
+                    "text": "outros apps"
+                  },
+                  "analytics": {
+                    "event": "CUSTOM_LINK"
+                  },
+                  "actions": [
+                    {
+                      "functionName": "shareLink",
+                      "event": "ON_CLICK",
+                      "parameters": {
+                        "variavel": "10"
+                      }
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "routeName": "BENEFIT",
+        "routeUrl": "/benefits",
+        "page": null
+      },
+      {
+        "routeName": "BENEFIT_TIPS",
+        "routeUrl": "/benefits/tips",
+        "page": null
+      },
+      {
+        "routeName": "BENEFIT_REGULATION",
+        "routeUrl": "/benefits/regulation",
+        "page": null
       }
-    }
-  ]
+    ]
+  },
+  "nomeCampanha": "CREDICARD_ZERO_PLATINUM",
+  "cartaoCodigo": 136,
+  "cartaoCategoria": "NCC",
+  "cartaoDescricao": "Credicard Zero Platinum",
+  "bandeira": "Mastercard",
+  "contratacaoOnline": true,
+  "portfolio": null
 }

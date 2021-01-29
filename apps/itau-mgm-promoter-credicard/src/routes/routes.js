@@ -5,7 +5,7 @@ import mdrEngine from '../mdrEngine/mdrEngine';
 import payload02 from '../payload_02.json';
 
 async function routesBuilder() {
-  const pages = await pagesBuilder(payload02.rotas);
+  const pages = await pagesBuilder(payload02.whiteLabel.routes);
   const routes = pages.map(page =>
     {
       return <Route
@@ -23,11 +23,12 @@ async function routesBuilder() {
 }
 
 async function pagesBuilder(routesJson) {
-  return Promise.all(routesJson.map(async (page, index) =>(
+  const validRoutes = routesJson.filter((route) => route.page != null);
+  return Promise.all(validRoutes.map(async (page, index) =>(
     {
       id: index,
-      link: page.rota,
-      page: await mdrEngine(page.pagina)
+      link: page.routeUrl,
+      page: await mdrEngine(page.page)
     }
   )));
 }

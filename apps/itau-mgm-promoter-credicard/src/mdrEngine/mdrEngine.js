@@ -3,8 +3,10 @@ import componentArchitect from './core/builder/componentArchitect';
 export default async function mdrNgin(payload) {
   let reactElementChildren = [];
 
-  for (const child of componentChildrenGetter(payload)) {
-    reactElementChildren.push(await mdrNgin(child));
+  if (payload) {
+    for (const child of componentChildrenGetter(payload)) {
+      reactElementChildren.push(await mdrNgin(child));
+    }
   }
 
   // "break case"
@@ -18,32 +20,26 @@ export default async function mdrNgin(payload) {
 }
 
 function componentTypeGetter(componentStructure) {
-  const { type } = componentStructure;
-  if (type) return type;
-  return '';
+  const { type } = componentStructure || '';
+  return type;
 }
 
 function componentNameGetter(componentStructure) {
-  const { componentName } = componentStructure;
-  if (componentName) return componentName;
-  return '';
+  const { componentName } = componentStructure || '';
+  return componentName;
 }
 
 function componentPropsGetter(componentStructure) {
-  const { properties } = componentStructure;
-  if (properties) return properties;
-  return '';
-
+  const { properties } = componentStructure || '';
+  return properties;
 }
 
 function componentActionsGetter(componentStructure) {
-  const { actions } = componentStructure;
-  if (actions) return actions;
-  return '';
+  const { actions } = componentStructure || '';
+  return actions;
 }
 
 function componentChildrenGetter(componentStructure) {
-  const { children } = componentStructure;
-  if (children) return children;
-  return '';
+  const { children } = componentStructure || [];
+  return children;
 }

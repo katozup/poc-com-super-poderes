@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zupmgm/mdr-engine';
 import payload02 from '../payload_02.json';
-import store from '../store';
 
 async function routesBuilder() {
   const pages = await pagesBuilder(payload02.rotas);
@@ -28,7 +27,7 @@ async function pagesBuilder(routesJson) {
     {
       id: index,
       link: page.rota,
-      page: await mdrEngine(page.pagina, store)
+      page: await mdrEngine(page.pagina)
     }
   )));
 }

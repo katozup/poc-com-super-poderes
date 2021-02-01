@@ -1,7 +1,6 @@
 import React from 'react';
-import functionsLib from '../../libs/functions';
-import store from '../../../store';
-import { mdrEngine } from '@zupmgm/mdr-engine';
+import functionsLib from '../functions/index';
+// import { actionsManager } from '@zupmgm/actions-manager';
 
 export default async function componentArchitect(type, component, props, actions, children) {
   const reactElement = await reactElementBuilder(type, component);
@@ -16,17 +15,17 @@ export default async function componentArchitect(type, component, props, actions
   );
 
   return newReactElement;
-}
+};
 
 async function reactElementBuilder(type, component) {
   // TODO add validation of components before returning
-  const Component = await import(`../../../components/${type}/${component}`).then(component=>{
+  const Component = await import(`./test_components/${type}/${component}`).then(component=>{
     return component.default;
   });
   const element = <Component></Component>;
 
   return element;
-}
+};
 
 function propsBuilder(props) {
   let componentProps = {};
@@ -35,12 +34,11 @@ function propsBuilder(props) {
   });
 
   return componentProps;
-}
+};
 
 function actionsBuilder(actions) {
   // TODO add support to other events
   // TODO function handler should be an entity itself
-  console.log("mdrEngine", mdrEngine)
   let componentActions = {};
   if (actions) actions.forEach(action => {
     componentActions[action.event] = {
@@ -51,4 +49,4 @@ function actionsBuilder(actions) {
   });
 
   return componentActions;
-}
+};

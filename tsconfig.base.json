@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@zupmgm/actions-manager": ["libs/actions-manager/src/index.js"],
+      "@zupmgm/mdr-engine": ["libs/mdr-engine/src/index.ts"],
+      "@zupmgm/mdr-builder": ["libs/mdr-component-builder/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

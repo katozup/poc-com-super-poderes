@@ -20,8 +20,7 @@
             "assets": [
               "apps/itau-mgm-promoter-credicard/src/assets"
             ],
-            "styles": [
-            ],
+            "styles": [],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -258,6 +257,56 @@
             "lintFilePatterns": [
               "apps/itau-mgm-promoter-itaucard-e2e/**/*.{js,ts}"
             ]
+          }
+        }
+      }
+    },
+    "actions-manager": {
+      "root": "libs/actions-manager",
+      "sourceRoot": "libs/actions-manager/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/actions-manager/**/*.js"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/actions-manager"
+          ],
+          "options": {
+            "jestConfig": "libs/actions-manager/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mdr-engine": {
+      "root": "libs/mdr-engine",
+      "sourceRoot": "libs/mdr-engine/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mdr-engine/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/mdr-engine"
+          ],
+          "options": {
+            "jestConfig": "libs/mdr-engine/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

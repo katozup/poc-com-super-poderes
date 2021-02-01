@@ -3,8 +3,8 @@ import './_AppPage.scss';
 import { useSelector } from 'react-redux'
 
 const AppPage = ({ children }) => {
-  const counter = useSelector(state => state.analytics)
-  console.log('asd', counter)
+  const counter = useSelector(state => state)
+  console.log('counter', counter)
 
   return (
     <div className="app-wrapper">

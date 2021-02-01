@@ -15,7 +15,7 @@ export default async function componentArchitect(type, component, props, actions
   );
 
   return newReactElement;
-};
+}
 
 async function reactElementBuilder(type, component) {
   // TODO add validation of components before returning
@@ -25,7 +25,7 @@ async function reactElementBuilder(type, component) {
   const element = <Component></Component>;
 
   return element;
-};
+}
 
 function propsBuilder(props) {
   let componentProps = {};
@@ -34,12 +34,13 @@ function propsBuilder(props) {
   });
 
   return componentProps;
-};
+}
 
 function actionsBuilder(actions) {
   // TODO add support to other events
   // TODO function handler should be an entity itself
   let componentActions = {};
+  console.log('actions', actions)
   if (actions) actions.forEach(action => {
     componentActions[action.event] = {
       actionFunction: functionsLib[action.functionName],
@@ -49,4 +50,4 @@ function actionsBuilder(actions) {
   });
 
   return componentActions;
-};
+}

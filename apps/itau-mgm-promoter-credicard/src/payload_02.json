@@ -41,7 +41,7 @@
                 ],
                 "actions": [{
                   "functionName": "closeWebview",
-                  "event": "ON_CLICK",
+                  "event": "onClick",
                   "parameters": [{
                     "value": "10",
                     "key": "variavel"
@@ -222,7 +222,7 @@
                 ],
                 "actions": [{
                   "functionName": "closeWebview",
-                  "event": "ON_CLICK",
+                  "event": "onClick",
                   "parameters": [{
                     "value": "10",
                     "key": "variavel"

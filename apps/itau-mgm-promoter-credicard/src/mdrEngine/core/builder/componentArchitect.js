@@ -1,7 +1,5 @@
 import React from 'react';
 import functionsLib from '../../libs/functions';
-import store from '../../../store';
-import { mdrEngine } from '@zupmgm/mdr-engine';
 
 export default async function componentArchitect(type, component, props, actions, children) {
   const reactElement = await reactElementBuilder(type, component);
@@ -40,7 +38,7 @@ function propsBuilder(props) {
 function actionsBuilder(actions) {
   // TODO add support to other events
   // TODO function handler should be an entity itself
-  console.log("mdrEngine", mdrEngine)
+
   let componentActions = {};
   if (actions) actions.forEach(action => {
     componentActions[action.event] = {

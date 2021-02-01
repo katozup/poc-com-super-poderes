@@ -1,4 +1,4 @@
-export default function componentActions (componentStructure) {
+export default function (componentStructure) {
   const { actions } = componentStructure;
   if (actions) return actions;
   return '';

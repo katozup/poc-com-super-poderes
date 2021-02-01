@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 
 const AppPage = ({ children }) => {
   const counter = useSelector(state => state.counter)
-  console.log('asd', counter)
 
   return (
     <div className="app-wrapper">

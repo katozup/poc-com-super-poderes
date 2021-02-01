@@ -1,5 +1,5 @@
 import React from 'react';
-import functionsLib from '../functions/index';
+import functionsLib from './functions/index';
 // import { actionsManager } from '@zupmgm/actions-manager';
 
 export default async function componentArchitect(type, component, props, actions, children) {

@@ -2,7 +2,7 @@ import componentArchitect from './builder/componentArchitect';
 import componentRetrievers from './retrievers';
 
 
-export async function mdrEngine(payload): Promise<Record<string, unknown>> {
+export async function mdrEngine(payload) {
   const reactElementChildren = [];
 
   for (const child of componentChildrenGetter(payload)) {

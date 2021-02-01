@@ -1,6 +1,5 @@
 import React from 'react';
-import functionsLib from './functions/index';
-// import { actionsManager } from '@zupmgm/actions-manager';
+import libFunctions from './functions';
 
 export default async function componentArchitect(type, component, props, actions, children) {
   const reactElement = await reactElementBuilder(type, component);
@@ -19,6 +18,7 @@ export default async function componentArchitect(type, component, props, actions
 
 async function reactElementBuilder(type, component) {
   // TODO add validation of components before returning
+  // ! change import to lib and remove "test_components" after merging with components lib branch
   const Component = await import(`./test_components/${type}/${component}`).then(component=>{
     return component.default;
   });
@@ -38,12 +38,11 @@ function propsBuilder(props) {
 
 function actionsBuilder(actions) {
   // TODO add support to other events
-  // TODO function handler should be an entity itself
+  // ? probably change this part to make the repo ENUM compatible
   let componentActions = {};
-  console.log('actions', actions)
   if (actions) actions.forEach(action => {
     componentActions[action.event] = {
-      actionFunction: functionsLib[action.functionName],
+      actionFunction: libFunctions[action.functionName],
       actionEvent: action.event,
       actionParameter: action.parameter,
     };

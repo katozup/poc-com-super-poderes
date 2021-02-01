@@ -39,6 +39,9 @@
     },
     "mdr-engine": {
       "tags": []
+    },
+    "mgm-redux-store": {
+      "tags": []
     }
   }
 }

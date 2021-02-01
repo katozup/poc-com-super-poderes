@@ -3,10 +3,9 @@ import 'react-app-polyfill/stable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-
+import store from '@zupmgm/mgm-redux-store';
 // import configure from './configure';
 // import sentryInitFile from './sentry/sentryInitFile';
-import store from './store';
 // import setAppVersionToWindow from './util/setAppVersionToWindow';
 import App from './app/App';
 

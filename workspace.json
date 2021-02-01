@@ -285,6 +285,31 @@
           }
         }
       }
+    },
+    "mgm-redux-store": {
+      "root": "libs/mgm-redux-store",
+      "sourceRoot": "libs/mgm-redux-store/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mgm-redux-store/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/mgm-redux-store"
+          ],
+          "options": {
+            "jestConfig": "libs/mgm-redux-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

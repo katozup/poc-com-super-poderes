@@ -261,31 +261,6 @@
         }
       }
     },
-    "actions-manager": {
-      "root": "libs/actions-manager",
-      "sourceRoot": "libs/actions-manager/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/actions-manager/**/*.js"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/actions-manager"
-          ],
-          "options": {
-            "jestConfig": "libs/actions-manager/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
     "mdr-engine": {
       "root": "libs/mdr-engine",
       "sourceRoot": "libs/mdr-engine/src",

@@ -37,9 +37,6 @@
       "tags": [],
       "implicitDependencies": ["itau-mgm-promoter-itaucard"]
     },
-    "actions-manager": {
-      "tags": []
-    },
     "mdr-engine": {
       "tags": []
     }

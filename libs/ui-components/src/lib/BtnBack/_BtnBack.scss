@@ -1,0 +1,15 @@
+@import '../../../../../apps/itau-mgm-promoter-credicard/src/styles/itau_modules/itauColors';
+
+.button-back {
+  left: 0;
+  top: 0;
+  padding: 16px;
+  position: absolute;
+  background-color: transparent;
+
+  .icon {
+    font-size: 24px;
+    color: $header-button;
+    line-height: 16px;
+  }
+}

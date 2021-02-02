@@ -24,11 +24,11 @@ async function routesBuilder() {
 
 async function pagesBuilder(routesJson) {
   const validRoutes = routesJson.filter((route) => route.page != null);
-  return Promise.all(validRoutes.map(async (page, index) =>(
+  return Promise.all(validRoutes.map(async (route, index) =>(
     {
       id: index,
-      link: page.routeUrl,
-      page: await mdrEngine(page.page)
+      link: route.routeUrl,
+      page: await mdrEngine(route.page)
     }
   )));
 }
@@ -47,18 +47,7 @@ export default function Routes() {
 
   return (
     <BrowserRouter>
-    <ul>
-      <li>
-        <Link to="/">home</Link>
-      </li>
-      <li>
-        <Link to="/2">rota2</Link>
-      </li>
-      <li>
-        <Link to="/3">rota3</Link>
-      </li>
 
-    </ul>
       <Switch>
         {appRoutes}
         <Redirect from='*' to='/' />

@@ -4,7 +4,7 @@ import functionsLib from '../../libs/functions';
 export default async function componentArchitect(type, component, props, actions, children) {
   const reactElement = await reactElementBuilder(type, component);
   const propsAndActions = {
-    ...propsBuilder(props),
+    ...props,
     ...actionsBuilder(actions)
   };
   const newReactElement = React.cloneElement(
@@ -17,12 +17,10 @@ export default async function componentArchitect(type, component, props, actions
 };
 
 async function reactElementBuilder(type, component) {
-  const Component = await import(`@itau-mgm/AppPage`).then((component) => {
-    console.log('component', component);
-    return component.default;
-  });
+  const Component = await import(`@itau-mgm/ui-components`).then((defaultComponent) => {
+    return defaultComponent[component];
+  })
   const element = <Component></Component>;
-
   return element;
 };
 

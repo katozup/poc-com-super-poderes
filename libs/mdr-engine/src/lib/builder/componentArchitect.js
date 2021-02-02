@@ -4,7 +4,7 @@ import libFunctions from './functions';
 export default async function componentArchitect(type, component, props, actions, children) {
   const reactElement = await reactElementBuilder(type, component);
   const propsAndActions = {
-    ...propsBuilder(props),
+    ...props,
     ...actionsBuilder(actions)
   };
   const newReactElement = React.cloneElement(
@@ -21,19 +21,10 @@ async function reactElementBuilder(type, component) {
   const Component = await import(`./test_components/${type}/${component}`).then(component=>{
     return component.default;
   });
-  const element = <Component></Component>;
+  const element = <Component key={type+component}></Component>;
 
   if (React.isValidElement(element)) return element;
   return React.createElement('div'); // creates an empty react element for safe coding
-}
-
-function propsBuilder(props) {
-  let componentProps = {};
-  if (props) props.forEach(prop => {
-    componentProps[prop.key] = prop.value;
-  });
-
-  return componentProps;
 }
 
 function actionsBuilder(actions) {

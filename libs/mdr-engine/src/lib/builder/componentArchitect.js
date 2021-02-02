@@ -1,5 +1,6 @@
 import React from 'react';
 import libFunctions from './functions';
+import enumTranslator from '../helpers/enumTranslator';
 
 export default async function componentArchitect(type, component, props, actions, children) {
   const reactElement = await reactElementBuilder(type, component);
@@ -29,10 +30,10 @@ async function reactElementBuilder(type, component) {
 
 function actionsBuilder(actions) {
   // TODO add support to other events
-  // ? probably change this part to make the repo ENUM compatible
   let componentActions = {};
+
   if (actions) actions.forEach(action => {
-    componentActions[action.event] = {
+    componentActions[enumTranslator(action.event)] = {
       actionFunction: libFunctions[action.functionName],
       actionEvent: action.event,
       actionParameter: action.parameter,

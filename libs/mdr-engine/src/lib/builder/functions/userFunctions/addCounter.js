@@ -1,4 +1,4 @@
-import { counterActions } from '@zupmgm/mgm-redux-store';
+import { counterActions } from '@zup-mgm/mgm-redux-store';
 
 export default function (param, store) {
   store.dispatch(counterActions.addCounter())

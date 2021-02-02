@@ -37,31 +37,10 @@
       "tags": [],
       "implicitDependencies": ["itau-mgm-promoter-itaucard"]
     },
-    "ActionButton": {
+    "ui-components": {
       "tags": []
     },
-    "BtnBack": {
-      "tags": []
-    },
-    "SimpleTextParsed": {
-      "tags": []
-    },
-    "TitleH1": {
-      "tags": []
-    },
-    "TitleH2Parsed": {
-      "tags": []
-    },
-    "AppPage": {
-      "tags": []
-    },
-    "ButtonListContent": {
-      "tags": []
-    },
-    "MainContent": {
-      "tags": []
-    },
-    "MobileHeader": {
+    "utils": {
       "tags": []
     }
   }

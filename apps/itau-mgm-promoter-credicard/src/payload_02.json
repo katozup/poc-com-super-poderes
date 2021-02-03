@@ -38,7 +38,7 @@
                   "actions": [
                     {
                       "functionName": "closeWebview",
-                      "event": "ON_CLICK",
+                      "event": "onClick",
                       "parameters": {
                         "variavel": "10"
                       }
@@ -106,7 +106,7 @@
                   "actions": [
                     {
                       "functionName": "shareLink",
-                      "event": "ON_CLICK",
+                      "event": "onClick",
                       "parameters": {
                         "variavel": "10"
                       }
@@ -126,7 +126,7 @@
                   "actions": [
                     {
                       "functionName": "shareLink",
-                      "event": "ON_CLICK",
+                      "event": "onClick",
                       "parameters": {
                         "variavel": "10"
                       }

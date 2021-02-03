@@ -33,9 +33,11 @@
   },
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "1.4.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/react-redux": "7.1.11",
     "core-js": "^3.6.5",
     "document-register-element": "1.13.1",
     "dompurify": "^2.2.3",

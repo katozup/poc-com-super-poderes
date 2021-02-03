@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@zup-mgm/mdr-engine": ["libs/mdr-engine/src/index.ts"],
+      "@zup-mgm/mgm-redux-store": ["libs/mgm-redux-store/src/index.js"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

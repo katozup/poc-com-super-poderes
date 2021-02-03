@@ -41,7 +41,7 @@
                 ],
                 "actions": [{
                   "functionName": "closeWebview",
-                  "event": "ON_CLICK",
+                  "event": "onClick",
                   "parameters": [{
                     "value": "10",
                     "key": "variavel"
@@ -104,9 +104,36 @@
               },
               {
                 "type": "COMPONENT",
+                "componentName": "BtnBack",
+                "properties": [{
+                    "value": "+",
+                    "key": "iconName"
+                  },
+                  {
+                    "value": "voltar",
+                    "key": "alt"
+                  }
+                ],
+                "actions": [{
+                  "functionName": "addCounter",
+                  "event": "onClick",
+                  "parameters": [{
+                    "value": "10",
+                    "key": "variavel"
+                  }]
+                }],
+                "analytics": [
+
+                ],
+                "children": [
+
+                ]
+              },
+              {
+                "type": "COMPONENT",
                 "componentName": "SimpleTextParsed",
                 "properties": [{
-                  "value": "Indique o Credicard, o cartão sem anuidade e com muitos benefícios. <strong>Compartilhe!</strong>",
+                  "value": "!Indique o Credicard, o cartão sem anuidade e com muitos benefícios. <strong>Compartilhe!</strong>",
                   "key": "text"
                 }],
                 "actions": [
@@ -222,7 +249,7 @@
                 ],
                 "actions": [{
                   "functionName": "closeWebview",
-                  "event": "ON_CLICK",
+                  "event": "onClick",
                   "parameters": [{
                     "value": "10",
                     "key": "variavel"

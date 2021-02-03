@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@itau-mgm/ui-components": ["libs/ui-components/src/index.ts"],
-      "@itau-mgm/utils": ["libs/utils/src/index.ts"],
+      "@zup-mgm/ui-components": ["libs/ui-components/src/index.ts"],
+      "@zup-mgm/utils": ["libs/utils/src/index.ts"],
       "@zupmgm/mdr-engine": ["libs/mdr-engine/src/index.ts"],
       "@zupmgm/mgm-redux-store": ["libs/mgm-redux-store/src/index.js"]
     }

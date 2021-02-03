@@ -1,6 +1,6 @@
 import React from 'react'
 import './_SimpleTextParsed.scss';
-import { parseSanitizedHtml } from "@itau-mgm/utils";
+import { parseSanitizedHtml } from '@zup-mgm/utils';
 
 const SimpleTextParsed = ({ text }) => (
   <p className="simple-text-parsed">

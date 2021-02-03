@@ -19,13 +19,16 @@ export default async function componentArchitect(type, component, props, actions
 
 async function reactElementBuilder(type, component) {
   // ! change import to lib and remove "test_components" after merging with components lib branch
-  const Component = await import(`./test_components/${type}/${component}`).then(component=>{
-    return component.default;
-  });
-  const element = <Component key={type+component}></Component>;
+  try {
+    const Component = await import(`./test_components/${type}/${component}`).then(component=>{
+      return component.default;
+    });
+    const element = <Component key={type+component}></Component>;
+    if (React.isValidElement(element)) return element;
+  } catch {
+    return React.createElement('div'); // creates an empty react element for safe coding
+  }
 
-  if (React.isValidElement(element)) return element;
-  return React.createElement('div'); // creates an empty react element for safe coding
 }
 
 function actionsBuilder(actions) {

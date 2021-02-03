@@ -1,10 +1,11 @@
 import React from 'react';
 import libFunctions from './functions';
+import enumTranslator from '../helpers/enumTranslator';
 
 export default async function componentArchitect(type, component, props, actions, children) {
   const reactElement = await reactElementBuilder(type, component);
   const propsAndActions = {
-    ...propsBuilder(props),
+    ...props,
     ...actionsBuilder(actions)
   };
   const newReactElement = React.cloneElement(
@@ -17,31 +18,22 @@ export default async function componentArchitect(type, component, props, actions
 }
 
 async function reactElementBuilder(type, component) {
-  // TODO add validation of components before returning
   // ! change import to lib and remove "test_components" after merging with components lib branch
   const Component = await import(`./test_components/${type}/${component}`).then(component=>{
     return component.default;
   });
-  const element = <Component></Component>;
+  const element = <Component key={type+component}></Component>;
 
-  return element;
-}
-
-function propsBuilder(props) {
-  let componentProps = {};
-  if (props) props.forEach(prop => {
-    componentProps[prop.key] = prop.value;
-  });
-
-  return componentProps;
+  if (React.isValidElement(element)) return element;
+  return React.createElement('div'); // creates an empty react element for safe coding
 }
 
 function actionsBuilder(actions) {
   // TODO add support to other events
-  // ? probably change this part to make the repo ENUM compatible
   let componentActions = {};
+
   if (actions) actions.forEach(action => {
-    componentActions[action.event] = {
+    componentActions[enumTranslator(action.event)] = {
       actionFunction: libFunctions[action.functionName],
       actionEvent: action.event,
       actionParameter: action.parameter,

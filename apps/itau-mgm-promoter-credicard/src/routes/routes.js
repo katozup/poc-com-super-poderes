@@ -12,7 +12,6 @@ async function routesBuilder() {
         exact
         path={page.routeUrl}
         key={page.id}
-        // it should also possible to use 'component' property in case of any hooks incompatibility in the future?
         render={ () => (
           page.page
         )}
@@ -26,7 +25,7 @@ async function pagesBuilder(routesJson) {
   return Promise.all(routesJson.map(async (page, index) =>(
     {
       id: index,
-      link: page.routes,
+      routeUrl: page.routeUrl,
       page: await mdrEngine(page.page)
     }
   )));

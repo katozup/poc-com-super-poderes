@@ -13,6 +13,7 @@ export async function mdrEngine(payload) {
     retriever.componentName(payload),
     retriever.componentProps(payload),
     retriever.componentActions(payload),
+    retriever.componentId(payload),
     reactElementChildren,
   );
 }

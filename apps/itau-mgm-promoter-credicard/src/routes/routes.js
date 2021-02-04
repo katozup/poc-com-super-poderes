@@ -1,18 +1,17 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { mdrEngine } from '@zupmgm/mdr-engine';
-import payload02 from '../payload_02.json';
+import { mdrEngine } from '@zup-mgm/mdr-engine';
+import payload from '../payload_04.json';
 
 async function routesBuilder() {
-  const pages = await pagesBuilder(payload02.whiteLabel.routes);
+  const pages = await pagesBuilder(payload.whiteLabel.routes);
   const routes = pages.map(page =>
     {
       return <Route
         exact
-        path={page.link}
+        path={page.routeUrl}
         key={page.id}
-        // it should also possible to use 'component' property in case of any hooks incompatibility in the future?
         render={ () => (
           page.page
         )}
@@ -27,8 +26,8 @@ async function pagesBuilder(routesJson) {
   return Promise.all(validRoutes.map(async (route, index) =>(
     {
       id: index,
-      link: route.routeUrl,
-      page: await mdrEngine(route.page)
+      routeUrl: page.routeUrl,
+      page: await mdrEngine(page.page)
     }
   )));
 }

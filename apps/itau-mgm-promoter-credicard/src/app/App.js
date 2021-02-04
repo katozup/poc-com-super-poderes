@@ -20,7 +20,7 @@ function App() {
   return (
     <div className={`App ${getTheme(payload.whiteLabel.cssTheme)}`}>
       <Suspense fallback={<LoadingMessage />}>
-        <LazyComponent></LazyComponent>
+        <LazyComponent payload={payload}></LazyComponent>
       </Suspense>
     </div>
   );

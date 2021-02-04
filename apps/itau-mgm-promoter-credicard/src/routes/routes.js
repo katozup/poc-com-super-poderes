@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zup-mgm/mdr-engine';
-import payload from '../payload_04.json';
 
-async function routesBuilder() {
+
+async function routesBuilder(payload) {
   const pages = await pagesBuilder(payload.whiteLabel.routes);
   const routes = pages.map(page =>
     {
@@ -32,11 +32,11 @@ async function pagesBuilder(routesJson) {
   )));
 }
 
-export default function Routes() {
+export default function Routes( { payload }) {
   const [appRoutes, setAppRoutes] = useState();
 
   const savePageToState = async() => {
-    const pages = await routesBuilder();
+    const pages = await routesBuilder(payload);
     setAppRoutes(pages);
   };
 
@@ -46,7 +46,6 @@ export default function Routes() {
 
   return (
     <BrowserRouter>
-
       <Switch>
         {appRoutes}
         <Redirect from='*' to='/' />

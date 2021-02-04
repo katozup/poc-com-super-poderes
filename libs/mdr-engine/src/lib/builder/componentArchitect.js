@@ -2,8 +2,8 @@ import React from 'react';
 import libFunctions from './functions';
 import enumTranslator from '../helpers/enumTranslator';
 
-export default async function componentArchitect(type, component, props, actions, children) {
-  const reactElement = await reactElementBuilder(type, component);
+export default async function componentArchitect(type, component, props, actions, componentId, children) {
+  const reactElement = await reactElementBuilder(type, component, componentId);
   const propsAndActions = {
     ...props,
     ...actionsBuilder(actions)
@@ -17,15 +17,24 @@ export default async function componentArchitect(type, component, props, actions
   return newReactElement;
 }
 
-async function reactElementBuilder(type, component) {
+async function reactElementBuilder(type, component, componentId) {
   // ! change import to lib and remove "test_components" after merging with components lib branch
-  const Component = await import(`./test_components/${type}/${component}`).then(component=>{
-    return component.default;
-  });
-  const element = <Component key={type+component}></Component>;
+  const emptyElement = React.createElement('div'); // creates an empty react element for safe coding
 
-  if (React.isValidElement(element)) return element;
-  return React.createElement('div'); // creates an empty react element for safe coding
+  try {
+    const Component = await import(`./test_components/${type}/${component}`).then(component=>{
+      return component.default;
+    });
+    const reactElement = <Component key={`${type}_${component}_${componentId}`} />;
+    
+    if (React.isValidElement(reactElement)){
+      return reactElement;
+    }
+    return emptyElement;
+  
+  } catch {
+    return emptyElement;
+  }
 }
 
 function actionsBuilder(actions) {

@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zup-mgm/mdr-engine';
-import payload from '../payload_03.json';
+import payload from '../payload_04.json';
 
 async function routesBuilder() {
   const pages = await pagesBuilder(payload.whiteLabel.routes);

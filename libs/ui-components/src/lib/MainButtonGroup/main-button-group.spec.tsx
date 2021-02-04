@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import ButtonListContent from "./ButtonListContent";
+import MainButtonGroup from "./MainButtonGroup";
 
 describe("ButtonListContent", () => {
   it("should render successfully", () => {
-    const { baseElement } = render(<ButtonListContent children={[]} />);
+    const { baseElement } = render(<MainButtonGroup children={[]} />);
     expect(baseElement).toBeTruthy();
   });
 });

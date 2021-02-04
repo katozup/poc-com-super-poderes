@@ -1,34 +1,34 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react'
 import PropTypes from 'prop-types';
-import './_BtnBack.scss';
+import './_ActionButton.scss';
 
 const clickHandler = (onClick) => {
   const { actionFunction, actionParameter } = onClick;
   actionFunction(actionParameter);
 };
 
-const BtnBack = ({ onClick, alt, iconName }) => (
+const ActionButton = ({ text, onClick, alt }) => (
   <button
     autoFocus
     aria-label={alt}
     onClick={() => clickHandler(onClick)}
     type="button"
-    className="button-back"
+    className="action-button primary-button"
   >
     {/* <i className={`icon ${iconName}`} /> */}
-    <span className="icon">{iconName}</span>
+    <span className="icon">{text}</span>
   </button>
 );
 
-BtnBack.propTypes = {
+ActionButton.propTypes = {
   alt: PropTypes.string,
-  iconName: PropTypes.string,
+  text: PropTypes.string,
 };
 
-BtnBack.defaultProps = {
+ActionButton.defaultProps = {
   alt: 'voltar',
-  iconName: '',
+  text: '',
 };
 
-export default BtnBack;
+export default ActionButton;

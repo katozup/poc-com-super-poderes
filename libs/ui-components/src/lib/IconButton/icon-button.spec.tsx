@@ -1,12 +1,12 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import BtnBack from "./BtnBack";
+import IconButton from "./IconButton";
 
-describe("BtnBack", () => {
+describe("IconButton", () => {
   it("should render successfully", () => {
     const mockCallBack = jest.fn();
-    const { baseElement } = render(<BtnBack onClick={mockCallBack} />);
+    const { baseElement } = render(<IconButton onClick={mockCallBack} />);
     expect(baseElement).toBeTruthy();
   });
 });

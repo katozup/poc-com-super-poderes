@@ -24,7 +24,6 @@ async function reactElementBuilder(type, component, componentId) {
       return defaultComponent[component];
     })
     const reactElement = <Component key={`${type}_${component}_${componentId}`} />;
-    
     if (React.isValidElement(reactElement)){
       return reactElement;
     }

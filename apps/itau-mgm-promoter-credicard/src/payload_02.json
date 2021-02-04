@@ -98,7 +98,8 @@
                   "type": "COMPONENT",
                   "componentName": "ActionButton",
                   "properties": {
-                    "text": "WhatsApp"
+                    "text": "WhatsApp",
+                    "styling": "primary"
                   },
                   "analytics": {
                     "event": "CUSTOM_LINK"
@@ -118,7 +119,8 @@
                   "type": "COMPONENT",
                   "componentName": "ActionButton",
                   "properties": {
-                    "text": "outros apps"
+                    "text": "outros apps",
+                    "styling": "secondary"
                   },
                   "analytics": {
                     "event": "CUSTOM_LINK"

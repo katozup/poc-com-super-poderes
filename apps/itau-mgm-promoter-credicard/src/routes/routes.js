@@ -26,8 +26,8 @@ async function pagesBuilder(routesJson) {
   return Promise.all(validRoutes.map(async (route, index) =>(
     {
       id: index,
-      routeUrl: page.routeUrl,
-      page: await mdrEngine(page.page)
+      routeUrl: route.routeUrl,
+      page: await mdrEngine(route.page)
     }
   )));
 }

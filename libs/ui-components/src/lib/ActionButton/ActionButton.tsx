@@ -8,20 +8,22 @@ const clickHandler = (onClick) => {
   actionFunction(actionParameter);
 };
 
-const ActionButton = ({ text, onClick, alt, color }) => (
+const ActionButton = ({ text, onClick, alt, styling }) => (
   <button
     autoFocus
     aria-label={alt}
     onClick={() => clickHandler(onClick)}
     type="button"
-    className={'action-button' + getButtonColor(color)}
+    className={`action-button ${getButtonStyle(styling)}`}
+    // className="{'action-button' primary-button}"
   >
+    {/* <i className={`icon ${iconName}`} /> */}
     <span className="icon">{text}</span>
   </button>
 );
 
-const getButtonColor = (color) => {
-  return ` ${color}-button`;
+export function getButtonStyle(styling) {
+  return `${styling}-button`;
 }
 
 ActionButton.propTypes = {

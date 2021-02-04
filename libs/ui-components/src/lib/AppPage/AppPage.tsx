@@ -2,13 +2,15 @@ import React from 'react'
 import './_AppPage.scss';
 import { useSelector } from 'react-redux'
 
-const AppPage = ({ children }) => {
-  const counter = useSelector(state => state.analytics)
+const AppPage = ({ children, className }) => {
+  const counter = useSelector(state => state.counter)
 
   return (
-    <div className="app-wrapper">
+    <div className='app-wrapper'>
       { children }
     </div>
   )
 };
+
+
 export default AppPage;

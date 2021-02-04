@@ -1,8 +1,5 @@
 .main-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex: auto;
   padding: 16px;
-  height: calc(100% - 52.8px);
   background-size: auto 345px;
 }

@@ -1,10 +1,8 @@
-import React from 'react'
+import React from 'react';
 import './_MainContent.scss';
 
 const MainContent = ({ children }) => (
-  <div className="main-content-wrapper">
-    { children }
-  </div>
+  <div className='main-content-wrapper'>{children}</div>
 );
 
 export default MainContent;

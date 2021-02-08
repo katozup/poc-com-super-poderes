@@ -32,7 +32,7 @@ async function pagesBuilder(routesJson) {
   )));
 }
 
-export default function Routes( { payload }) {
+export default function Routes({ payload }) {
   const [appRoutes, setAppRoutes] = useState();
 
   const savePageToState = async() => {

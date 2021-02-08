@@ -15,9 +15,7 @@ const ActionButton = ({ text, onClick, alt, styling }) => (
     onClick={() => clickHandler(onClick)}
     type="button"
     className={`action-button ${getButtonStyle(styling)}`}
-    // className="{'action-button' primary-button}"
   >
-    {/* <i className={`icon ${iconName}`} /> */}
     <span className="icon">{text}</span>
   </button>
 );

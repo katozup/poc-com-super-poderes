@@ -106,7 +106,7 @@
                             "componentName": "ActionButton",
                             "properties": {
                               "text": "WhatsApp",
-                              "styling": "primario"
+                              "styling": "primary"
                             },
                             "actions": [
                               {
@@ -125,7 +125,7 @@
                             "componentName": "ActionButton",
                             "properties": {
                               "text": "outros apps",
-                              "styling": "secundario"
+                              "styling": "secondary"
                             },
                             "actions": [
                               {

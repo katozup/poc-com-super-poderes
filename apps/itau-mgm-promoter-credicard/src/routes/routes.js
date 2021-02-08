@@ -1,10 +1,10 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zup-mgm/mdr-engine';
-import payload from '../payload_04.json';
 
-async function routesBuilder() {
+
+async function routesBuilder(payload) {
   const pages = await pagesBuilder(payload.whiteLabel.routes);
   const routes = pages.map(page =>
     {
@@ -22,20 +22,21 @@ async function routesBuilder() {
 }
 
 async function pagesBuilder(routesJson) {
-  return Promise.all(routesJson.map(async (page, index) =>(
+  const validRoutes = routesJson.filter((route) => route.page != null);
+  return Promise.all(validRoutes.map(async (route, index) =>(
     {
       id: index,
-      routeUrl: page.routeUrl,
-      page: await mdrEngine(page.page)
+      routeUrl: route.routeUrl,
+      page: await mdrEngine(route.page)
     }
   )));
 }
 
-export default function Routes() {
+export default function Routes({ payload }) {
   const [appRoutes, setAppRoutes] = useState();
 
   const savePageToState = async() => {
-    const pages = await routesBuilder();
+    const pages = await routesBuilder(payload);
     setAppRoutes(pages);
   };
 
@@ -45,18 +46,6 @@ export default function Routes() {
 
   return (
     <BrowserRouter>
-    <ul>
-      <li>
-        <Link to="/">home</Link>
-      </li>
-      <li>
-        <Link to="/2">rota2</Link>
-      </li>
-      <li>
-        <Link to="/3">rota3</Link>
-      </li>
-
-    </ul>
       <Switch>
         {appRoutes}
         <Redirect from='*' to='/' />

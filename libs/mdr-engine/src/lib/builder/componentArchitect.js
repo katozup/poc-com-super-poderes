@@ -18,15 +18,12 @@ export default async function componentArchitect(type, component, props, actions
 }
 
 async function reactElementBuilder(type, component, componentId) {
-  // ! change import to lib and remove "test_components" after merging with components lib branch
   const emptyElement = React.createElement('div'); // creates an empty react element for safe coding
-
   try {
-    const Component = await import(`./test_components/${type}/${component}`).then(component=>{
-      return component.default;
-    });
+    const Component = await import(`@zup-mgm/ui-components`).then((defaultComponent) => {
+      return defaultComponent[component];
+    })
     const reactElement = <Component key={`${type}_${component}_${componentId}`} />;
-    
     if (React.isValidElement(reactElement)){
       return reactElement;
     }

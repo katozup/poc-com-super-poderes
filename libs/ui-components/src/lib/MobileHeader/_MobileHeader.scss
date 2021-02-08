@@ -2,12 +2,12 @@
 .global-header {
   padding: 16px;
   display: flex;
-  justify-content: center;
-  position: relative;
 
-  .title {
+  .main-title {
     font-size: 16px;
     font-weight: 300;
     color: $text-dark;
+    width: 100%;
+    text-align: center;
   }
 }

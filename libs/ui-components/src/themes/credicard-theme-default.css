@@ -1,0 +1,49 @@
+.credicard, .credicard-theme-default, .credicard-theme-cashback {
+    --accent: #000B59;
+    --text-dark: #000B59;
+    --text-black: #231D19;
+    --text-gray: #56504C;
+    --icon: #CC1B85;
+  
+    --background-app: #eaeff2;
+    --background-content: #fff;
+  
+    --header-title: #000B59;
+    --header-button: #000B59;
+    --header-subtitle: #000B59;
+  
+    --item-title: #000B59;
+    --item-text: #000B59;
+  
+    --border: #efe9e5;
+  
+    --shadow: #ccc;
+  
+    --title-primary: #000659;
+    --title-secondary: #000659;
+  
+    --text-primary: #000B59;
+    --text-secondary: #000B59;
+  
+    --button-primary: #000B59;
+    --button-primary-text: #fff;
+  
+    --button-secondary: #fff;
+    --button-secondary-text: #000659;
+  
+    --button-tertiary: #CC1B85;
+    --button-tertiary-text: #fff;
+  
+    --button-disabled: rgba(0,0,0,0.25);
+  
+    --link: #000659;
+    --link-default: #000659;
+  
+    --title-modal: #000B59;
+    --link-modal: #002fb4;
+    --icon-modal: #002fb4;
+  
+    --nps-radio-label: #000B59;
+    --nps-label-border: #14F7C1;
+    --nps-label-text: #002fb4;
+}

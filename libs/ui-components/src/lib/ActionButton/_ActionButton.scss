@@ -1,5 +1,5 @@
 
-@import '../../../../../apps/itau-mgm-promoter-credicard/src/styles/itau_modules/itauColors';
+@import '../../colors/itauColors';
 
 .action-button {
   height: 48px;
@@ -9,7 +9,6 @@
   font-size: 16px;
   border-radius: 4px;
 
-  // * Riple
   position: relative;
   overflow: hidden;
   transform: translate3d(0, 0, 0);

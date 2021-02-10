@@ -13,7 +13,8 @@ function getTheme(theme) {
   if (theme === '' || !regx.test(theme)) {
     return 'credicard-theme-default';
   }
-  require(`../../../../libs/ui-components/src/themes/${theme}.css`)
+  //TODO: Fix import
+  require(`../../../../libs/shared/assets/src/assets/themes/${theme}.css`);
   return theme;
 }
 

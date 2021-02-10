@@ -14,7 +14,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@zup-mgm/ui-components": ["libs/ui-components/src/index.ts"],
+      "@zup-mgm/utils": ["libs/utils/src/index.ts"],
+      "@zup-mgm/mdr-engine": ["libs/mdr-engine/src/index.ts"],
+      "@zup-mgm/mgm-redux-store": ["libs/mgm-redux-store/src/index.js"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -36,6 +36,18 @@
     "itau-mgm-promoter-itaucard-e2e": {
       "tags": [],
       "implicitDependencies": ["itau-mgm-promoter-itaucard"]
+    },
+    "ui-components": {
+      "tags": []
+    },
+    "utils": {
+      "tags": []
+    },
+    "mdr-engine": {
+      "tags": []
+    },
+    "mgm-redux-store": {
+      "tags": []
     }
   }
 }

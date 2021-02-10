@@ -20,13 +20,12 @@
             "assets": [
               "apps/itau-mgm-promoter-credicard/src/assets"
             ],
-            "styles": [
-            ],
+            "styles": [],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "fileReplacements": [
                 {
                   "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
@@ -48,11 +47,55 @@
                 }
               ]
             },
+            "hml": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.hml.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.qa.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
             "dev": {
               "fileReplacements": [
                 {
-                  "replace": "apps/promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/promoter-credicard/src/environments/environment.dev.ts"
+                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.dev.ts"
                 }
               ],
               "optimization": false,
@@ -78,8 +121,17 @@
             "buildTarget": "itau-mgm-promoter-credicard:build"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "buildTarget": "itau-mgm-promoter-credicard:build:production"
+            },
+            "hml": {
+              "buildTarget": "itau-mgm-promoter-credicard:build:hml"
+            },
+            "qa": {
+              "buildTarget": "itau-mgm-promoter-credicard:build:qa"
+            },
+            "dev": {
+              "buildTarget": "itau-mgm-promoter-credicard:build:dev"
             }
           }
         },
@@ -261,6 +313,106 @@
           }
         }
       }
+    },
+    "mdr-engine": {
+      "root": "libs/mdr-engine",
+      "sourceRoot": "libs/mdr-engine/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mdr-engine/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/mdr-engine"
+          ],
+          "options": {
+            "jestConfig": "libs/mdr-engine/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "ui-components": {
+      "root": "libs/ui-components",
+      "sourceRoot": "libs/ui-components/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/ui-components/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/ui-components"
+          ],
+          "options": {
+            "jestConfig": "libs/ui-components/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "utils": {
+      "root": "libs/utils",
+      "sourceRoot": "libs/utils/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/utils/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/utils"
+          ],
+          "options": {
+            "jestConfig": "libs/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mgm-redux-store": {
+      "root": "libs/mgm-redux-store",
+      "sourceRoot": "libs/mgm-redux-store/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mgm-redux-store/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/mgm-redux-store"
+          ],
+          "options": {
+            "jestConfig": "libs/mgm-redux-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {
@@ -282,5 +434,5 @@
       }
     }
   },
-  "defaultProject": "itau-mgm-nx-preset"
+  "defaultProject": "itau-mgm-promoter-credicard"
 }

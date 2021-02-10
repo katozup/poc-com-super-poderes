@@ -1,0 +1,155 @@
+{
+    "dn": 2063,
+    "logo": null,
+    "bin": null,
+    "whiteLabel": {
+        "app": "PROMOTER",
+        "version": "Default",
+        "whiteLabelId": "2063",
+        "cssTheme": "credicard-theme-default",
+        "routes": [
+            {
+                "routeName": "HOME",
+                "routeUrl": "/",
+                "page": {
+                    "key": "PROMOTER_DEFAULT_2030_HOME",
+                    "type": "PAGE",
+                    "componentId": null,
+                    "componentName": "AppPage",
+                    "properties": null,
+                    "actions": null,
+                    "analytics": {
+                      "event": "PAGE_LOAD"
+                    },
+                    "children": [
+                      {
+                        "type": "SECTION",
+                        "componentId": null,
+                        "componentName": "MobileHeader",
+                        "properties": null,
+                        "actions": null,
+                        "analytics": null,
+                        "children": [
+                          {
+                            "type": "COMPONENT",
+                            "componentId": "btn_mobileHeader_goBack",
+                            "componentName": "IconButton",
+                            "properties": {
+                              "iconName": "<",
+                              "alt": "voltar"
+                            },
+                            "actions": [
+                              {
+                                "functionName": "closeWebview",
+                                "event": "ON_CLICK"
+                              }
+                            ],
+                            "analytics": null,
+                            "children": null
+                          },
+                          {
+                            "type": "COMPONENT",
+                            "componentId": "h1_mobileHeader_title",
+                            "componentName": "TitleH1",
+                            "properties": {
+                              "text": "indicar amigos"
+                            },
+                            "actions": null,
+                            "analytics": null,
+                            "children": null
+                          }
+                        ]
+                      },
+                      {
+                        "type": "SECTION",
+                        "componentId": null,
+                        "componentName": "MainContent",
+                        "properties": null,
+                        "actions": null,
+                        "analytics": null,
+                        "children": [
+                          {
+                            "type": "COMPONENT",
+                            "componentId": "h2_mainContent_titleParsed",
+                            "componentName": "TitleH2Parsed",
+                            "properties": {
+                              "text": "<strong>Está curtindo o seu cartão ZERO + Cashback? Então chame os amigos!</strong>"
+                            },
+                            "actions": null,
+                            "analytics": null,
+                            "children": null
+                          },
+                          {
+                            "type": "COMPONENT",
+                            "componentId": "p_mainContent_textParsed",
+                            "componentName": "SimpleTextParsed",
+                            "properties": {
+                              "text": "Eles também podem contratar e receber 1% do valor das compras como créditos de volta na fatura! Indique. :)"
+                            },
+                            "actions": null,
+                            "analytics": null,
+                            "children": null
+                          }
+                        ]
+                      },
+                      {
+                        "type": "SECTION",
+                        "componentId": null,
+                        "componentName": "MainButtonGroup",
+                        "properties": null,
+                        "actions": null,
+                        "analytics": null,
+                        "children": [
+                          {
+                            "type": "COMPONENT",
+                            "componentId": "btn_mainButtonGroup_shareWhatsapp",
+                            "componentName": "ActionButton",
+                            "properties": {
+                              "text": "WhatsApp",
+                              "styling": "primary"
+                            },
+                            "actions": [
+                              {
+                                "functionName": "shareLink",
+                                "event": "ON_CLICK"
+                              }
+                            ],
+                            "analytics": {
+                              "event": "CUSTOM_LINK"
+                            },
+                            "children": null
+                          },
+                          {
+                            "type": "COMPONENT",
+                            "componentId": "btn_mainButtonGroup_shareOther",
+                            "componentName": "ActionButton",
+                            "properties": {
+                              "text": "outros apps",
+                              "styling": "secondary"
+                            },
+                            "actions": [
+                              {
+                                "functionName": "shareLink",
+                                "event": "ON_CLICK"
+                              }
+                            ],
+                            "analytics": {
+                              "event": "CUSTOM_LINK"
+                            },
+                            "children": null
+                          }
+                        ]
+                      }
+                    ]
+                  }
+            }
+          ]
+    },
+    "nomeCampanha": "CREDICARD_ZERO_PLATINUM",
+    "cartaoCodigo": 136,
+    "cartaoCategoria": "NCC",
+    "cartaoDescricao": "Credicard Zero Platinum",
+    "bandeira": "Mastercard",
+    "contratacaoOnline": true,
+    "portfolio": null
+  }

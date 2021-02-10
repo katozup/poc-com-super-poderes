@@ -20,7 +20,6 @@
       "@zup-mgm/mdr-engine": ["libs/mdr-engine/src/index.ts"],
       "@zup-mgm/mgm-redux-store": ["libs/mgm-redux-store/src/index.js"],
       "@zup-mgm/shared": ["libs/shared/src/index.ts"],
-      "@shared-styles": ["libs/shared/assets/src/assets/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

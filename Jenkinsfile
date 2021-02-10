@@ -21,7 +21,7 @@ node {
   }
 
   if (branchName.contains('release') || branchName == 'master') {
-    envName = 'production'
+    envName = 'prod'
   }
 
   try {

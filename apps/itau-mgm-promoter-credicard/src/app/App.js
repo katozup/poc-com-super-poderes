@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
-import payload from '../payload_04.json';
+import payload from '../payload_05.json';
 
 function LoadingMessage() {
   return <h2>Loading...</h2>;

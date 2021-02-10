@@ -25,7 +25,7 @@
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "fileReplacements": [
                 {
                   "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
@@ -47,11 +47,55 @@
                 }
               ]
             },
+            "hml": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.hml.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.qa.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
             "dev": {
               "fileReplacements": [
                 {
-                  "replace": "apps/promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/promoter-credicard/src/environments/environment.dev.ts"
+                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
+                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.dev.ts"
                 }
               ],
               "optimization": false,
@@ -77,8 +121,17 @@
             "buildTarget": "itau-mgm-promoter-credicard:build"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "buildTarget": "itau-mgm-promoter-credicard:build:production"
+            },
+            "hml": {
+              "buildTarget": "itau-mgm-promoter-credicard:build:hml"
+            },
+            "qa": {
+              "buildTarget": "itau-mgm-promoter-credicard:build:qa"
+            },
+            "dev": {
+              "buildTarget": "itau-mgm-promoter-credicard:build:dev"
             }
           }
         },

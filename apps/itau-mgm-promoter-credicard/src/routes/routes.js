@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zup-mgm/mdr-engine';
-
+import {environment} from '../environments/environment';
 
 async function routesBuilder(payload) {
   const pages = await pagesBuilder(payload.whiteLabel.routes);
@@ -43,6 +43,8 @@ export default function Routes({ payload }) {
   useEffect(() => {
     savePageToState();
   }, []);
+
+  console.log('NODE_ENV', environment)
 
   return (
     <BrowserRouter>

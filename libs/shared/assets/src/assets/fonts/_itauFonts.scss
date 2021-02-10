@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'ItauText-Bold';
+  src:  url(/shared-assets/fonts/ItauText_A_Bd.ttf);
+}
+
+@font-face {
+  font-family: 'ItauText-Light';
+  src:  url(/shared-assets/fonts/ItauText_A_Lt.ttf);
+}
+
+@font-face {
+  font-family: 'ItauText-Regular';
+  src:  url(/shared-assets/fonts/ItauText_A_Rg.ttf);
+}
+
+@font-face {
+  font-family: 'ItauText-XBold';
+  src: url(/shared-assets/fonts/ItauText_A_XBd.ttf);
+}
+
+$itauBold: 'ItauText-Bold';
+$itauLight: 'ItauText-Light';
+$itauRegular: 'ItauText-Regular';
+$itauXBold: 'ItauText-XBold';

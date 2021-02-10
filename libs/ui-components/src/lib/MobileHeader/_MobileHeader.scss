@@ -1,5 +1,5 @@
-@import '../../colors/itauColors';
-@import '../../fonts/itauFonts';
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
 .global-header {
   padding: 16px;
@@ -10,7 +10,7 @@
     font-size: 16px;
     font-weight: 300;
     color: var(--text-dark);
-    font-family: 'Itau Text App Regular';
+    font-family: $itauRegular;
   }
 
   .button-back {

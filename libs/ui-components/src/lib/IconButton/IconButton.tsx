@@ -17,8 +17,7 @@ const IconButton = ({ onClick, alt, iconName }) => (
     type="button"
     className="button-back"
   >
-    {/* <i className={`icon ${iconName}`} /> */}
-    <span className="icon">{iconName}</span>
+    <i className={`icon ${iconName}`} /> 
   </button>
 );
 

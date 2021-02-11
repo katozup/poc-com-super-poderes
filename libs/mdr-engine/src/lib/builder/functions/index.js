@@ -1,5 +1,5 @@
-import closeWebview from './sdkFunctions/closeWebview';
-import shareLink from './sdkFunctions/shareLink';
+import closeWebview from './userFunctions/closeWebview';
+import shareLink from './userFunctions/shareLink';
 import addCounter from './userFunctions/addCounter';
 
 const libFunctions = {

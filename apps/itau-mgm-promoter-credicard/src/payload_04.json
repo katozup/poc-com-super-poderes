@@ -81,6 +81,23 @@
                           },
                           {
                             "type": "COMPONENT",
+                            "componentId": "btn_mobileHeader_goBack",
+                            "componentName": "IconButton",
+                            "properties": {
+                              "iconName": "<",
+                              "alt": "voltar"
+                            },
+                            "actions": [
+                              {
+                                "functionName": "addCounter",
+                                "event": "ON_CLICK"
+                              }
+                            ],
+                            "analytics": null,
+                            "children": null
+                          },
+                          {
+                            "type": "COMPONENT",
                             "componentId": "p_mainContent_textParsed",
                             "componentName": "SimpleTextParsed",
                             "properties": {

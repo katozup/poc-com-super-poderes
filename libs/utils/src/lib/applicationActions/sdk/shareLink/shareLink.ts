@@ -1,8 +1,23 @@
 // TODO implementar o saga com a chamada do endpoint de geracao de link antes de finalizar a task
+declare global {
+  interface Window {
+    native: {
+      requestNativeFeature: (arg1: string, arg2: string) => void,
+    };
+  }
+}
 
 const sharingLinkSDK = (shareContent, shareType) => {
   const { native } = window;
-  const jsonProtocol = {};
+  const jsonProtocol: {
+    action: string,
+    category: string,
+    data: string,
+  } = {
+    action: '',
+    category: '',
+    data: '',
+  };
 
   switch (shareType) {
     case 'whatsApp':

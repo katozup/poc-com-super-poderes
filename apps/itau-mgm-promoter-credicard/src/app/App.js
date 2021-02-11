@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
 import payload from '../payload_04.json';
+import { appActions } from '@zup-mgm/mgm-redux-store';
+import store from '@zup-mgm/mgm-redux-store';
 
 function LoadingMessage() {
   return <h2>Loading...</h2>;
@@ -18,6 +20,8 @@ function getTheme(theme) {
 }
 
 function App() {
+  store.dispatch(appActions.appInit())
+
   return (
     <div className={`App ${getTheme(payload.whiteLabel.cssTheme)}`}>
       <Suspense fallback={<LoadingMessage />}>

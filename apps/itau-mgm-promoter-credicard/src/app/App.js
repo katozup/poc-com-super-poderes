@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
-import payload from '../payload_04.json';
+import payload from '../payload_05.json';
 
 function LoadingMessage() {
   return <h2>Loading...</h2>;
@@ -13,7 +13,8 @@ function getTheme(theme) {
   if (theme === '' || !regx.test(theme)) {
     return 'credicard-theme-default';
   }
-  require(`../../../../libs/ui-components/src/themes/${theme}.css`)
+  //TODO: Fix import
+  require(`../../../../libs/shared/assets/src/assets/themes/${theme}.css`);
   return theme;
 }
 

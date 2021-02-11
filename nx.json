@@ -48,6 +48,9 @@
     },
     "mgm-redux-store": {
       "tags": []
+    },
+    "shared": {
+      "tags": []
     }
   }
 }

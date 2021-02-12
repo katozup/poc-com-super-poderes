@@ -1,24 +1,16 @@
 export const Types = {
   STOP_LOADING: 'app/STOP_LOADING',
   APP_INIT: 'app/APP_INIT',
-  SET_THEME: 'app/SET_THEME',
   SET_BEARERTOKEN: 'app/SET_BEARERTOKEN',
 };
 
 const INITIAL_STATE = {
-  theme: '',
   loading: true,
   bearerToken: '',
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.SET_THEME:
-      return {
-        ...state,
-        theme: action.payload.data,
-      };
-
     case Types.STOP_LOADING:
       return {
         ...state,
@@ -37,11 +29,6 @@ export default function appReducer(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  setTheme: data => ({
-    type: Types.SET_THEME,
-    payload: { data },
-  }),
-
   stopLoading: () => ({
     type: Types.STOP_LOADING,
     payload: {},

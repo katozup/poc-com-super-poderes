@@ -5,7 +5,7 @@ import { Creators as AppActions } from '../ducks/app';
 // import { Creators as ErrorActions } from '../ducks/error';
 // import setAnalyticsInformation from './analytics';
 // import authentication from './authentication';
-// import { getContent } from './content';
+import sduiContent from './sduiContent';
 // import { createCustomer } from './customer';
 
 const { stopLoading } = AppActions;
@@ -16,8 +16,10 @@ export function* appInit() {
   try {
     // pegar dados do user (mockado e sdk)
     // autenticar
+    // pegar dados do sdui
     // bater no criar customer
     // bater no payload de analytics (implementar na task seguinte)
+    yield sduiContent();
     return yield put(stopLoading());
   } catch (error) {
     // return yield put(callErrorHandler(error, INIT_APP));

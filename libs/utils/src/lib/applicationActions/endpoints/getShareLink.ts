@@ -1,7 +1,7 @@
 import api from '../../config/api';
-import LINK_GERAR_V3 from './ENDPOINTS_CONSTANTS';
+import CONSTANTS from './ENDPOINTS_CONSTANTS';
 
-export default function* getShareLink(
+export function* getShareLink(
   dn: string,
   chpras: string,
   gatewayAppKey: string,
@@ -9,7 +9,7 @@ export default function* getShareLink(
 ){
   const config = { headers: { Authorization: `Bearer ${bearerToken}` } };
   const response = yield api.put(
-    `${LINK_GERAR_V3}?gw-app-key=${gatewayAppKey}`,
+    `${CONSTANTS.LINK_GERAR_V3}?gw-app-key=${gatewayAppKey}`,
     { dn, chpras },
     config
   );

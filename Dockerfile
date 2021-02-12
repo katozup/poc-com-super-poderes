@@ -9,7 +9,6 @@ WORKDIR /app
 COPY . .
 
 RUN yarn install
-# RUN yarn run build:${envProfile}
 RUN yarn nx build ${repoName} --configuration=${envProfile}
 
 FROM nginx:stable-alpine

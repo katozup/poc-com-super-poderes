@@ -1,11 +1,11 @@
 import closeWebview from './userFunctions/closeWebview';
 import shareLink from './userFunctions/shareLink';
-import addCounter from './userFunctions/addCounter';
+import setUserData from './userFunctions/userData';
 
 const libFunctions = {
   closeWebview,
   shareLink,
-  addCounter,
+  setUserData
 }
 
 export default libFunctions;

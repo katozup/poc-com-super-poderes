@@ -1,8 +1,8 @@
-import { call, select, put } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import { Creators as AnalyticsActions } from '../ducks/analytics';
 
 function* addProduct() {
-  const { sku, portfolio } = yield select((state) => state.content);
+  const { sku, portfolio } = yield select((state) => state.app.sduiPayload);
   const { dn, cardName, cardVariant, cardFlag } = yield select(
     (state) => state.userData
   );
@@ -33,20 +33,6 @@ function* setCustom() {
     cartaoNome: cardName || '',
     cartaoBandeira: cardFlag || '',
   };
-
-  const content = yield select((state) => state.content);
-
-  if (
-    content &&
-    content.dnEquivalent.dnNumber &&
-    content.dnEquivalent.cardDescription
-  ) {
-    const { dnNumber, cardDescription } = yield select(
-      (state) => state.content.dnEquivalent
-    );
-    custom.cartaoDnEquivalente = `${dnNumber}`;
-    custom.cartaoNomeEquivalente = cardDescription;
-  }
 
   yield put(AnalyticsActions.setCustom(custom));
 }

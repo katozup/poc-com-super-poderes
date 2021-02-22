@@ -2,9 +2,7 @@ export const Types = {
   SET_USER_DATA: 'userData/SET_USER_DATA',
 };
 
-const INITIAL_STATE = {
-  userData: {}
-};
+const INITIAL_STATE = {};
 
 export default function userDataReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -20,8 +18,8 @@ export default function userDataReducer(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  userDataReducer: payload => ({
+  userDataReducer: (payload) => ({
     type: Types.SET_USER_DATA,
-    payload
+    payload,
   }),
 };

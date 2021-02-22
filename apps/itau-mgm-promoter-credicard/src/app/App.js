@@ -1,8 +1,9 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
-import payload from '../payload_04.json';
-import { appActions } from '@zup-mgm/mgm-redux-store';
 import store from '@zup-mgm/mgm-redux-store';
+import { Creators as appActions } from '../../../../libs/mgm-redux-store/src/lib/ducks/app';
+import { useSelector } from 'react-redux';
+import { Loading } from '@zup-mgm/ui-components';
 
 function LoadingMessage() {
   return <h2>Loading...</h2>;
@@ -10,22 +11,19 @@ function LoadingMessage() {
 
 const LazyComponent = lazy(async () => await import('../routes/routes'));
 
-function getTheme(theme) {
-  const regx = new RegExp('credicard');
-  if (theme === '' || !regx.test(theme)) {
-    return 'credicard-theme-default';
-  }
-  require(`../../../../libs/ui-components/src/themes/${theme}.css`)
-  return theme;
-}
-
 function App() {
-  store.dispatch(appActions.appInit())
+  //Saga de inicialização
+  const loading = useSelector(state => state.app.loading);
+
+  if (loading) {
+    store.dispatch(appActions.initApp());
+    return <Loading loadPrimary={false} />;
+  }
 
   return (
-    <div className={`App ${getTheme(payload.whiteLabel.cssTheme)}`}>
+    <div id="app" className={`App`}>
       <Suspense fallback={<LoadingMessage />}>
-        <LazyComponent payload={payload}></LazyComponent>
+        <LazyComponent></LazyComponent>
       </Suspense>
     </div>
   );

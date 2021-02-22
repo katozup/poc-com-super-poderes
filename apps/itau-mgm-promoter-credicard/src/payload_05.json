@@ -41,7 +41,7 @@
                   },
                   "actions": [
                     {
-                      "functionName": "setUserData",
+                      "functionName": "closeWebview",
                       "event": "ON_CLICK"
                     }
                   ],

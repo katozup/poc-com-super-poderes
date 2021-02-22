@@ -7,7 +7,7 @@ declare global {
   }
 }
 
-const sharingLinkSDK = (shareContent, shareType) => {
+export const shareLinkSdk = (shareContent, shareType) => {
   const { native } = window;
   const jsonProtocol: {
     action: string,
@@ -35,4 +35,4 @@ const sharingLinkSDK = (shareContent, shareType) => {
   native.requestNativeFeature(jsonString, 'responseNativeFeature');
 };
 
-export default sharingLinkSDK;
+export default shareLinkSdk;

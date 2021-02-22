@@ -1,12 +1,10 @@
-import idx from 'idx';
 import { call, select, put } from 'redux-saga/effects';
-
 import { Creators as AnalyticsActions } from '../ducks/analytics';
 
 function* addProduct() {
-  const { sku, portfolio } = yield select(state => state.content);
+  const { sku, portfolio } = yield select((state) => state.content);
   const { dn, cardName, cardVariant, cardFlag } = yield select(
-    state => state.userData
+    (state) => state.userData
   );
 
   const item = {
@@ -26,7 +24,7 @@ function* addProduct() {
 
 function* setCustom() {
   const { dn, cardVariant, cardName, cardFlag } = yield select(
-    state => state.userData
+    (state) => state.userData
   );
 
   const custom = {
@@ -36,14 +34,15 @@ function* setCustom() {
     cartaoBandeira: cardFlag || '',
   };
 
-  const content = yield select(state => state.content);
+  const content = yield select((state) => state.content);
 
   if (
-    idx(content, _ => _.dnEquivalent.dnNumber) &&
-    idx(content, _ => _.dnEquivalent.cardDescription)
+    content &&
+    content.dnEquivalent.dnNumber &&
+    content.dnEquivalent.cardDescription
   ) {
     const { dnNumber, cardDescription } = yield select(
-      state => state.content.dnEquivalent
+      (state) => state.content.dnEquivalent
     );
     custom.cartaoDnEquivalente = `${dnNumber}`;
     custom.cartaoNomeEquivalente = cardDescription;
@@ -53,7 +52,7 @@ function* setCustom() {
 }
 
 function* setVisitor() {
-  const { cpfHashed, customerType } = yield select(state => state.userData);
+  const { cpfHashed, customerType } = yield select((state) => state.userData);
   const visitor = {
     iDPF: cpfHashed,
     tipoCliente: customerType,
@@ -63,7 +62,7 @@ function* setVisitor() {
 }
 
 export default function* setAnalyticsInformation() {
-  const { hasProduct } = yield select(state => state.analytics);
+  const { hasProduct } = yield select((state) => state.analytics);
   if (hasProduct) yield call(addProduct);
   yield call(setCustom);
   yield call(setVisitor);

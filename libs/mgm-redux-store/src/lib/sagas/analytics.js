@@ -6,7 +6,7 @@ import { Creators as AnalyticsActions } from '../ducks/analytics';
 function* addProduct() {
   const { sku, portfolio } = yield select(state => state.content);
   const { dn, cardName, cardVariant, cardFlag } = yield select(
-    state => state.userData.userData
+    state => state.userData
   );
 
   const item = {
@@ -26,7 +26,7 @@ function* addProduct() {
 
 function* setCustom() {
   const { dn, cardVariant, cardName, cardFlag } = yield select(
-    state => state.userData.userData
+    state => state.userData
   );
 
   const custom = {
@@ -53,7 +53,7 @@ function* setCustom() {
 }
 
 function* setVisitor() {
-  const { cpfHashed, customerType } = yield select(state => state.userData.userData);
+  const { cpfHashed, customerType } = yield select(state => state.userData);
   const visitor = {
     iDPF: cpfHashed,
     tipoCliente: customerType,

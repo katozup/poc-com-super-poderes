@@ -7,7 +7,7 @@ const { shareSuccess } = ShareActions;
 
 export function* getLinkAndShare(action) {
   try {
-    const { chpras } = yield select(state => state.sdk);
+    const { chpras } = yield select(state => state.userData);
     const { dnNumber, dnEquivalent } = yield select(state => state.content);
 
     const dn =

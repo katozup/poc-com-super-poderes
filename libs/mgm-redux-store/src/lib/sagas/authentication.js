@@ -3,7 +3,7 @@ import login from '../../../../utils/src/lib/applicationActions/endpoints/login'
 import { Creators as AppActions } from '../ducks/app';
 
 export default function* authentication() {
-  const { autenticacao } = yield select(state => state.userData.userData);
+  const { autenticacao } = yield select(state => state.userData);
   const bearerToken = yield login(autenticacao);
   yield put(AppActions.setBearerToken(bearerToken));
 }

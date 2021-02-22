@@ -5,7 +5,7 @@ import { Creators as AppActions } from '../ducks/app';
 
 export default function* sduiContent() {
   const { bearerToken } = yield select(state => state.app);
-  const { chpras, dn, } = yield select(state => state.userData.userData);
+  const { chpras, dn, } = yield select(state => state.userData);
   
   // TODO trocaremos as vars abaixo:  
   const sduiPayload =  yield getSduiContent(

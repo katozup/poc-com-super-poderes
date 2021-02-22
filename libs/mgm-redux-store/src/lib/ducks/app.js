@@ -1,6 +1,6 @@
 export const Types = {
   STOP_LOADING: 'app/STOP_LOADING',
-  APP_INIT: 'app/APP_INIT',
+  INIT_APP: 'app/INIT_APP',
   SET_BEARERTOKEN: 'app/SET_BEARERTOKEN',
   SET_SDUI_PAYLOAD: 'app/SET_SDUI_PAYLOAD'
 };
@@ -42,8 +42,8 @@ export const Creators = {
     payload: {},
   }),
 
-  appInit: (data, cardListSDK, cartaoTipo) => ({
-    type: Types.APP_INIT,
+  initApp: (data, cardListSDK, cartaoTipo) => ({
+    type: Types.INIT_APP,
     payload: { data, cardListSDK, cartaoTipo },
   }),
 
@@ -52,7 +52,7 @@ export const Creators = {
     payload: { bearerToken },
   }),
 
-  setSduiPayload: sduiPayload => ({
+  setSduiContent: sduiPayload => ({
     type: Types.SET_SDUI_PAYLOAD,
     payload: { sduiPayload },
   })

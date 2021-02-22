@@ -12,7 +12,6 @@ function LoadingMessage() {
 const LazyComponent = lazy(async () => await import('../routes/routes'));
 
 function App() {
-  //Saga de inicialização
   const loading = useSelector(state => state.app.loading);
 
   if (loading) {

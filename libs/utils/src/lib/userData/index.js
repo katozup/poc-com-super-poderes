@@ -1,10 +1,14 @@
-import { userDataMock } from '../mocks/userDataMock';
-import getSDKItem from '../services/sdk/getSDKItem';
-import getFirstName from './getFirstName';
+import { userDataMock } from '../../../../mock/src/lib/userData/index';
+import getSDKItem from '../../lib/applicationActions/sdk/getSDKItem';
+import getFirstName from '../../../../utils/src/lib/applicationActions/sdk/getFirstName';
 
 export const getUserData = async () => {
+
   const params = new URLSearchParams(window.location.search);
-  const sdkParam = params.get('sdk');
+  // const sdkParam = params.get('sdk');
+
+  //TODO: Após resolver a questão de parametros da url, pegar o sdkParam da url.
+  const sdkParam = false;
 
   if (sdkParam === false || sdkParam === 'false') {
     const userData = userDataMock();

@@ -7,5 +7,6 @@ module.exports = {
     "<rootDir>/libs/actions-manager",
     "<rootDir>/libs/mdr-engine",
     "<rootDir>/libs/mgm-redux-store",
+    "<rootDir>/libs/shared",
   ],
 };

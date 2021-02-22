@@ -4,3 +4,5 @@ export * from "./lib/applicationActions/endpoints/getShareLink";
 export * from "./lib/applicationActions/endpoints/getSduiContent";
 
 export * from "./lib/applicationActions/sdk/shareLink/shareLink";
+
+export * from "./lib/userData/index"

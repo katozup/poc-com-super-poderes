@@ -9,10 +9,8 @@ export function* getSduiContent(
   mgmAuth: string,
   gatewayAppKey: string,
 ){
-  const config = { headers: { Authorization: `Basic ${mgmAuth}` } };
-  console.log('SDUI_PAYLOAD_V1', CONSTANTS.SDUI_PAYLOAD_V1)
-
-  const response = yield api.put(
+  const config = { headers: { Authorization: `Bearer ${mgmAuth}` } };
+  const response = yield api.post(
     `${CONSTANTS.SDUI_PAYLOAD_V1}?gw-app-key=${gatewayAppKey}`,
     {
       dn,

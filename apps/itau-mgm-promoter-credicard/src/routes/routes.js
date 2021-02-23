@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zup-mgm/mdr-engine';
-import { environment } from '../environments/environment';
+import { environment } from '@zup-mgm/utils';
 import { useSelector } from 'react-redux';
 
 async function routesBuilder(payload) {

@@ -8,7 +8,7 @@ export function* getSduiContent(
   dn: string,
   chpras: string,
   version: string,
-  cashBack: boolean,
+  cashback: boolean,
   mgmAuth: string
 ) {
   const config = { headers: { Authorization: `Bearer ${mgmAuth}` } };
@@ -18,7 +18,7 @@ export function* getSduiContent(
       dn,
       chpras,
       version,
-      cashback: cashBack,
+      cashback,
     },
     config
   );

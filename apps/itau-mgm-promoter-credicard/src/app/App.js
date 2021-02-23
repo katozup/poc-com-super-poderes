@@ -6,14 +6,10 @@ import { useSelector } from 'react-redux';
 import { Loading } from '@zup-mgm/ui-components';
 import { environment } from '../environments/environment';
 
-function LoadingMessage() {
-  return <h2>Loading...</h2>;
-}
-
 const LazyComponent = lazy(async () => await import('../routes/routes'));
 
 function App() {
-  const loading = useSelector(state => state.app.loading);
+  const loading = useSelector((state) => state.app.loading);
 
   if (loading) {
     store.dispatch(appActions.setEnvironmentVariables(environment));
@@ -22,8 +18,8 @@ function App() {
   }
   
   return (
-    <div id="app" className={`App`}>
-      <Suspense fallback={<LoadingMessage />}>
+    <div id='app' className={`App`}>
+      <Suspense fallback={<Loading loadPrimary={false} />}>
         <LazyComponent></LazyComponent>
       </Suspense>
     </div>

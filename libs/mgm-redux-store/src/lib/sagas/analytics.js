@@ -4,7 +4,7 @@ import { Creators as AnalyticsActions } from '../ducks/analytics';
 function* addProduct() {
   const { sku, portfolio } = yield select((state) => state.app.sduiPayload);
   const { dn, cardName, cardVariant, cardFlag } = yield select(
-    (state) => state.userData
+    (state) => state.sdk
   );
 
   const item = {
@@ -24,7 +24,7 @@ function* addProduct() {
 
 function* setCustom() {
   const { dn, cardVariant, cardName, cardFlag } = yield select(
-    (state) => state.userData
+    (state) => state.sdk
   );
 
   const custom = {
@@ -38,7 +38,7 @@ function* setCustom() {
 }
 
 function* setVisitor() {
-  const { cpfHashed, customerType } = yield select((state) => state.userData);
+  const { cpfHashed, customerType } = yield select((state) => state.sdk);
   const visitor = {
     iDPF: cpfHashed,
     tipoCliente: customerType,

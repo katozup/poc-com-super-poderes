@@ -7,7 +7,6 @@ export async function mdrEngine(payload) {
   for (const child of retriever.componentChildren(payload)) {
     reactElementChildren.push(await mdrEngine(child));
   }
-  // "break case"
   return await componentArchitect(
     retriever.componentType(payload),
     retriever.componentName(payload),

@@ -1,10 +1,9 @@
 import api from '../../config/api';
-// import environmentVariables from '../../applicationActions/';
-import { ENDPOINTS } from '../../constants';
+import { ENDPOINTS_CONSTANTS } from '../../constants';
 
 //TODO: usar variável de ambiente
 const GATEWAY_APP_KEY = '3e5cd12084ba01375c2e000d3ac06d76';
-const { LOGIN } = ENDPOINTS;
+const { LOGIN } = ENDPOINTS_CONSTANTS;
 
 export default function* login(body) {
   const response = yield api.post(`${LOGIN}?gw-app-key=${GATEWAY_APP_KEY}`, {

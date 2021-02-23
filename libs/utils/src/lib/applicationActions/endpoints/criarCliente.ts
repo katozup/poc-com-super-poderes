@@ -2,12 +2,12 @@ import { select } from 'redux-saga/effects';
 
 import api from '../../config/api';
 // import environmentVariables from '../../config/environmentVariables';
-import { ENDPOINTS } from '../../constants';
+import { ENDPOINTS_CONSTANTS } from '../../constants';
 
 
 //TODO: usar variavel de ambiente
 const GATEWAY_APP_KEY = '3e5cd12084ba01375c2e000d3ac06d76';
-const { CLIENTE_CRIAR } = ENDPOINTS;
+const { CLIENTE_CRIAR } = ENDPOINTS_CONSTANTS;
 
 export default function* criarCliente({ nome, chpras, dn }) {
   const { bearerToken } = yield select(state => state.app);

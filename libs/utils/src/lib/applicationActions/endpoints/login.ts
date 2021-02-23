@@ -1,5 +1,4 @@
 import api from '../../config/api';
-// import environmentVariables from '../../applicationActions/';
 import { ENDPOINTS } from '../../constants';
 
 //TODO: usar variável de ambiente

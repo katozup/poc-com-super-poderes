@@ -1,11 +1,11 @@
 import closeWebview from './userFunctions/closeWebview';
 import shareLink from './userFunctions/shareLink';
-import setUserData from './userFunctions/userData';
+import setSdkData from './sdkFunctions/sdkData';
 
 const libFunctions = {
   closeWebview,
   shareLink,
-  setUserData
+  setSdkData
 }
 
 export default libFunctions;

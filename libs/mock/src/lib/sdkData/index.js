@@ -1,4 +1,4 @@
-export const userDataMock = () => {
+export const sdkDataMock = () => {
     const params = new URLSearchParams(window.location.search);
     let idParam = '00252767692';
     let dnParam = '2063';

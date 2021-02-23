@@ -1,4 +1,4 @@
-import { userDataMock } from '../../../../mock/src/lib/userData/index';
+import { sdkDataMock } from '../../../../mock/src/lib/sdkData/index';
 import getSDKItem from '../../lib/applicationActions/sdk/getSDKItem';
 import getFirstName from '../../../../utils/src/lib/applicationActions/sdk/getFirstName';
 
@@ -11,7 +11,7 @@ export const getUserData = async () => {
   const sdkParam = false;
 
   if (sdkParam === false || sdkParam === 'false') {
-    const userData = userDataMock();
+    const userData = sdkDataMock();
     userData.name = getFirstName(userData.name);
     return userData;
   }

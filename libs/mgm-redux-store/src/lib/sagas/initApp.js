@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 import sduiContent from './sduiContent';
-import setUserData from './userData';
+import setSdkData from './sdkData';
 import authentication from './authentication'
 import { createCustomer } from './customer';
 import { Creators as AppActions } from '../ducks/app';
@@ -10,7 +10,7 @@ const { stopLoading } = AppActions;
 
 export function* initApp() {
   try {
-    yield call(setUserData);
+    yield call(setSdkData);
     yield call(authentication);
     yield call(sduiContent);
     yield call(createCustomer);

@@ -1,12 +1,12 @@
 export const Types = {
-  SET_USER_DATA: 'userData/SET_USER_DATA',
+  SET_SDK_DATA: 'sdk/SET_SDK_DATA',
 };
 
 const INITIAL_STATE = {};
 
-export default function userDataReducer(state = INITIAL_STATE, action) {
+export default function sdkReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.SET_USER_DATA:
+    case Types.SET_SDK_DATA:
       return {
         ...state,
         ...action.payload,
@@ -18,8 +18,8 @@ export default function userDataReducer(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  userDataReducer: (payload) => ({
-    type: Types.SET_USER_DATA,
+  sdkReducer: (payload) => ({
+    type: Types.SET_SDK_DATA,
     payload,
   }),
 };

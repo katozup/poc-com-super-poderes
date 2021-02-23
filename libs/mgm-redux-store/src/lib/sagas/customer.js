@@ -6,7 +6,7 @@ import { Creators as AppActions } from '../ducks/app';
 
 export function* createCustomer() {
   const { name, chpras } = yield select((state) => state.userData);
-  const { dn } = yield select((state) => state.app.sduiPayload.response);
+  const { dn } = yield select((state) => state.app.sduiPayload);
   const customer = { nome: name, chpras, dn };
   const { bearerToken } = yield call(criarCliente, customer);
   yield put(AppActions.setBearerToken(bearerToken));

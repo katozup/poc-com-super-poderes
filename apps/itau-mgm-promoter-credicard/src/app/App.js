@@ -5,14 +5,10 @@ import { Creators as appActions } from '../../../../libs/mgm-redux-store/src/lib
 import { useSelector } from 'react-redux';
 import { Loading } from '@zup-mgm/ui-components';
 
-function LoadingMessage() {
-  return <h2>Loading...</h2>;
-}
-
 const LazyComponent = lazy(async () => await import('../routes/routes'));
 
 function App() {
-  const loading = useSelector(state => state.app.loading);
+  const loading = useSelector((state) => state.app.loading);
 
   if (loading) {
     store.dispatch(appActions.initApp());
@@ -20,8 +16,8 @@ function App() {
   }
 
   return (
-    <div id="app" className={`App`}>
-      <Suspense fallback={<LoadingMessage />}>
+    <div id='app' className={`App`}>
+      <Suspense fallback={<Loading loadPrimary={false} />}>
         <LazyComponent></LazyComponent>
       </Suspense>
     </div>

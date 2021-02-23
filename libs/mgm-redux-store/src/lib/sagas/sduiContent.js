@@ -5,16 +5,16 @@ import { Creators as AppActions } from '../ducks/app';
 
 export default function* sduiContent() {
   const { bearerToken } = yield select(state => state.app);
-  const { chpras, dn, } = yield select(state => state.userData);
+  const { chpras, dn, cashback } = yield select(state => state.userData);
   
   // TODO trocaremos as vars abaixo:  
   const sduiPayload =  yield getSduiContent(
     dn, 
     chpras, 
     "Default",
-    true,
+    cashback,
     bearerToken,
-    "3e5cd12084ba01375c2e000d3ac06d76", // <- gatewayAppKey: TODO: Pegar das vars de ambiente
+    "3e5cd12084ba01375c2e000d3ac06d76"
   );
   yield put(AppActions.setSduiContent(sduiPayload));
 }

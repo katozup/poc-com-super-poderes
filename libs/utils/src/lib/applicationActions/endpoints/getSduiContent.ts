@@ -5,7 +5,7 @@ export function* getSduiContent(
   dn: string,
   chpras: string,
   version: string,
-  cashBack: boolean,
+  cashback: boolean,
   mgmAuth: string,
   gatewayAppKey: string,
 ){
@@ -16,7 +16,7 @@ export function* getSduiContent(
       dn,
       chpras,
       version,
-      cashBack,
+      cashback: cashback,
     },
     config
   );

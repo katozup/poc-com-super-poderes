@@ -40,7 +40,7 @@ function setCssTheme(cssTheme) {
     if (cssTheme === '' || !regx.test(cssTheme)) {
       return 'credicard-theme-default';
     }
-    require(`../../../../libs/shared/assets/src/assets/themes/${cssTheme}.css`)
+    require(`../../../../libs/shared/assets/src/assets/themes/${cssTheme}.css`);
   }
 }
 
@@ -64,7 +64,13 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         {appRoutes}
-        <Redirect from='*' to='/' />
+        <Redirect
+          from='*'
+          to={{
+            pathname: '/',
+            search: window.location.search,
+          }}
+        />
       </Switch>
     </BrowserRouter>
   );

@@ -1,3 +1,4 @@
+import { select } from 'redux-saga/effects';
 import api from '../../config/api';
 import CONSTANTS from './ENDPOINTS_CONSTANTS';
 import { environment } from '../../config/environment';
@@ -8,11 +9,11 @@ export function* getSduiContent(
   dn: string,
   chpras: string,
   version: string,
-  cashback: boolean,
-  mgmAuth: string
+  cashback: boolean
 ) {
-  const config = { headers: { Authorization: `Bearer ${mgmAuth}` } };
-  const { data, headers } = yield api.post(
+  const { bearerToken } = yield select((state) => state.app);
+  const config = { headers: { Authorization: `Bearer ${bearerToken}` } };
+  const response = yield api.post(
     `${CONSTANTS.SDUI_PAYLOAD_V1}?gw-app-key=${GATEWAY_APP_KEY}`,
     {
       dn,
@@ -24,7 +25,7 @@ export function* getSduiContent(
   );
 
   return {
-    data,
-    headers,
+    response: response.data,
+    bearerToken: response.headers['x-access-token'],
   };
 }

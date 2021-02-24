@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 
 import analytics from './analytics';
-import counter from './counter';
 import share from './share';
+import sdk from './sdk';
+import app from './app';
 
 export default combineReducers({
+  app,
   analytics,
-  counter,
   share,
+  sdk
 });

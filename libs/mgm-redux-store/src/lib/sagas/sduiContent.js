@@ -4,22 +4,22 @@ import { Creators as AppActions } from '../ducks/app';
 import { appActions } from '../ducks/creatorsActions';
 
 export default function* sduiContent() {
-  const { bearerToken } = yield select((state) => state.app);
   const { chpras, dn } = yield select((state) => state.sdk);
-
   try {
-    const sduiPayload = yield getSduiContent(
+    const { response, bearerToken } = yield getSduiContent(
       dn,
       chpras,
       'Default',
-      true,
-      bearerToken
+      true
     );
-    yield put(AppActions.setSduiContent(sduiPayload.data));
-    const newBearerToken = sduiPayload.headers['x-access-token'];
-    yield put(appActions.setBearerToken(newBearerToken));
+    yield put(AppActions.setSduiContent(response));
+    yield put(appActions.setBearerToken(bearerToken));
   } catch (error) {
-    yield call(getDefaultContent);
+    if (error.response.status === 404) {
+      yield call(getDefaultContent);
+    } else {
+      throw error;
+    }
   }
 }
 

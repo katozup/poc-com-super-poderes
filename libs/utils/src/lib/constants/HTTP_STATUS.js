@@ -1,4 +1,4 @@
-export default {
+export const HTTP_STATUS = {
   NOT_FOUND: 404,
   UNAUTHORIZED: 401,
-};
+}

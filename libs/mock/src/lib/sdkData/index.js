@@ -19,7 +19,7 @@ export const sdkDataMock = () => {
       const separatorRegex = /(-)/g;
       nameParam = params.get('name').replace(separatorRegex, ' ');
     }
-  
+
     const userData = {
       chpras: idParam,
       dn: dnParam,
@@ -40,4 +40,3 @@ export const sdkDataMock = () => {
     };
     return userData;
   };
-  

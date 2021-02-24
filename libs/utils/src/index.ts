@@ -6,3 +6,4 @@ export * from "./lib/applicationActions/sdk/shareLink/shareLink";
 export * from "./lib/sdk/index";
 export * from './lib/constants/SHARED';
 export * from './lib/constants/HTTP_STATUS';
+export * from './lib/config/environment';

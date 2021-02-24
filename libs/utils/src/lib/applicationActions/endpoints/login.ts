@@ -1,8 +1,8 @@
-import api from '../../config/api';
+import api from '../../config/api'
 import { ENDPOINTS_CONSTANTS } from '../../constants';
+import { environment } from '../../config/environment';
 
-//TODO: usar variável de ambiente
-const GATEWAY_APP_KEY = '3e5cd12084ba01375c2e000d3ac06d76';
+const { GATEWAY_APP_KEY } = environment;
 const { LOGIN } = ENDPOINTS_CONSTANTS;
 
 export default function* login(body) {

@@ -1,9 +1,10 @@
 import { select } from "redux-saga/effects";
 import api from '../../config/api';
 import ENDPOINTS_CONSTANTS from './ENDPOINTS_CONSTANTS';
+import { environment } from '../../config/environment';
 
 const { DN_DEFAULT } = ENDPOINTS_CONSTANTS;
-const GATEWAY_APP_KEY = '3e5cd12084ba01375c2e000d3ac06d76';
+const { GATEWAY_APP_KEY } = environment;
 const cardType = 'CREDICARD';
 
 export function* getDnDefault() {

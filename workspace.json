@@ -30,8 +30,8 @@
             "prod": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.prod.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -52,8 +52,8 @@
             "hml": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.hml.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.hml.ts"
                 }
               ],
               "optimization": true,
@@ -74,8 +74,8 @@
             "qa": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.qa.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.qa.ts"
                 }
               ],
               "optimization": true,
@@ -96,8 +96,8 @@
             "dev": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.dev.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.dev.ts"
                 }
               ],
               "optimization": false,

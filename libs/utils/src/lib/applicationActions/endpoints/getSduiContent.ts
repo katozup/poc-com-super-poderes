@@ -1,8 +1,9 @@
 import { select } from 'redux-saga/effects';
 import api from '../../config/api';
 import CONSTANTS from './ENDPOINTS_CONSTANTS';
-//TODO: usar variável de ambiente
-const GATEWAY_APP_KEY = '3e5cd12084ba01375c2e000d3ac06d76';
+import { environment } from '../../config/environment';
+
+const { GATEWAY_APP_KEY } = environment;
 
 export function* getSduiContent(
   dn: string,

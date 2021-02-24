@@ -14,7 +14,7 @@ function App() {
     store.dispatch(appActions.initApp());
     return <Loading loadPrimary={false} />;
   }
-
+  
   return (
     <div id='app' className={`App`}>
       <Suspense fallback={<Loading loadPrimary={false} />}>

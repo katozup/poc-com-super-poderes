@@ -2,12 +2,19 @@ export const sdkDataMock = () => {
     const params = new URLSearchParams(window.location.search);
     let idParam = '00252767692';
     let dnParam = '2063';
-    let cashbackParam = 'false';
+    let cashbackParam = false;
     let nameParam = 'Matheus Barbosa de Souza';
-  
+    let breakItauTrack = false;
+    const paramToBreakItauTracking = 'break-itau-track';
+
     if (params.get('id')) idParam = params.get('id');
     if (params.get('dn')) dnParam = params.get('dn');
-    if (params.get('cashback')) cashbackParam = params.get('cashback');
+    if (params.get('cashback') && params.get('cashback') != 'false') {
+      cashbackParam = Boolean(params.get('cashback'));
+    }
+    if (params.get(paramToBreakItauTracking) && params.get(paramToBreakItauTracking) != 'false') {
+      breakItauTrack = Boolean(params.get(paramToBreakItauTracking));
+    }
     if (params.get('name')) {
       const separatorRegex = /(-)/g;
       nameParam = params.get('name').replace(separatorRegex, ' ');
@@ -26,9 +33,10 @@ export const sdkDataMock = () => {
       cardVariant: 'Reembolso',
       cardName: 'Cartão Mockado',
       cardFlag: 'Visa',
-      featureCashback: cashbackParam,
+      cashback: cashbackParam,
       cpfHashed: 'CPF0101MOCK',
       customerType: 'tipoMockado',
+      breakItauTracking: breakItauTrack
     };
     return userData;
   };

@@ -67,7 +67,7 @@ export default function Routes() {
         <Redirect
           from='*'
           to={{
-            pathname: '',
+            pathname: '/',
             search: window.location.search,
           }}
         />

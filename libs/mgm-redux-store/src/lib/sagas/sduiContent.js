@@ -4,13 +4,13 @@ import { Creators as AppActions } from '../ducks/app';
 import { appActions } from '../ducks/creatorsActions';
 
 export default function* sduiContent() {
-  const { chpras, dn } = yield select((state) => state.sdk);
+  const { chpras, dn, cashback } = yield select((state) => state.sdk);
   try {
     const { response, bearerToken } = yield getSduiContent(
       dn,
       chpras,
       'Default',
-      true
+      cashback
     );
     yield put(AppActions.setSduiContent(response));
     yield put(appActions.setBearerToken(bearerToken));

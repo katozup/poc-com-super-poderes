@@ -5,10 +5,7 @@ import getFirstName from '../../../../utils/src/lib/applicationActions/sdk/getFi
 export const getUserData = async () => {
 
   const params = new URLSearchParams(window.location.search);
-  // const sdkParam = params.get('sdk');
-
-  //TODO: Após resolver a questão de parametros da url, pegar o sdkParam da url.
-  const sdkParam = false;
+  const sdkParam = params.get('sdk');
 
   if (sdkParam === false || sdkParam === 'false') {
     const userData = sdkDataMock();

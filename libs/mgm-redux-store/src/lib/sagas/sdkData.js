@@ -1,11 +1,11 @@
 import { getUserData } from '@zup-mgm/utils'
 import { put } from 'redux-saga/effects';
-import { Creators as userDataActions } from '../ducks/userData';
+import { Creators as sdkActions } from '../ducks/sdk';
 
-export default function* setUserData() {
+export default function* setSdkData() {
   try {
     const userData = yield getUserData();
-    yield put(userDataActions.userDataReducer(userData));
+    yield put(sdkActions.sdkReducer(userData));
   } catch (error) {
     return console.log(error);
   }

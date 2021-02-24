@@ -46,7 +46,7 @@ function setCssTheme(cssTheme) {
 
 export default function Routes() {
   const [appRoutes, setAppRoutes] = useState();
-  const payload = useSelector((state) => state.app.sduiPayload.response);
+  const payload = useSelector((state) => state.app.sduiPayload);
   setCssTheme(payload.whiteLabel.cssTheme);
 
   const savePageToState = async () => {

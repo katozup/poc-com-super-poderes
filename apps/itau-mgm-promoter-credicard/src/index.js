@@ -7,7 +7,6 @@ import store from '@zup-mgm/mgm-redux-store';
 import App from './app/App';
 
 import './index.css';
-import './styles/base.scss';
 
 const init = async () => {
   if (module.hot && process.env.NODE_ENV === 'development') {

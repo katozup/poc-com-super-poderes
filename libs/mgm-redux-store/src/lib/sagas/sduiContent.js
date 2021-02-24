@@ -1,20 +1,30 @@
-import { put, select } from 'redux-saga/effects';
-
-import { getSduiContent } from '@zup-mgm/utils';
+import { call, put, select } from 'redux-saga/effects';
+import { getSduiContent, getDnDefault, HTTP_STATUS} from '@zup-mgm/utils';
 import { Creators as AppActions } from '../ducks/app';
+import { appActions } from '../ducks/creatorsActions';
 
 export default function* sduiContent() {
-  const { bearerToken } = yield select(state => state.app);
-  const { chpras, dn, cashback } = yield select(state => state.userData);
-  
-  // TODO trocaremos as vars abaixo:  
-  const sduiPayload =  yield getSduiContent(
-    dn, 
-    chpras, 
-    "Default",
-    cashback,
-    bearerToken,
-    "3e5cd12084ba01375c2e000d3ac06d76"
-  );
-  yield put(AppActions.setSduiContent(sduiPayload));
+  const { chpras, dn, cashback } = yield select((state) => state.sdk);
+  try {
+    const { response, bearerToken } = yield getSduiContent(
+      dn,
+      chpras,
+      'Default',
+      cashback
+    );
+    yield put(AppActions.setSduiContent(response));
+    yield put(appActions.setBearerToken(bearerToken));
+  } catch (error) {
+    if (error.response.status === HTTP_STATUS.NOT_FOUND) {
+      yield call(getDefaultContent);
+    } else {
+      throw error;
+    }
+  }
+}
+
+export function* getDefaultContent() {
+  const { response, bearerToken } = yield getDnDefault();
+  yield put(AppActions.setBearerToken(bearerToken));
+  yield put(AppActions.setSduiContent(response));
 }

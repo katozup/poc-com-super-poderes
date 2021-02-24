@@ -8,9 +8,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/itau-mgm-promoter-credicard",
             "index": "apps/itau-mgm-promoter-credicard/src/index.html",
@@ -18,7 +16,11 @@
             "polyfills": "apps/itau-mgm-promoter-credicard/src/polyfills.ts",
             "tsConfig": "apps/itau-mgm-promoter-credicard/tsconfig.app.json",
             "assets": [
-              "apps/itau-mgm-promoter-credicard/src/assets"
+              {
+                "input": "libs/shared/assets/src/assets",
+                "glob": "**/*",
+                "output": "shared-assets"
+              }
             ],
             "styles": [],
             "scripts": [],
@@ -28,8 +30,8 @@
             "prod": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.prod.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -50,8 +52,8 @@
             "hml": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.hml.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.hml.ts"
                 }
               ],
               "optimization": true,
@@ -72,8 +74,8 @@
             "qa": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.qa.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.qa.ts"
                 }
               ],
               "optimization": true,
@@ -94,8 +96,8 @@
             "dev": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-credicard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-credicard/src/environments/environment.dev.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.dev.ts"
                 }
               ],
               "optimization": false,
@@ -145,9 +147,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/itau-mgm-promoter-credicard"
-          ],
+          "outputs": ["coverage/apps/itau-mgm-promoter-credicard"],
           "options": {
             "jestConfig": "apps/itau-mgm-promoter-credicard/jest.config.js",
             "passWithNoTests": true
@@ -190,21 +190,15 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/apps/itau-mgm-promoter-itaucard",
             "index": "apps/itau-mgm-promoter-itaucard/src/index.html",
             "main": "apps/itau-mgm-promoter-itaucard/src/main.tsx",
             "polyfills": "apps/itau-mgm-promoter-itaucard/src/polyfills.ts",
             "tsConfig": "apps/itau-mgm-promoter-itaucard/tsconfig.app.json",
-            "assets": [
-              "apps/itau-mgm-promoter-itaucard/src/assets"
-            ],
-            "styles": [
-              "apps/itau-mgm-promoter-itaucard/src/styles.scss"
-            ],
+            "assets": ["apps/itau-mgm-promoter-itaucard/src/assets"],
+            "styles": ["apps/itau-mgm-promoter-itaucard/src/styles.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -276,9 +270,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/itau-mgm-promoter-itaucard"
-          ],
+          "outputs": ["coverage/apps/itau-mgm-promoter-itaucard"],
           "options": {
             "jestConfig": "apps/itau-mgm-promoter-itaucard/jest.config.js",
             "passWithNoTests": true
@@ -322,16 +314,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/mdr-engine/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/mdr-engine/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/mdr-engine"
-          ],
+          "outputs": ["coverage/libs/mdr-engine"],
           "options": {
             "jestConfig": "libs/mdr-engine/jest.config.js",
             "passWithNoTests": true
@@ -347,16 +335,20 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui-components/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/ui-components/**/*.{ts,tsx,js,jsx}"],
+            "assets": [
+              {
+                "input": "libs/shared/assets/src/assets",
+                "glob": "**/*",
+                "output": "assets/shared"
+              }
+            ],
+            "styles": []
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui-components"
-          ],
+          "outputs": ["coverage/libs/ui-components"],
           "options": {
             "jestConfig": "libs/ui-components/jest.config.js",
             "passWithNoTests": true
@@ -372,16 +364,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/utils/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/utils/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/utils"
-          ],
+          "outputs": ["coverage/libs/utils"],
           "options": {
             "jestConfig": "libs/utils/jest.config.js",
             "passWithNoTests": true
@@ -397,18 +385,42 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/mgm-redux-store/**/*.{ts,tsx,js,jsx}"
+            "lintFilePatterns": ["libs/mgm-redux-store/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mgm-redux-store"],
+          "options": {
+            "jestConfig": "libs/mgm-redux-store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared": {
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/**/*.{ts,tsx,js,jsx}"],
+            "assets": [
+              {
+                "input": "libs/shared/assets/src/assets",
+                "glob": "**/*",
+                "output": "assets"
+              }
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/mgm-redux-store"
-          ],
+          "outputs": ["coverage/libs/shared"],
           "options": {
-            "jestConfig": "libs/mgm-redux-store/jest.config.js",
+            "jestConfig": "libs/shared/jest.config.js",
             "passWithNoTests": true
           }
         }

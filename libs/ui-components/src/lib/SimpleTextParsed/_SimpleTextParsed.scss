@@ -1,8 +1,10 @@
-@import '../../../../../apps/itau-mgm-promoter-credicard/src/styles/itau_modules/itauColors';
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
 .simple-text-parsed {
   font-size: 16px;
   color: $text-primary;
   letter-spacing: 0;
   line-height: 22px;
+  font-family: $itauRegular;
 }

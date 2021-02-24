@@ -1,14 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="utf-8" />
-    <title>PromoterCredicard</title>
-    <base href="/" />
+    <!-- Configuração de Framework Google Analytics Itaú -->
+    <script
+      id="importLibJSFrameworkDA"
+      src="https://www.itau.com.br/_arquivosestaticos/Itau/defaultTheme/js/da/framework/importLibJSFrameworkDA.js?KG9Q6T4"
+      type="text/javascript"
+      >
+    </script>
+    <script
+      id="frameworkDA"
+      src="https://www.itau.com.br/_arquivosestaticos/Itau/defaultTheme/js/da/framework/frameworkDA.js?KG9Q6T4"
+      type="text/javascript"
+      >
+    </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <style>
+      .android-loading {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -76px;
+        margin-left: -106px;
+      }
+    </style>
+
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <script>
+      // Receptor de funções de callback do SDK
+      let callBackFunction = null;
+
+      setCallBackFunction = newFunction => {
+        callBackFunction = newFunction;
+      };
+
+      execCallBackFunction = callBackReturn => callBackFunction(callBackReturn);
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <img class="android-loading" src='/shared-assets/images/loading.gif' alt="Carregando" />
+    </div>
   </body>
 </html>

@@ -1,37 +1,55 @@
-import { select, put } from 'redux-saga/effects';
-
+import { call, put, select } from 'redux-saga/effects';
 import { Creators as AnalyticsActions } from '../ducks/analytics';
 
-export function* addProduct() {
-  const { brand, portfolio, minimumIncome, variant, name, sku } = yield select(
-    state => state.whiteLabel
+function* addProduct() {
+  const { sku, portfolio } = yield select((state) => state.app.sduiPayload);
+  const { dn, cardName, cardVariant, cardFlag } = yield select(
+    (state) => state.sdk
   );
 
   const item = {
     merchandising: {
-      'cdc:bandeira': brand,
-      'cdc:portfolio': portfolio,
-      'cdc:rendaminima': minimumIncome,
-      'cdc:variante': variant,
+      'cdc:cartaodn': dn || '0',
+      'cdc:bandeira': cardFlag || '',
+      'cdc:portfolio': portfolio || '',
+      'cdc:rendaminima': '0',
+      'cdc:variante': cardVariant || '',
     },
-    nome: name,
+    nome: cardName,
     sku,
   };
 
-  if (sku && portfolio) {
-    yield put(AnalyticsActions.addProduct(item));
-  }
+  yield put(AnalyticsActions.addProduct(item));
 }
 
-export function* setCustom() {
-  const { brand, variant, name, dn } = yield select(state => state.whiteLabel);
+function* setCustom() {
+  const { dn, cardVariant, cardName, cardFlag } = yield select(
+    (state) => state.sdk
+  );
 
   const custom = {
-    cartaoDn: dn != null ? dn : '0',
-    cartaoVariante: variant || '',
-    cartaoNome: name || '',
-    cartaoBandeira: brand || '',
+    cartaoDn: dn || '0',
+    cartaoVariante: cardVariant || '',
+    cartaoNome: cardName || '',
+    cartaoBandeira: cardFlag || '',
   };
 
   yield put(AnalyticsActions.setCustom(custom));
+}
+
+function* setVisitor() {
+  const { cpfHashed, customerType } = yield select((state) => state.sdk);
+  const visitor = {
+    iDPF: cpfHashed,
+    tipoCliente: customerType,
+  };
+
+  yield put(AnalyticsActions.setVisitor(visitor));
+}
+
+export default function* setAnalyticsInformation() {
+  const { hasProduct } = yield select((state) => state.analytics);
+  if (hasProduct) yield call(addProduct);
+  yield call(setCustom);
+  yield call(setVisitor);
 }

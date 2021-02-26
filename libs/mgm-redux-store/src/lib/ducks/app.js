@@ -10,7 +10,6 @@ const INITIAL_STATE = {
   loading: true,
   bearerToken: '',
   sduiPayload: '',
-  environmentVariables: {}
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
@@ -31,12 +30,6 @@ export default function appReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         sduiPayload: action.payload.sduiPayload,
-      };
-
-    case Types.SET_ENVIRONMENT_VARIABLES:
-      return {
-        ...state,
-        environmentVariables: action.payload.environmentVariables
       };
 
     default:
@@ -63,10 +56,5 @@ export const Creators = {
   setSduiContent: (sduiPayload) => ({
     type: Types.SET_SDUI_PAYLOAD,
     payload: { sduiPayload },
-  }),
-
-  setEnvironmentVariables: (environmentVariables) => ({
-    type: Types.SET_ENVIRONMENT_VARIABLES,
-    payload: { environmentVariables },
-  }),
+  })
 };

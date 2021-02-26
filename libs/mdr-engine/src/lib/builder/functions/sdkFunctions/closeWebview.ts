@@ -7,8 +7,8 @@ declare global {
 }
 
 export default function () {
-
   try {
+    console.log('Vai tentar chamar o SDK nativo para fechar a webview');
     const { native } = window;
     const jsonProtocol: {
       action: string,

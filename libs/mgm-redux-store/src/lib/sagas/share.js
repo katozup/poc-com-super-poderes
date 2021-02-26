@@ -13,12 +13,11 @@ export function* getLinkAndShare(action) {
     const bearerToken = yield login(autenticacao);
     const shareMessage = yield call(getShareLink, dn, chpras, bearerToken);
     const shareMethod = action.payload.type;
-    
     //TODO: Remover esse log após ter integração com SDK 100% funcional
     console.log('Vai tentar chamar o SDK nativo para enviar o link');
 
     yield call(shareLinkSdk, shareMessage, shareMethod);
-    yield put(shareSuccess());
+    yield put(shareSuccess(action.payload.componentId));
     // TODO implementar limpador de erros depois de implementar saga de erros
     // return yield put(cleanErrorConditionsAndRetryCounts());
   } catch (error) {

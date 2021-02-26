@@ -11,7 +11,6 @@ const clickHandler = (onClick) => {
 
 const IconButton = ({ onClick, alt, iconName }) => (
   <button
-    autoFocus
     aria-label={alt}
     onClick={() => clickHandler(onClick)}
     type="button"

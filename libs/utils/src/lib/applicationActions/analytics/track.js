@@ -11,7 +11,7 @@ const teste = {
     events: [
       "cliqueEmBotao"
     ],
-    itemClicado: "BTN:NCC:MemberGetMember:RecompensaERegulamento",
+    itemClicado: "BTN:NCC:MemberGetMember:testeGA",
   },
   rule: "customLink"
 }

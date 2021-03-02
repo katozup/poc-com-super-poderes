@@ -4,8 +4,11 @@ import PropTypes from 'prop-types';
 import './_ActionButton.scss';
 
 const clickHandler = (onClick) => {
-  const { actionFunction, actionParameter } = onClick;
-  actionFunction(actionParameter);
+  const { actionFunction, actionParameter, analytics } = onClick;
+  // actionFunction(actionParameter);
+  if(analytics !== null) {
+    analytics.analyticsFunction(analytics.analyticsParameter);
+  }
 };
 
 const ActionButton = ({ text, onClick, alt, styling }) => (

@@ -4,13 +4,15 @@ export const Types = {
   SET_BEARERTOKEN: 'app/SET_BEARERTOKEN',
   SET_SDUI_PAYLOAD: 'app/SET_SDUI_PAYLOAD',
   SET_ENVIRONMENT_VARIABLES: 'app/SET_ENVIRONMENT_VARIABLES',
+  SET_CARD_TYPE: 'app/SET_CARD_TYPE',
 };
 
 const INITIAL_STATE = {
   loading: true,
   bearerToken: '',
   sduiPayload: '',
-  environmentVariables: {}
+  environmentVariables: {},
+  cardType: ''
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
@@ -19,6 +21,12 @@ export default function appReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: false,
+      };
+    
+      case Types.INIT_APP:
+      return {
+        ...state,
+        cardType: action.payload.cardType,
       };
 
     case Types.SET_BEARERTOKEN:
@@ -39,6 +47,12 @@ export default function appReducer(state = INITIAL_STATE, action) {
         environmentVariables: action.payload.environmentVariables
       };
 
+    case Types.SET_CARD_TYPE:
+      return {
+        ...state,
+        cardType: action.payload.cardType
+      };
+
     default:
       return state;
   }
@@ -50,9 +64,9 @@ export const Creators = {
     payload: {},
   }),
 
-  initApp: (data, cardListSDK, cartaoTipo) => ({
+  initApp: (cardType) => ({
     type: Types.INIT_APP,
-    payload: { data, cardListSDK, cartaoTipo },
+    payload: { cardType },
   }),
 
   setBearerToken: (bearerToken) => ({
@@ -69,4 +83,9 @@ export const Creators = {
     type: Types.SET_ENVIRONMENT_VARIABLES,
     payload: { environmentVariables },
   }),
+
+  setCardType: (cardType) => ({
+    type: Types.SET_CARD_TYPE,
+    payload: { cardType },
+  })
 };

@@ -43,9 +43,8 @@ export const Creators = {
     payload: {},
   }),
 
-  initApp: (data, cardListSDK, cartaoTipo) => ({
+  initApp: () => ({
     type: Types.INIT_APP,
-    payload: { data, cardListSDK, cartaoTipo },
   }),
 
   setBearerToken: (bearerToken) => ({

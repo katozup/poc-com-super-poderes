@@ -3,6 +3,19 @@ import { environment } from '../../config/environment'
 const isDebugModeOn = (environment) => environment.DEBUG_MODE;
 const isGoogleAnalyticsOn = (environment) => environment.TURN_GOOGLE_ANALYTICS_ON;
 
+const teste = {
+  cartao: {
+    nome: "Credicard"
+  },
+  custom: {
+    events: [
+      "cliqueEmBotao"
+    ],
+    itemClicado: "BTN:NCC:MemberGetMember:RecompensaERegulamento",
+  },
+  rule: "customLink"
+}
+
 export default function track (data) {
   try {
     window.analyticsData = teste;

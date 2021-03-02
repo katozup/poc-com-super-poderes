@@ -5,7 +5,7 @@ import './_ActionButton.scss';
 
 const clickHandler = (onClick) => {
   const { actionFunction, actionParameter, analytics } = onClick;
-  actionFunction(actionParameter);
+  // actionFunction(actionParameter);
   if(analytics !== null) {
     analytics.analyticsFunction(analytics.analyticsParameter);
   }

@@ -2,6 +2,7 @@ export const Types = {
   ADD_PRODUCT: 'analytics/ADD_PRODUCT',
   SET_CUSTOM: 'analytics/SET_CUSTOM',
   SET_VISITOR: 'analytics/SET_VISITOR',
+  SET_PAGE: 'analytics/SET_PAGE',
 };
 
 const INITIAL_STATE = {
@@ -40,6 +41,14 @@ export default function analyticsReducer(state = INITIAL_STATE, action) {
         visitor: action.payload.visitor,
       };
 
+      case Types.SET_PAGE:
+        return {
+          ...state,
+          page: {
+            ...action.payload.page,
+          },
+        };
+
     default:
       return state;
   }
@@ -50,7 +59,6 @@ export const Creators = {
     type: Types.ADD_PRODUCT,
     payload: { item },
   }),
-
   setCustom: (custom) => ({
     type: Types.SET_CUSTOM,
     payload: { custom },
@@ -58,5 +66,9 @@ export const Creators = {
   setVisitor: (visitor) => ({
     type: Types.SET_VISITOR,
     payload: { visitor },
+  }),
+  setPage: page => ({
+    type: Types.SET_PAGE,
+    payload: { page },
   }),
 };

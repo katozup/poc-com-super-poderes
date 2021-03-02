@@ -34,7 +34,6 @@ export default function* tryAgainHandler() {
   const { manualRetryCount, whereErrorOccurred } = yield select(
     state => state.error
   );
-  console.log('teste', yield select(state => state));
   const canManualRetry = manualRetryCount < MAX_MANUAL_RETRY;
 
   if (canManualRetry) {

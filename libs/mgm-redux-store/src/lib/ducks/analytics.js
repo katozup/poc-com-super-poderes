@@ -1,43 +1,37 @@
 export const Types = {
-  ADD_PRODUCT: 'analytics/ADD_PRODUCT',
-  SET_CUSTOM: 'analytics/SET_CUSTOM',
-  SET_VISITOR: 'analytics/SET_VISITOR',
+  PAGE_NAME_ITEM_CLICKED: 'analytics/PAGE_NAME_ITEM_CLICKED',
+  EVENT_CATEGORY_EVENT_LABEL: 'analytics/EVENT_CATEGORY_EVENT_LABEL'
 };
 
 const INITIAL_STATE = {
-  product: {
-    items: [],
-    event: 'prodView',
+  customLink: {
+    pageName: '',
+    itemClicked: ''
   },
-  visitor: {
-    tipoCliente: '',
-    iDPF: '',
-  },
+  customLinkNPS: {
+    eventCategory: '',
+    eventLabel: ''
+  }
 };
 
 export default function analyticsReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case Types.ADD_PRODUCT:
+    case Types.PAGE_NAME_ITEM_CLICKED:
       return {
         ...state,
-        product: {
-          ...state.product,
-          items: [...state.product.items, action.payload.item],
-        },
+        customLink: {
+          pageName: action.payload.pageName,
+          itemClicked: action.payload.itemClicked
+        }
       };
 
-    case Types.SET_CUSTOM:
+    case Types.EVENT_CATEGORY_EVENT_LABEL:
       return {
         ...state,
-        custom: {
-          ...action.payload.custom,
-        },
-      };
-
-    case Types.SET_VISITOR:
-      return {
-        ...state,
-        visitor: action.payload.visitor,
+        customLinkNPS: {
+          eventCategory: action.payload.eventCategory,
+          eventLabel: action.payload.eventLabel
+        }
       };
 
     default:
@@ -46,17 +40,19 @@ export default function analyticsReducer(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  addProduct: (item) => ({
-    type: Types.ADD_PRODUCT,
-    payload: { item },
+  addCustomLink: (analyticsParameter) => ({
+    type: Types.PAGE_NAME_ITEM_CLICKED,
+    payload: { 
+      pageName: analyticsParameter.pageName, 
+      itemClicked: analyticsParameter.itemClicked 
+    },
   }),
 
-  setCustom: (custom) => ({
-    type: Types.SET_CUSTOM,
-    payload: { custom },
-  }),
-  setVisitor: (visitor) => ({
-    type: Types.SET_VISITOR,
-    payload: { visitor },
+  addCustomLinkNps: (analyticsParameter) => ({
+    type: Types.PAGE_NAME_ITEM_CLICKED,
+    payload: { 
+      eventCategory: analyticsParameter.eventCategory, 
+      eventLabel: analyticsParameter.eventLabel 
+    },
   }),
 };

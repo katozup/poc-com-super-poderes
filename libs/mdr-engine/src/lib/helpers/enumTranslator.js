@@ -5,7 +5,7 @@ export default function (enumValue){
     case 'COMPONENT': return 'component';
 
     case 'PAGE_LOAD': return 'pageLoad';
-    case 'CUSTOM_LINK': return 'customLink';
+    case 'CUSTOM_LINK': return 'trackCustomLink';
     
     case 'ON_CLICK': return 'onClick';
     case 'ON_HOVER': return 'onHover';

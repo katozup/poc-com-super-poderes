@@ -1,55 +1,29 @@
-import { call, put, select } from 'redux-saga/effects';
-import { Creators as AnalyticsActions } from '../ducks/analytics';
+import { call, select, put } from 'redux-saga/effects';
+import { Creators as AppActions } from '../ducks/app';
+import { getCustomLink } from '@zup-mgm/utils';
+import { track } from '@zup-mgm/utils';
 
-function* addProduct() {
-  const { sku, portfolio } = yield select((state) => state.app.sduiPayload);
-  const { dn, cardName, cardVariant, cardFlag } = yield select(
-    (state) => state.sdk
-  );
-
-  const item = {
-    merchandising: {
-      'cdc:cartaodn': dn || '0',
-      'cdc:bandeira': cardFlag || '',
-      'cdc:portfolio': portfolio || '',
-      'cdc:rendaminima': '0',
-      'cdc:variante': cardVariant || '',
-    },
-    nome: cardName,
-    sku,
-  };
-
-  yield put(AnalyticsActions.addProduct(item));
+export function* getCustomLinkPayload(customLinkRequest) {
+  try{
+    const { customLink, bearerToken } = yield call(getCustomLink, customLinkRequest);
+    yield put(AppActions.setBearerToken(bearerToken));
+    return customLink;
+  } catch(error) {
+    //TODO: Abrir tela de erro (será feito em outra task)
+    console.log(error);
+  }
 }
 
-function* setCustom() {
-  const { dn, cardVariant, cardName, cardFlag } = yield select(
-    (state) => state.sdk
-  );
-
-  const custom = {
-    cartaoDn: dn || '0',
-    cartaoVariante: cardVariant || '',
-    cartaoNome: cardName || '',
-    cartaoBandeira: cardFlag || '',
-  };
-
-  yield put(AnalyticsActions.setCustom(custom));
+export function* trackGACustomLink() {
+  let { customLink } = yield select(state => state.analytics);
+  const { cardType } = yield select(state => state.app);
+  customLink.cardType = cardType;
+  customLink = yield getCustomLinkPayload (customLink);
+  track(customLink);
 }
 
-function* setVisitor() {
-  const { cpfHashed, customerType } = yield select((state) => state.sdk);
-  const visitor = {
-    iDPF: cpfHashed,
-    tipoCliente: customerType,
-  };
-
-  yield put(AnalyticsActions.setVisitor(visitor));
-}
-
-export default function* setAnalyticsInformation() {
-  const { hasProduct } = yield select((state) => state.analytics);
-  if (hasProduct) yield call(addProduct);
-  yield call(setCustom);
-  yield call(setVisitor);
+export function* trackGACustomLinkNPS() {
+  const { customLinkNPS } = yield select(state => state.analytics);
+  const customLink = yield getCustomLinkPayload(customLinkNPS);
+  track(customLink);
 }

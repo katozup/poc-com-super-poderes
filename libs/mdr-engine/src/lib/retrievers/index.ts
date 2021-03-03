@@ -4,6 +4,7 @@ import componentId from './componentId';
 import componentName from './componentName';
 import componentProps from './componentProps';
 import componentType from './componentType';
+import componentAnalytics from './componentAnalytics';
 
 export default {
   componentActions,
@@ -11,5 +12,6 @@ export default {
   componentId,
   componentName,
   componentProps,
-  componentType
+  componentType,
+  componentAnalytics
 };

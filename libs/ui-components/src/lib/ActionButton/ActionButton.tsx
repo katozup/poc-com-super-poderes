@@ -6,15 +6,16 @@ import ButtonLoading from '../ButtonLoading/ButtonLoading';
 import './_ActionButton.scss';
 
 const clickHandler = (onClick, styling, componentId) => {
-  const { actionFunction } = onClick;
+  const { actionFunction, analytics } = onClick;
   const buttonIndex = styling === 'primary' ? 0 : 1;
   const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
   if (actionFunction) {
     actionFunction(type, buttonIndex, componentId);
+  } else if (analytics) {
+    analytics.analyticsFunction(analytics.analyticsParameter);
   } else {
     onClick();
   }
-};
 
 const ActionButton = ({
   text,

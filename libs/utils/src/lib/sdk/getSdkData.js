@@ -10,6 +10,10 @@ export const getUserData = async () => {
   if (sdkParam === false || sdkParam === 'false') {
     const userData = sdkDataMock();
     userData.name = getFirstName(userData.name);
+
+    const cardTypeParam = params.get('app');
+    userData.cardType = cardTypeParam;
+    
     return userData;
   }
 
@@ -25,6 +29,8 @@ export const getUserData = async () => {
   const cpfHashed = await getSDKItem('CPF_HASHED');
   const customerType = await getSDKItem('CUSTOMER_TYPE');
   let featureCashback = await getSDKItem('CASHBACK');
+  const flowByHipercardApp = await getSDKItem("HIPERCARD");
+  const flowByCartaoLuizaApp = await getSDKItem("CARTAOLUIZA");
 
   if (featureCashback == null) {
     featureCashback = false;
@@ -45,6 +51,8 @@ export const getUserData = async () => {
     featureCashback,
     cpfHashed,
     customerType,
+    flowByHipercardApp,
+    flowByCartaoLuizaApp
   };
 
   return userData;

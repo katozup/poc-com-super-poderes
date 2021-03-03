@@ -32,23 +32,38 @@ node {
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"
 
-      buildWithDockerfileITAU {
-        dockerRepositoryName =  repo
-        dockerFileLocation = ". ${argRepoName} ${argRepoPath}"
-        composeProjectName = repo
-        envProfile = envName
-      }
-    
-      if (branchName == 'development' || branchName == 'qa' || branchName == 'hml') {
-        deployDockerServiceK8s {
-          microservice = repo
-          dockerk8sGroup = "itau"
-        }
+      if (environment == 'development') {
+          buildWithDockerfileAWS {
+              dockerRepositoryName =  repo
+              dockerFileLocation = ". ${argRepoName} ${argRepoPath}"
+              dockerRegistryGroup = "CARTOES"
+              envProfile = envName
+              composeProjectName = repo
+          }
+
+          deployDockerServiceK8s {
+              microservice = repo
+              dockerk8sGroup = 'cartoes'
+          }
       } else {
-        deployDockerServiceK8s {
-          microservice = dockerSwarm
-          dockerk8sGroup = "cartoes"
-        }
+          buildWithDockerfileITAU {
+              dockerRepositoryName =  repo
+              dockerFileLocation = ". ${argRepoName} ${argRepoPath}"
+              composeProjectName = repo
+              envProfile = envName
+          }
+
+          if (branchName == 'qa' || branchName == 'hml') {
+              deployDockerServiceK8s {
+                  microservice = repo
+                  dockerk8sGroup = "itau"
+              }
+          } else {
+              deployDockerServiceK8s {
+                  microservice = dockerSwarm
+                  dockerk8sGroup = "cartoes"
+              }
+          }
       }
     }
     

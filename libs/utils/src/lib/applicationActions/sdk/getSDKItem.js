@@ -1,7 +1,7 @@
 import { Creators as errorActions } from '../../../../../../libs/mgm-redux-store/src/lib/ducks/error';
 import { ERROR_TYPES } from '../../constants';
 import nativeHelper from './helpers/nativeHelper';
-import saga from '@zup-mgm/mgm-redux-store';
+import store from '@zup-mgm/mgm-redux-store';
 
 const {
   SDK: { GET_SDK_ITEM },
@@ -17,7 +17,7 @@ const getSDKItem = async (key) => {
     }
     return value;
   } catch (error) {
-    return saga.dispatch(
+    return store.dispatch(
       callErrorHandler(`${error} error to get the key ${key}`, GET_SDK_ITEM)
     );
   }

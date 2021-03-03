@@ -16,6 +16,7 @@ const clickHandler = (onClick, styling, componentId) => {
   } else {
     onClick();
   }
+};
 
 const ActionButton = ({
   text,

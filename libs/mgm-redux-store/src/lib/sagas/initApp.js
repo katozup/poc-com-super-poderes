@@ -6,7 +6,6 @@ import { ERROR_TYPES } from '@zup-mgm/utils';
 import { createCustomer } from './customer';
 import { Creators as AppActions } from '../ducks/app';
 import { Creators as ErrorActions } from '../ducks/error';
-import setAnalyticsInformation from './analytics';
 
 const { stopLoading } = AppActions;
 const {
@@ -20,7 +19,6 @@ export function* initApp() {
     yield call(authentication);
     yield call(sduiContent);
     yield call(createCustomer);
-    yield call(setAnalyticsInformation);
     yield put(cleanErrorConditionsAndRetryCounts());
     return yield put(stopLoading());
   } catch (error) {

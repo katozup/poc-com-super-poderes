@@ -7,8 +7,6 @@ import { getLinkAndShare } from './share';
 import errorHandler from './errors/handlers/errorHandler';
 import tryAgainHandler from './errors/handlers/tryAgainHandler';
 import { Types as AnalyticsTypes } from '../ducks/analytics';
-import { initApp } from './initApp';
-import { getLinkAndShare } from './share';
 import { trackGACustomLink } from './analytics';
 
 export default function* rootSaga() {

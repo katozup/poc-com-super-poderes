@@ -2,7 +2,6 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
 import { Creators as appActions } from '../../../../libs/mgm-redux-store/src/lib/ducks/app';
 import { CARD_TYPE } from '../../../../libs/utils/src/lib/constants';
-import { useSelector } from 'react-redux';
 import { Loading } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';

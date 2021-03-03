@@ -1,16 +1,17 @@
 import React from 'react';
-
 import './_DefaultError.scss';
-
 import DefaultErrorIcon from './default_error.png';
-
 import ActionButton from '../ActionButton/ActionButton';
+import { RootStateOrAny, useSelector } from 'react-redux';
+import { RESOURCES } from '@zup-mgm/utils';
+import { BUSINESS_RULES } from '@zup-mgm/utils';
 
-//TODO: Colocar as props default
+const { MAX_MANUAL_RETRY } = BUSINESS_RULES;
 
-/* eslint-disable-next-line */
 export function DefaultError(props) {
-  console.log(props);
+  const manualRetryCount = useSelector(
+    (state: RootStateOrAny) => state.error.manualRetryCount
+  );
   return (
     <div className='default-error'>
       <div className='error-header-block'>
@@ -18,23 +19,19 @@ export function DefaultError(props) {
       </div>
       <div className='error-content-block'>
         <h1
-          id={`lblTitle_`} //TODO: Rever esse id
+          id='lblTitle_error'
           className='error-title'
           aria-label='algo deu errado'
         >
           algo deu errado :&#40;
         </h1>
-        <p
-          id={`lblContent_`} //TODO: Rever esse id
-          className='error-description'
-        >
+        <p id='lblContent_error' className='error-description'>
           Não foi possível carregar as informações.
         </p>
-        {props.retry && (
-          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+        {manualRetryCount < MAX_MANUAL_RETRY && (
           <a
             role='link'
-            id={`lnkRetry_`} //TODO: Rever esse id
+            id={`lnkRetry_action`}
             type='button'
             tabIndex={0}
             className='retry-button'
@@ -51,10 +48,10 @@ export function DefaultError(props) {
       </div>
       <div className='error-footer-block'>
         <ActionButton
-          componentId='lb_1' //TODO: Rever oque precisa ser passado
-          onClick={() => props.backAction()}
+          hasLoading={false}
+          onClick={props.retryAction}
           styling='primary'
-          text="Opa"
+          text={RESOURCES.DEFAULT_ERROR.BUTTON.VOLTAR}
         />
       </div>
     </div>

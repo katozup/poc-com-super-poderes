@@ -9,19 +9,30 @@ const clickHandler = (onClick, styling, componentId) => {
   const { actionFunction } = onClick;
   const buttonIndex = styling === 'primary' ? 0 : 1;
   const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
-  actionFunction(type, buttonIndex, componentId);
+  if (actionFunction) {
+    actionFunction(type, buttonIndex, componentId);
+  } else {
+    onClick();
+  }
 };
 
-const ActionButton = ({ text, onClick, alt, styling, componentId }) => (
+const ActionButton = ({
+  text,
+  onClick,
+  alt,
+  styling,
+  componentId,
+  hasLoading,
+}) => (
   <button
     id={componentId}
-    disabled={isButtonDisabled()}
+    disabled={hasLoading && isButtonDisabled()}
     aria-label={alt}
     onClick={() => clickHandler(onClick, styling, componentId)}
     type='button'
     className={`action-button ${getButtonStyle(styling)}`}
   >
-    {isButtonLoading(componentId) ? (
+    {hasLoading && isButtonLoading(componentId) ? (
       <ButtonLoading loadPrimary={styling === 'primary'} />
     ) : (
       text
@@ -51,11 +62,14 @@ export function getButtonStyle(styling) {
 ActionButton.propTypes = {
   alt: PropTypes.string,
   text: PropTypes.string,
+  componentId: PropTypes.string,
+  hasLoading: PropTypes.bool,
 };
 
 ActionButton.defaultProps = {
-  alt: 'voltar',
-  text: '',
+  text: 'voltar',
+  alt: '',
+  hasLoading: true,
 };
 
 export default ActionButton;

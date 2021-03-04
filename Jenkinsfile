@@ -32,7 +32,7 @@ node {
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"
 
-      if (environment == 'development') {
+      if (branchName == 'development') {
           buildWithDockerfileAWS {
               dockerRepositoryName =  repo
               dockerFileLocation = ". ${argRepoName} ${argRepoPath}"

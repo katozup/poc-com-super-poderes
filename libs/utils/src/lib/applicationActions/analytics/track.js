@@ -3,7 +3,7 @@ import { environment } from '../../config/environment'
 const isDebugModeOn = (environment) => environment.DEBUG_MODE;
 const isGoogleAnalyticsOn = (environment) => environment.TURN_GOOGLE_ANALYTICS_ON;
 
-export function track (data) {
+export const track = (data) => {
   try {
     window.analyticsData = data;
     if (isDebugModeOn(environment)) console.log(data.rule, data);

@@ -5,7 +5,7 @@ import { environment } from '../../config/environment';
 const { GATEWAY_APP_KEY } = environment;
 const { LOGIN } = ENDPOINTS_CONSTANTS;
 
-export default function* login(body) {
+export function* login(body) {
   const response = yield api.post(`${LOGIN}?gw-app-key=${GATEWAY_APP_KEY}`, {
     autenticacao: body,
   });

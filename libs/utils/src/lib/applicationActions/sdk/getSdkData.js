@@ -1,9 +1,8 @@
-import { sdkDataMock } from '../../../../mock/src/lib/sdkData/index';
-import getSDKItem from '../../lib/applicationActions/sdk/getSDKItem';
-import getFirstName from '../../../../utils/src/lib/applicationActions/sdk/getFirstName';
+import { sdkDataMock } from '@zup-mgm/mock';
+import getFirstName from './getFirstName';
+import getSDKItem from './getSDKItem';
 
-export const getUserData = async () => {
-
+const getSdkData = async () => {
   const params = new URLSearchParams(window.location.search);
   const sdkParam = params.get('sdk');
 
@@ -13,7 +12,7 @@ export const getUserData = async () => {
 
     const cardTypeParam = params.get('app');
     userData.cardType = cardTypeParam;
-    
+
     return userData;
   }
 
@@ -29,8 +28,8 @@ export const getUserData = async () => {
   const cpfHashed = await getSDKItem('CPF_HASHED');
   const customerType = await getSDKItem('CUSTOMER_TYPE');
   let featureCashback = await getSDKItem('CASHBACK');
-  const flowByHipercardApp = await getSDKItem("HIPERCARD");
-  const flowByCartaoLuizaApp = await getSDKItem("CARTAOLUIZA");
+  const flowByHipercardApp = await getSDKItem('HIPERCARD');
+  const flowByCartaoLuizaApp = await getSDKItem('CARTAOLUIZA');
 
   if (featureCashback == null) {
     featureCashback = false;
@@ -52,8 +51,10 @@ export const getUserData = async () => {
     cpfHashed,
     customerType,
     flowByHipercardApp,
-    flowByCartaoLuizaApp
+    flowByCartaoLuizaApp,
   };
 
   return userData;
 };
+
+export default getSdkData;

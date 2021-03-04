@@ -1,8 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import './App.scss';
-import store from '@zup-mgm/mgm-redux-store';
-import { Creators as appActions } from '../../../../libs/mgm-redux-store/src/lib/ducks/app';
-import { CARD_TYPE } from '../../../../libs/utils/src/lib/constants';
+import { store, appActions } from '@zup-mgm/mgm-redux-store';
+import { CARD_TYPE } from '@zup-mgm/utils';
 import { useSelector } from 'react-redux';
 import { Loading } from '@zup-mgm/ui-components';
 
@@ -15,7 +14,7 @@ function App() {
     store.dispatch(appActions.initApp(CARD_TYPE.CREDICARD));
     return <Loading loadPrimary={false} />;
   }
-  
+
   return (
     <div id='app' className={`App`}>
       <Suspense fallback={<Loading loadPrimary={false} />}>

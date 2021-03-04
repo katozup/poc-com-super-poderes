@@ -1,5 +1,5 @@
 import { put, select } from 'redux-saga/effects';
-import login from '../../../../utils/src/lib/applicationActions/endpoints/login';
+import { login } from '@zup-mgm/utils';
 import { Creators as AppActions } from '../ducks/app';
 
 export default function* authentication() {

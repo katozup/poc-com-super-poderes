@@ -7,6 +7,7 @@ export default async function componentArchitect(type, component, props, actions
   const reactElement = await reactElementBuilder(type, component, componentId);
   const propsAndActions = {
     ...props,
+    componentId,
     ...actionsBuilder(actions, analytics)
   };
   const newReactElement = React.cloneElement(

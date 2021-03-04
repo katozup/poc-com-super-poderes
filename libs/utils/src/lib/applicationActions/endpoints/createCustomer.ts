@@ -6,7 +6,7 @@ import { environment } from '../../config/environment';
 const { GATEWAY_APP_KEY } = environment;
 const { CLIENTE_CRIAR } = ENDPOINTS_CONSTANTS;
 
-export default function* criarCliente({ nome, chpras, dn }) {
+export default function* createCustomer({ nome, chpras, dn }) {
   const { bearerToken } = yield select(state => state.app);
   const config = { headers: { Authorization: `Bearer ${bearerToken}` } };
 

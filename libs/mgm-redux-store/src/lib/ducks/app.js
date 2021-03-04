@@ -11,8 +11,7 @@ const INITIAL_STATE = {
   loading: true,
   bearerToken: '',
   sduiPayload: '',
-  environmentVariables: {},
-  cardType: ''
+  cardType: '',
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
@@ -22,8 +21,8 @@ export default function appReducer(state = INITIAL_STATE, action) {
         ...state,
         loading: false,
       };
-    
-      case Types.INIT_APP:
+
+    case Types.INIT_APP:
       return {
         ...state,
         cardType: action.payload.cardType,
@@ -41,16 +40,10 @@ export default function appReducer(state = INITIAL_STATE, action) {
         sduiPayload: action.payload.sduiPayload,
       };
 
-    case Types.SET_ENVIRONMENT_VARIABLES:
-      return {
-        ...state,
-        environmentVariables: action.payload.environmentVariables
-      };
-
     case Types.SET_CARD_TYPE:
       return {
         ...state,
-        cardType: action.payload.cardType
+        cardType: action.payload.cardType,
       };
 
     default:
@@ -79,13 +72,8 @@ export const Creators = {
     payload: { sduiPayload },
   }),
 
-  setEnvironmentVariables: (environmentVariables) => ({
-    type: Types.SET_ENVIRONMENT_VARIABLES,
-    payload: { environmentVariables },
-  }),
-
   setCardType: (cardType) => ({
     type: Types.SET_CARD_TYPE,
     payload: { cardType },
-  })
+  }),
 };

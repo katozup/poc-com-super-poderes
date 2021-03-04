@@ -36,9 +36,9 @@ node {
           buildWithDockerfileAWS {
               dockerRepositoryName =  repo
               dockerFileLocation = ". ${argRepoName} ${argRepoPath}"
-              dockerRegistryGroup = "CARTOES"
-              envProfile = envName
               composeProjectName = repo
+              envProfile = envName
+              dockerRegistryGroup = "CARTOES"
           }
 
           deployDockerServiceK8s {

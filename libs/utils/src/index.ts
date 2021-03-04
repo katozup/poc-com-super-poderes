@@ -6,7 +6,7 @@ export * from './lib/constants/ERROR_TYPES';
 export * from './lib/constants/index';
 export * from './lib/config/environment';
 export * from './lib/applicationActions/endpoints/login';
-export * from "./lib/applicationActions/endpoints/getCustomLink";
+export * from './lib/applicationActions/endpoints/getCustomLink';
 export * from './lib/constants/HTTP_STATUS';
 export * from './lib/applicationActions/analytics/track';
 export { default as getFirstName } from './lib/applicationActions/sdk/getFirstName';

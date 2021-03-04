@@ -19,7 +19,8 @@
       "@zup-mgm/utils": ["libs/utils/src/index.ts"],
       "@zup-mgm/mdr-engine": ["libs/mdr-engine/src/index.ts"],
       "@zup-mgm/mgm-redux-store": ["libs/mgm-redux-store/src/index.ts"],
-      "@zup-mgm/shared": ["libs/shared/src/index.ts"]
+      "@zup-mgm/shared": ["libs/shared/src/index.ts"],
+      "@zup-mgm/mock": ["libs/mock/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

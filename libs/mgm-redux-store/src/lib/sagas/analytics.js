@@ -1,7 +1,6 @@
 import { call, select, put } from 'redux-saga/effects';
 import { Creators as AppActions } from '../ducks/app';
-import { getCustomLink } from '@zup-mgm/utils';
-import { track } from '@zup-mgm/utils';
+import { getCustomLink, track } from '@zup-mgm/utils';
 
 export function* getCustomLinkPayload(customLinkRequest) {
   try{

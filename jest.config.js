@@ -8,5 +8,6 @@ module.exports = {
     "<rootDir>/libs/mdr-engine",
     "<rootDir>/libs/mgm-redux-store",
     "<rootDir>/libs/shared",
+    "<rootDir>/libs/mock",
   ],
 };

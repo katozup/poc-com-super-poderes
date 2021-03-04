@@ -29,7 +29,7 @@ export function DefaultError(props) {
           Não foi possível carregar as informações.
         </p>
         {manualRetryCount < MAX_MANUAL_RETRY && (
-          <a
+          <button
             role='link'
             id={`lnkRetry_action`}
             type='button'
@@ -43,13 +43,13 @@ export function DefaultError(props) {
             }}
           >
             tentar novamente
-          </a>
+          </button>
         )}
       </div>
       <div className='error-footer-block'>
         <ActionButton
           hasLoading={false}
-          onClick={props.retryAction}
+          onClick={() => props.backAction()}
           styling='primary'
           text={RESOURCES.DEFAULT_ERROR.BUTTON.VOLTAR}
         />

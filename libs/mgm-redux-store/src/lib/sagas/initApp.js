@@ -1,8 +1,8 @@
-import { call, put, select } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import sduiContent from './sduiContent';
 import setSdkData from './sdkData';
 import authentication from './authentication'
-import { createCustomer } from './customer';
+import { create as createCustomer } from './customer';
 import { Creators as AppActions } from '../ducks/app';
 
 const { stopLoading } = AppActions;

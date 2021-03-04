@@ -1,5 +1,6 @@
 import { call, put, select } from 'redux-saga/effects';
 
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
 import { getShareLink, login, shareLinkSdk } from '@zup-mgm/utils';
 import { Creators as ShareActions } from '../ducks/share';
 

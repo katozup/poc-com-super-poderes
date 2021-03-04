@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import './_IconButton.scss';
-import store from '@zup-mgm/mgm-redux-store';
+import { store } from '@zup-mgm/mgm-redux-store';
 
 const clickHandler = (onClick) => {
   const { actionFunction, actionParameter } = onClick;

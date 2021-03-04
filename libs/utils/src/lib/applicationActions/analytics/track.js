@@ -3,23 +3,10 @@ import { environment } from '../../config/environment'
 const isDebugModeOn = (environment) => environment.DEBUG_MODE;
 const isGoogleAnalyticsOn = (environment) => environment.TURN_GOOGLE_ANALYTICS_ON;
 
-const teste = {
-  cartao: {
-    nome: "Credicard"
-  },
-  custom: {
-    events: [
-      "cliqueEmBotao"
-    ],
-    itemClicado: "BTN:NCC:MemberGetMember:testeGA",
-  },
-  rule: "customLink"
-}
-
-export default function track (data) {
+export const track = (data) => {
   try {
-    window.analyticsData = teste;
-    if (isDebugModeOn(environment)) console.log(teste.rule, teste);
+    window.analyticsData = data;
+    if (isDebugModeOn(environment)) console.log(data.rule, data);
     if (isGoogleAnalyticsOn(environment)) {
       console.log("vai disparar :)");
       window._frameworkDA.Track();

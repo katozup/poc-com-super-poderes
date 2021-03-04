@@ -8,3 +8,4 @@ export { default as SimpleTextParsed } from "./lib/SimpleTextParsed/SimpleTextPa
 export { default as IconButton } from "./lib/IconButton/IconButton";
 export { default as ActionButton } from "./lib/ActionButton/ActionButton";
 export { default as Loading } from "./lib/Loading/Loading";
+export { default as ButtonLoading } from "./lib/ButtonLoading/ButtonLoading";

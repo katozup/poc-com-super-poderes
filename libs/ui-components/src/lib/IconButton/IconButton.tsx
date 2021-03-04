@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import './_IconButton.scss';
-import store from '@zup-mgm/mgm-redux-store';
+import { store } from '@zup-mgm/mgm-redux-store';
 
 const clickHandler = (onClick) => {
   const { actionFunction, actionParameter } = onClick;
@@ -11,7 +11,6 @@ const clickHandler = (onClick) => {
 
 const IconButton = ({ onClick, alt, iconName }) => (
   <button
-    autoFocus
     aria-label={alt}
     onClick={() => clickHandler(onClick)}
     type="button"

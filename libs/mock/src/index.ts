@@ -1,1 +1,1 @@
-export * from './lib/sdkData';
+export * from './lib/sdk/sdkDataMock';

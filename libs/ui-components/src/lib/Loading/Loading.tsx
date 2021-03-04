@@ -1,8 +1,5 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
-import LoadingIcon from './page-1-artboard.png';
 
 import './_Loading.scss';
 
@@ -11,7 +8,7 @@ const Loading = ({ loadPrimary }) => (
     className={`global-loading ${
       loadPrimary ? 'load-primary' : 'load-secondary'
     }`}
-    src={LoadingIcon}
+    src='/shared-assets/images/loading.png'
     alt="Carregando"
   />
 );

@@ -1,7 +1,8 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
-import { Creators as appActions, Creators as ErrorTypes } from '@zup-mgm/mgm-redux-store';
-import { CARD_TYPE, closeWebView } from '@zup-mgm/utils';
+import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
+import { closeWebview } from '@zup-mgm/mdr-engine';
+import { CARD_TYPE } from '@zup-mgm/utils';
 import { Loading } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';
@@ -19,11 +20,11 @@ function App() {
   }, []);
 
   const setRetryActionButton = () => {
-    dispatch(ErrorTypes.tryAgain());
+    dispatch(errorActions.tryAgain());
   };
 
   const setBackAction = () => {
-    closeWebView();
+    closeWebview();
   };
 
   if (hasCriticalError) {

@@ -33,13 +33,12 @@ node {
       echo "Job ${jobName}"
 
       if (branchName == 'development') {
-          echo "Branch name ${branchName}"
           buildWithDockerfileAWS {
               dockerRepositoryName =  repo
-              dockerFileLocation = ". ${argRepoName} ${argRepoPath}"
+              dockerFileLocation = "."
               composeProjectName = repo
-              envProfile = envName
               dockerRegistryGroup = "CARTOES"
+              envProfile = "${envName}  ${argRepoName} ${argRepoPath}"
           }
 
           deployDockerServiceK8s {
@@ -47,7 +46,6 @@ node {
               dockerk8sGroup = 'cartoes'
           }
       } else {
-          echo "Entrou no else ${branchName}"
           buildWithDockerfileITAU {
               dockerRepositoryName =  repo
               dockerFileLocation = ". ${argRepoName} ${argRepoPath}"

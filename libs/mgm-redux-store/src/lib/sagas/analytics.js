@@ -1,3 +1,4 @@
+/* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { call, select, put } from 'redux-saga/effects';
 import { Creators as AppActions } from '../ducks/app';
 import { getCustomLink, track } from '@zup-mgm/utils';

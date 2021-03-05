@@ -4,34 +4,29 @@ import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
 import './_ActionButton.scss';
-
-const clickHandler = (onClick, styling, componentId) => {
-  const { actionFunction, analytics } = onClick;
-  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
-  if (actionFunction) {
-    actionFunction(type, componentId);
-  }
-  if (analytics !== null) {
-    analytics.analyticsFunction(analytics.analyticsParameter);
-  }
-};
-
 export interface ActionButtonProps {
   isLoading: boolean;
 }
 
-const ActionButton = ({ text, onClick, alt, styling, componentId }) => {
+const ActionButton = ({
+  text,
+  onClick,
+  alt,
+  styling,
+  componentId,
+  hasLoading,
+}) => {
   const shareButton = useSelector((state: RootStateOrAny) => state.share);
   return (
     <button
       id={componentId}
-      disabled={isButtonDisabled(shareButton)}
+      disabled={hasLoading && isButtonDisabled(shareButton)}
       aria-label={alt}
       onClick={() => clickHandler(onClick, styling, componentId)}
       type='button'
       className={`action-button ${getButtonStyle(styling)}`}
     >
-      {isButtonLoading(componentId, shareButton) ? (
+      {hasLoading && isButtonLoading(componentId, shareButton) ? (
         <ButtonLoading loadPrimary={styling === 'primary'} />
       ) : (
         text
@@ -40,9 +35,21 @@ const ActionButton = ({ text, onClick, alt, styling, componentId }) => {
   );
 };
 
+const clickHandler = (onClick, styling, componentId) => {
+  const { actionFunction, analytics } = onClick;
+  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
+  if (actionFunction) {
+    actionFunction(type, componentId);
+  } else {
+    onClick();
+  }
+  if (analytics) {
+    analytics.analyticsFunction(analytics.analyticsParameter);
+  }
+};
+
 const isButtonLoading = (componentId, shareButton) => {
   if (Object.keys(shareButton).length > 0) {
-    console.log(shareButton[componentId] && shareButton[componentId].isLoading)
     return shareButton[componentId] && shareButton[componentId].isLoading;
   }
   return false;
@@ -61,11 +68,14 @@ function getButtonStyle(styling) {
 ActionButton.propTypes = {
   alt: PropTypes.string,
   text: PropTypes.string,
+  componentId: PropTypes.string,
+  hasLoading: PropTypes.bool,
 };
 
 ActionButton.defaultProps = {
-  alt: 'voltar',
-  text: '',
+  text: 'voltar',
+  alt: '',
+  hasLoading: true,
 };
 
 export default ActionButton;

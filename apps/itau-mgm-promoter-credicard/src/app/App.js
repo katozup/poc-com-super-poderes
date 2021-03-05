@@ -1,22 +1,49 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
-import { store, appActions } from '@zup-mgm/mgm-redux-store';
+import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
+import { closeWebview } from '@zup-mgm/mdr-engine';
 import { CARD_TYPE } from '@zup-mgm/utils';
-import { useSelector } from 'react-redux';
 import { Loading } from '@zup-mgm/ui-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { DefaultError } from '@zup-mgm/ui-components';
 
 const LazyComponent = lazy(async () => await import('../routes/routes'));
 
 function App() {
   const loading = useSelector((state) => state.app.loading);
+  const hasCriticalError = useSelector((state) => state.error.hasCriticalError);
+  const { whiteLabel } = useSelector((state) => state.app.sduiPayload);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(appActions.initApp(CARD_TYPE.CREDICARD));
+  }, []);
+
+  const setRetryActionButton = () => {
+    dispatch(errorActions.tryAgain());
+  };
+
+  const setBackAction = () => {
+    closeWebview();
+  };
+
+  if (hasCriticalError) {
+    return (
+      <div id='defaultError' className={`App ${whiteLabel.cssTheme}`}>
+        <DefaultError
+          retryAction={setRetryActionButton}
+          backAction={setBackAction}
+        />
+      </div>
+    );
+  }
 
   if (loading) {
-    store.dispatch(appActions.initApp(CARD_TYPE.CREDICARD));
     return <Loading loadPrimary={false} />;
   }
 
   return (
-    <div id='app' className={`App`}>
+    <div id='app' className={`App ${whiteLabel.cssTheme}`}>
       <Suspense fallback={<Loading loadPrimary={false} />}>
         <LazyComponent></LazyComponent>
       </Suspense>

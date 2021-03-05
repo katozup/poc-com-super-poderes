@@ -1,4 +1,11 @@
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { store, errorActions } from '@zup-mgm/mgm-redux-store';
 import nativeHelper from './helpers/nativeHelper';
+import ERROR_TYPES from '../../constants/ERROR_TYPES';
+
+const {
+  SDK: { GET_SDK_ITEM },
+} = ERROR_TYPES;
 
 const getSDKItem = async (key) => {
   try {
@@ -9,7 +16,9 @@ const getSDKItem = async (key) => {
     }
     return value;
   } catch (error) {
-    console.log(error);
+    return store.dispatch(
+      errorActions.callErrorHandler(`${error} error to get the key ${key}`, GET_SDK_ITEM)
+    );
   }
 };
 

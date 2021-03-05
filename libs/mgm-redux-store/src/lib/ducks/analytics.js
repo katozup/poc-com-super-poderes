@@ -1,7 +1,4 @@
 export const Types = {
-  ADD_PRODUCT: 'analytics/ADD_PRODUCT',
-  SET_CUSTOM: 'analytics/SET_CUSTOM',
-  SET_VISITOR: 'analytics/SET_VISITOR',
   SET_PAGE: 'analytics/SET_PAGE',
   PAGE_NAME_ITEM_CLICKED: 'analytics/PAGE_NAME_ITEM_CLICKED',
   EVENT_CATEGORY_EVENT_LABEL: 'analytics/EVENT_CATEGORY_EVENT_LABEL',
@@ -60,16 +57,6 @@ export const Creators = {
     },
   }),
 
-  setCustom: (custom) => ({
-    type: Types.SET_CUSTOM,
-    payload: { custom },
-  }),
-
-  setVisitor: (visitor) => ({
-    type: Types.SET_VISITOR,
-    payload: { visitor },
-  }),
-
   addCustomLinkNps: (analyticsParameter) => ({
     type: Types.PAGE_NAME_ITEM_CLICKED,
     payload: {
@@ -77,6 +64,7 @@ export const Creators = {
       eventLabel: analyticsParameter.eventLabel,
     },
   }),
+
   setPage: (page) => ({
     type: Types.SET_PAGE,
     payload: { page },

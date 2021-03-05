@@ -35,10 +35,10 @@ node {
       if (branchName == 'development') {
           buildWithDockerfileAWS {
               dockerRepositoryName =  repo
-              dockerFileLocation = ". ${argRepoName} ${argRepoPath}"
-              dockerRegistryGroup = "CARTOES"
-              envProfile = envName
+              dockerFileLocation = "."
               composeProjectName = repo
+              dockerRegistryGroup = "CARTOES"
+              envProfile = "${envName}  ${argRepoName} ${argRepoPath}"
           }
 
           deployDockerServiceK8s {

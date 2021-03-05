@@ -1,7 +1,6 @@
-import { shareActions } from '../../../../../../mgm-redux-store/src/lib/ducks/creatorsActions';
-import store from '@zup-mgm/mgm-redux-store';
+import { store, shareActions } from '@zup-mgm/mgm-redux-store';
 
-export default function (type, buttonIndex, componentId) {
-  store.dispatch(shareActions.shareRequest(type, buttonIndex, componentId));
+export default function (type, componentId) {
+  store.dispatch(shareActions.shareRequest(type, componentId));
   return;
 }

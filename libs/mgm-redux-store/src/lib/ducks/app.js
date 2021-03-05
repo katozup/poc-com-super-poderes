@@ -21,8 +21,8 @@ export default function appReducer(state = INITIAL_STATE, action) {
         ...state,
         loading: false,
       };
-    
-      case Types.INIT_APP:
+
+    case Types.INIT_APP:
       return {
         ...state,
         cardType: action.payload.cardType,
@@ -43,7 +43,7 @@ export default function appReducer(state = INITIAL_STATE, action) {
     case Types.SET_CARD_TYPE:
       return {
         ...state,
-        cardType: action.payload.cardType
+        cardType: action.payload.cardType,
       };
 
     default:

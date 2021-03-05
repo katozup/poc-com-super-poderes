@@ -4,19 +4,9 @@ import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
 import './_ActionButton.scss';
-
-const clickHandler = (onClick, styling, componentId) => {
-  const { actionFunction, analytics } = onClick;
-  const buttonIndex = styling === 'primary' ? 0 : 1;
-  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
-  if (actionFunction) {
-    actionFunction(type, buttonIndex, componentId);
-  } else if (analytics) {
-    analytics.analyticsFunction(analytics.analyticsParameter);
-  } else {
-    onClick();
-  }
-};
+export interface ActionButtonProps {
+  isLoading: boolean;
+}
 
 const ActionButton = ({
   text,
@@ -25,39 +15,53 @@ const ActionButton = ({
   styling,
   componentId,
   hasLoading,
-}) => (
-  <button
-    id={componentId}
-    disabled={hasLoading && isButtonDisabled()}
-    aria-label={alt}
-    onClick={() => clickHandler(onClick, styling, componentId)}
-    type='button'
-    className={`action-button ${getButtonStyle(styling)}`}
-  >
-    {hasLoading && isButtonLoading(componentId) ? (
-      <ButtonLoading loadPrimary={styling === 'primary'} />
-    ) : (
-      text
-    )}
-  </button>
-);
-
-const isButtonLoading = (componentId) => {
+}) => {
   const shareButton = useSelector((state: RootStateOrAny) => state.share);
+  return (
+    <button
+      id={componentId}
+      disabled={hasLoading && isButtonDisabled(shareButton)}
+      aria-label={alt}
+      onClick={() => clickHandler(onClick, styling, componentId)}
+      type='button'
+      className={`action-button ${getButtonStyle(styling)}`}
+    >
+      {hasLoading && isButtonLoading(componentId, shareButton) ? (
+        <ButtonLoading loadPrimary={styling === 'primary'} />
+      ) : (
+        text
+      )}
+    </button>
+  );
+};
+
+const clickHandler = (onClick, styling, componentId) => {
+  const { actionFunction, analytics } = onClick;
+  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
+  if (actionFunction) {
+    actionFunction(type, componentId);
+  } else {
+    onClick();
+  }
+  if (analytics) {
+    analytics.analyticsFunction(analytics.analyticsParameter);
+  }
+};
+
+const isButtonLoading = (componentId, shareButton) => {
   if (Object.keys(shareButton).length > 0) {
     return shareButton[componentId] && shareButton[componentId].isLoading;
   }
   return false;
 };
 
-const isButtonDisabled = () => {
-  const shareButton = useSelector((state: RootStateOrAny) => state.share);
+const isButtonDisabled = (shareButton) => {
   return Object.values(shareButton).some(
-    (button: any) => button.isLoading === true
+    (button: ActionButtonProps) => button.isLoading === true
   );
 };
 
-export function getButtonStyle(styling) {
+function getButtonStyle(styling) {
   return `${styling}-button`;
 }
 

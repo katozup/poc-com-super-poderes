@@ -13,7 +13,6 @@ export default {
   },
   SDK: {
     CLOSE_WEBVIEW: 'closeWebview',
-    GET_SDK_ITEM: 'getSDKItem',
-    GET_COUPON: 'getCoupon',
+    GET_SDK_ITEM: 'getSDKItem'
   },
 };

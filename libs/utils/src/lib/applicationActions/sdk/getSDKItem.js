@@ -1,12 +1,11 @@
-import { Creators as errorActions } from '../../../../../../libs/mgm-redux-store/src/lib/ducks/error';
-import { ERROR_TYPES } from '../../constants';
+// eslint-disable-next-line @nrwl/nx/enforce-module-boundaries
+import { store, errorActions } from '@zup-mgm/mgm-redux-store';
 import nativeHelper from './helpers/nativeHelper';
-import store from '@zup-mgm/mgm-redux-store';
+import ERROR_TYPES from '../../constants/ERROR_TYPES';
 
 const {
   SDK: { GET_SDK_ITEM },
 } = ERROR_TYPES;
-const { callErrorHandler } = errorActions;
 
 const getSDKItem = async (key) => {
   try {
@@ -18,7 +17,7 @@ const getSDKItem = async (key) => {
     return value;
   } catch (error) {
     return store.dispatch(
-      callErrorHandler(`${error} error to get the key ${key}`, GET_SDK_ITEM)
+      errorActions.callErrorHandler(`${error} error to get the key ${key}`, GET_SDK_ITEM)
     );
   }
 };

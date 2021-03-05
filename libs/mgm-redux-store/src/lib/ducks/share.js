@@ -25,9 +25,9 @@ export default function shareReducer(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  shareRequest: (type, buttonIndex, componentId) => ({
+  shareRequest: (type, componentId) => ({
     type: Types.SHARE_REQUEST,
-    payload: { type, buttonIndex, componentId },
+    payload: { type, componentId },
   }),
 
   shareSuccess: (componentId) => ({

@@ -43,8 +43,8 @@ const clickHandler = (onClick, styling, componentId) => {
   } else {
     onClick();
   }
-  if (analytics) {
-    analytics.analyticsFunction(analytics.analyticsParameter);
+  if (analytics && analytics.customLink) {
+    analytics.customLink.analyticsFunction(analytics.customLink.analyticsParameter);
   }
 };
 

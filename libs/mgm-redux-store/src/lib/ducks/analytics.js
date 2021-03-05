@@ -2,6 +2,7 @@ export const Types = {
   SET_PAGE: 'analytics/SET_PAGE',
   PAGE_NAME_ITEM_CLICKED: 'analytics/PAGE_NAME_ITEM_CLICKED',
   EVENT_CATEGORY_EVENT_LABEL: 'analytics/EVENT_CATEGORY_EVENT_LABEL',
+  PAGE_NAME: 'analytics/PAGE_NAME',
 };
 
 const INITIAL_STATE = {
@@ -12,6 +13,9 @@ const INITIAL_STATE = {
   customLinkNPS: {
     eventCategory: '',
     eventLabel: '',
+  },
+  pageLoad: {
+    pageName: '',
   },
 };
 
@@ -35,10 +39,18 @@ export default function analyticsReducer(state = INITIAL_STATE, action) {
         },
       };
 
+    case Types.PAGE_NAME:
+      return {
+        ...state,
+        pageLoad: {
+          pageName: action.payload.pageName,
+        },
+      };
+
     case Types.SET_PAGE:
       return {
         ...state,
-        page: {
+        pageLoad: {
           ...action.payload.page,
         },
       };
@@ -65,8 +77,8 @@ export const Creators = {
     },
   }),
 
-  setPage: (page) => ({
-    type: Types.SET_PAGE,
+  addPageLoad: (page) => ({
+    type: Types.PAGE_NAME,
     payload: { page },
   }),
 };

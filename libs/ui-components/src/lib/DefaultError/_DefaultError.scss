@@ -1,0 +1,57 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src//assets/fonts/itauFonts';
+
+.default-error {
+  height: 100vw;
+  background-color: $background-content;
+  z-index: 9999;
+
+  .error-header-block {
+    padding-top: 16.9vw;
+    text-align: center;
+    padding-bottom: 5.4vw;
+
+    .error-img {
+      width: 46.9vw;
+      height: auto;
+    }
+  }
+  .error-content-block {
+    padding: 0 32px;
+
+    .error-title {
+      color: $title-primary;
+      font-size: 30px;
+      margin: 0 0 20px 0;
+      font-family: $itauRegular;
+    }
+
+    .error-description {
+      color: $text-secondary;
+      font-size: 16px;
+      margin: 0 0 16px 0;
+      font-family: $itauRegular;
+    }
+
+    .retry-button {
+      color: $link-default;
+      font-size: 16px;
+      margin: 0;
+      font-family: $itauRegular;
+      text-decoration: underline;
+    }
+  }
+
+  .error-footer-block {
+    padding: 16px;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    left: 0px;
+
+    .action-button {
+      font-size: 18px;
+    }
+  }
+}

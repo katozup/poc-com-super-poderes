@@ -5,6 +5,7 @@ export { default as AppPage } from "./lib/AppPage/AppPage";
 export { default as TitleH2Parsed } from "./lib/TitleH2Parsed/TitleH2Parsed";
 export { default as TitleH1 } from "./lib/TitleH1/TitleH1";
 export { default as SimpleTextParsed } from "./lib/SimpleTextParsed/SimpleTextParsed";
+export { default as DefaultError } from "./lib/DefaultError/DefaultError";
 export { default as IconButton } from "./lib/IconButton/IconButton";
 export { default as ActionButton } from "./lib/ActionButton/ActionButton";
 export { default as Loading } from "./lib/Loading/Loading";

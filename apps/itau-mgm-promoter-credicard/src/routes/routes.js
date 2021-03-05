@@ -30,15 +30,8 @@ async function pagesBuilder(routesJson) {
   );
 }
 
-//TODO: Estudar uma solução melhor para setar a classe do tema sem ser pelo DOM
-function setCssTheme(cssTheme) {
-  let mainDivContainer = document.getElementById('app');
-  if (mainDivContainer) {
-    mainDivContainer.classList.add(cssTheme);
-    const regx = new RegExp('credicard');
-    if (cssTheme === '' || !regx.test(cssTheme)) {
-      return 'credicard-theme-default';
-    }
+function importCssTheme(cssTheme) {
+  if (cssTheme) {
     require(`../../../../libs/shared/assets/src/assets/themes/${cssTheme}.css`);
   }
 }
@@ -46,7 +39,7 @@ function setCssTheme(cssTheme) {
 export default function Routes() {
   const [appRoutes, setAppRoutes] = useState();
   const payload = useSelector((state) => state.app.sduiPayload);
-  setCssTheme(payload.whiteLabel.cssTheme);
+  importCssTheme(payload.whiteLabel.cssTheme);
 
   const savePageToState = async () => {
     const pages = await routesBuilder(payload);

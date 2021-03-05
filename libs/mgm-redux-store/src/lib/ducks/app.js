@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   loading: true,
   bearerToken: '',
   sduiPayload: '',
-  cardType: '',
+  cardType: ''
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
@@ -75,5 +75,5 @@ export const Creators = {
   setCardType: (cardType) => ({
     type: Types.SET_CARD_TYPE,
     payload: { cardType },
-  }),
+  })
 };

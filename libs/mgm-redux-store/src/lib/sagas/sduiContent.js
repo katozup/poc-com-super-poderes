@@ -1,6 +1,6 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { call, put, select } from 'redux-saga/effects';
-import { getSduiContent, getDnDefault, HTTP_STATUS} from '@zup-mgm/utils';
+import { getSduiContent, getDnDefault, HTTP_STATUS } from '@zup-mgm/utils';
 import { Creators as AppActions } from '../ducks/app';
 import { appActions } from '../ducks/creatorsActions';
 

@@ -1,22 +1,19 @@
+import {CustomLink} from './model/CustomLink';
+import {CustomLinkNps} from './model/CustomLinkNps';
+
 export const Types = {
-  SET_PAGE: 'analytics/SET_PAGE',
   PAGE_NAME_ITEM_CLICKED: 'analytics/PAGE_NAME_ITEM_CLICKED',
   EVENT_CATEGORY_EVENT_LABEL: 'analytics/EVENT_CATEGORY_EVENT_LABEL',
   PAGE_NAME: 'analytics/PAGE_NAME',
+  TRACK_PAGE_LOAD_ERROR: 'analytics/TRACK_PAGE_LOAD_ERROR',
+  SET_TRIGGER_PAGE_LOAD_GA: 'analytics/SET_TRIGGER_PAGE_LOAD_GA',
 };
 
 const INITIAL_STATE = {
-  customLink: {
-    pageName: '',
-    itemClicked: '',
-  },
-  customLinkNPS: {
-    eventCategory: '',
-    eventLabel: '',
-  },
   pageLoad: {
     pageName: '',
   },
+  shouldTriggerPageLoadGA: true,
 };
 
 export default function analyticsReducer(state = INITIAL_STATE, action) {
@@ -24,34 +21,26 @@ export default function analyticsReducer(state = INITIAL_STATE, action) {
     case Types.PAGE_NAME_ITEM_CLICKED:
       return {
         ...state,
-        customLink: {
-          pageName: action.payload.pageName,
-          itemClicked: action.payload.itemClicked,
-        },
+        [action.payload.componentId]: action.payload.customLink,
       };
 
     case Types.EVENT_CATEGORY_EVENT_LABEL:
       return {
         ...state,
-        customLinkNPS: {
-          eventCategory: action.payload.eventCategory,
-          eventLabel: action.payload.eventLabel,
-        },
+        [action.payload.componentId]: action.payload.customLinkNps,
       };
 
     case Types.PAGE_NAME:
       return {
         ...state,
-        pageLoad: {
-          pageName: action.payload.pageName,
-        },
+        shouldTriggerPageLoadGA: action.payload.shouldTriggerPageLoadGA,
       };
 
-    case Types.SET_PAGE:
+    case Types.SET_TRIGGER_PAGE_LOAD_GA:
       return {
         ...state,
         pageLoad: {
-          ...action.payload.page,
+          pageName: action.payload.pageName,
         },
       };
 
@@ -61,19 +50,19 @@ export default function analyticsReducer(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  addCustomLink: (analyticsParameter) => ({
+  addCustomLink: (analyticsParameter, componentId) => ({
     type: Types.PAGE_NAME_ITEM_CLICKED,
     payload: {
-      pageName: analyticsParameter.pageName,
-      itemClicked: analyticsParameter.itemClicked,
+      componentId,
+      customLink: new CustomLink(analyticsParameter.pageName, analyticsParameter.itemClicked),
     },
   }),
 
-  addCustomLinkNps: (analyticsParameter) => ({
+  addCustomLinkNps: (analyticsParameter, componentId) => ({
     type: Types.PAGE_NAME_ITEM_CLICKED,
     payload: {
-      eventCategory: analyticsParameter.eventCategory,
-      eventLabel: analyticsParameter.eventLabel,
+      componentId,
+      customLinkNps: new CustomLinkNps(analyticsParameter.eventCategory, analyticsParameter.eventLabel),
     },
   }),
 
@@ -81,4 +70,14 @@ export const Creators = {
     type: Types.PAGE_NAME,
     payload: { page },
   }),
+
+  trackPageLoadError: () => ({
+    type: Types.TRACK_PAGE_LOAD_ERROR,
+    payload: {},
+  }),
+
+  setTriggerPageLoadGA: (shouldTriggerPageLoadGA) => ({
+    type: Types.SET_TRIGGER_PAGE_LOAD_GA,
+    payload: {shouldTriggerPageLoadGA},
+  })
 };

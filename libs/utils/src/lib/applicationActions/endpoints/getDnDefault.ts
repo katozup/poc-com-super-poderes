@@ -1,13 +1,13 @@
-import { select } from "redux-saga/effects";
+import { select } from 'redux-saga/effects';
 import api from '../../config/api';
 import ENDPOINTS_CONSTANTS from './ENDPOINTS_CONSTANTS';
 import { environment } from '../../config/environment';
 
 const { DN_DEFAULT } = ENDPOINTS_CONSTANTS;
 const { GATEWAY_APP_KEY } = environment;
-const cardType = 'CREDICARD';
 
 export function* getDnDefault() {
+  const { cardType } = yield select((state) => state.app);
   const { bearerToken } = yield select((state) => state.app);
   const config = { headers: { Authorization: `Bearer ${bearerToken}` } };
 

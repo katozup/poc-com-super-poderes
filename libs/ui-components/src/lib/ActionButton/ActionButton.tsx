@@ -39,12 +39,9 @@ const clickHandler = (onClick, styling, componentId) => {
   const { actionFunction, analytics } = onClick;
   const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
   if (actionFunction) {
-    actionFunction(type, componentId);
+    actionFunction(type, componentId, analytics);
   } else {
     onClick();
-  }
-  if (analytics && analytics.customLink) {
-    analytics.customLink.analyticsFunction(analytics.customLink.analyticsParameter);
   }
 };
 

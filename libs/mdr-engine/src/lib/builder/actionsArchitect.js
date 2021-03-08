@@ -14,7 +14,7 @@ export default function actionsArchitect(actions, analytics) {
     };
 
     componentActions[enumTranslator(action.event)].analytics = {
-      customLin: analyticsArchitect(analytics),
+      customLink: analyticsArchitect(analytics),
     }
   });
 

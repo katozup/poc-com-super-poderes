@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import ImageComponent from "./ImageComponent";
+import IconComponent from "./IconComponent";
 
-describe("ImageComponent", () => {
+describe("IconComponent", () => {
   it("should render successfully", () => {
-    const { baseElement } = render(<ImageComponent url="" />);
+    const { baseElement } = render(<IconComponent />);
     expect(baseElement).toBeTruthy();
   });
 });

@@ -1,0 +1,22 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
+
+.card-main-container {
+  padding: 24px 16px 16px;
+
+  .card-info-container {
+    padding: 8px 16px;
+    width: 100%;
+    background-color: $background-content;
+    border: 1px solid $border;
+    display: flex;
+    align-items: center;
+
+    .card-content-container {
+      .card-content-values {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}

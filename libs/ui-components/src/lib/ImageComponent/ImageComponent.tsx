@@ -2,11 +2,10 @@ import React from 'react';
 
 import './_ImageComponent.scss';
 
-const ImageComponent = () => {
+const ImageComponent = ({ url }) => {
   return (
-    <div>
-      <h1>Welcome to ImageComponent!</h1>
-    </div>
+    //TODO: Pegar alt do backend (não tá retornando)
+    <img className='image' src={url} alt='' />
   );
 };
 

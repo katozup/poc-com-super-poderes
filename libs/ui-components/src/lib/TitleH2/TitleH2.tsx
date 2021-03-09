@@ -1,15 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import "./title-h2.module.scss";
+import './_TitleH2.scss';
 
-/* eslint-disable-next-line */
-export interface TitleH2Props {}
-
-export function TitleH2(props: TitleH2Props) {
+export function TitleH2({ text, componentId }) {
   return (
-    <div>
-      <h1>Welcome to TitleH2!</h1>
-    </div>
+    <h2 className='title' id={componentId}>
+      {text}
+    </h2>
   );
 }
 

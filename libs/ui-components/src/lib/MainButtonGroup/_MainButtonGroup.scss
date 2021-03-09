@@ -1,8 +1,25 @@
-.button-list-content {
-  margin-bottom: 88px;
-  padding: 0px 16px;
+.credicard,
+.credicard-theme-default,
+.credicard-theme-cashback {
+  .button-list-content {
+    margin-bottom: 88px;
+    padding: 0px 16px;
 
-  .action-button + .action-button {
-    margin-top: 12px;
+    .action-button + .action-button {
+      margin-top: 12px;
+    }
+  }
+}
+
+.itaucard-theme-default, .hipercard-theme-default, .cartaoluiza-theme-default {
+  .button-list-content {
+    padding: 24px 16px 16px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+
+    .action-button + .action-button {
+      margin-top: 8px;
+    }
   }
 }

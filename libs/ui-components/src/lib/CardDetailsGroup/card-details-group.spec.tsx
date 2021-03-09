@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import ImageCardDetails from './ImageCardDetails';
+import CardDetailsGroup from './CardDetailsGroup';
 
-describe('ImageCardDetails', () => {
+describe('CardDetails', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<ImageCardDetails children={[]} />);
+    const { baseElement } = render(<CardDetailsGroup children={[]} />);
     expect(baseElement).toBeTruthy();
   });
 });

@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import "./_ImageCardDetails.scss";
+import './_ImageCardDetails.scss';
 
-/* eslint-disable-next-line */
-export interface ImageCardDetailsProps {}
-
-export function ImageCardDetails(props: ImageCardDetailsProps) {
+export function ImageCardDetails({ children }) {
   return (
-    <div>
-      <h1>Welcome to ImageCardDetails!</h1>
+    <div className='card-main-container'>
+      <div className='card-info-container'>
+        <div className='card-content-container'>
+          <div className="card-content-values">{children}</div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,10 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
+
+.icon-container {
+  padding-right: 12px;
+  .icon {
+      font-size: 24px;
+      color: var(--primary);
+  }
+}

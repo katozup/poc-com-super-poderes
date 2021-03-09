@@ -1,48 +1,24 @@
 .cartaoluiza-theme-default {
-    --background-app: #F2F5F7;
-    --background-content: #fff;
-    --background-content-negative: #106eb0;
-    --background-header: #f4f7fb;
-    --background-form: #FAF8F7;
+  --primary: #106eb0;
+  --text-primary: #231d19;
+  --text-secondary: #56504c;
   
-    --primary: #106eb0;
-    --primary-negative: #fff;
-    --secondary: #3f4243;
-    --accent: #106eb0;
-    --secondary-light: #8E8E8E;
-    --line-separator: #607b93;
-    --title-primary: #106eb0;
-    --link: #1179b9;
-    --border: #979797;
-    --light-border: #EFE9E5;
-  
-    --header-background: #F4F7FB;
-    --header-title: #231D19;
-    --error-text: #252220;
-    --link-default: #1179b9;
-  
-    --main-title: #fff;
-  
-    --navmenu-background: transparent;
-    --navmenu-background-negative: #fff ;
-    --navmenu-links: #fff;
-    --navmenu-links-negative: #003767 ;
-  
-    --pageintro-background: #fff;
-    --pageintro-title: #106eb0;
-    --pageintro-subtitle: #3f4243;
-    --pageintro-description-icon: #106eb0;
-    --pageintro-description-title: #3f4243;
-    --pageintro-description-subtitle: #3f4243;
-  
-    --benefit-card-button: #106eb0;
-    --benefit-card-button-title: #fff;
-  
-    --productdetail-list-title-mobile: #3f4243;
-    --productdetail-list-title-desktop: #106eb0;
-    --productdetail-list-firstitem-border: #106eb0;
-    --productdetail-item-icon-color: #106eb0;
-    --productdetail-item-title-color: #3f4243;
-    --productdetail-item-text-color: #3f4243;
-    --productdetail-item-link-color: #1179b9;
-  }
+  --background-app: #fff;
+  --background-content: #fff;
+
+  --border: #efe9e5;
+
+  --shadow: rgba(122, 109, 96, 0.24);
+
+  --button-primary: #106eb0;
+  --button-primary-text: #fff;
+
+  --button-secondary: #fff;
+  --button-secondary-text: #106eb0;
+
+  --link: #106eb0;
+  --link-default: #106eb0;
+
+  --error-title: #781b8e;
+  --error-text: #252220;
+}

@@ -31,6 +31,7 @@ function App() {
     return (
       <div id='defaultError' className={`App ${whiteLabel.cssTheme}`}>
         <DefaultError
+          backgroundImage={'/shared-assets/img/default_error_credicard.png'}
           retryAction={setRetryActionButton}
           backAction={setBackAction}
         />

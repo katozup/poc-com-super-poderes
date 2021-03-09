@@ -22,7 +22,7 @@ const ActionButton = ({
       id={componentId}
       disabled={hasLoading && isButtonDisabled(shareButton)}
       aria-label={alt}
-      onClick={() => clickHandler(onClick, styling, componentId)}
+      onClick={() => clickHandler(onClick, componentId)}
       type='button'
       className={`action-button ${getButtonStyle(styling)}`}
     >
@@ -35,7 +35,7 @@ const ActionButton = ({
   );
 };
 
-const clickHandler = (onClick, styling, componentId) => {
+const clickHandler = (onClick, componentId) => {
   const { actionFunction, analytics } = onClick;
   if (actionFunction) {
     actionFunction(componentId, analytics);

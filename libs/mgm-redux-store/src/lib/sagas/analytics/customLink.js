@@ -13,9 +13,8 @@ export function* trackGACustomLink() {
 }
 
 export function* trackGACustomLinkNPS(action) {
-  const { customLinks } = yield select(state => state.analytics);
-  let customLinkNPS = customLinks[action.payload.componentId];
-  const customLink = yield getCustomLinkPayload(customLinkNPS);
+  let { customLinkNps } = yield select(state => state.analytics);
+  const customLink = yield getCustomLinkPayload(customLinkNps);
   track(customLink);
 }
 

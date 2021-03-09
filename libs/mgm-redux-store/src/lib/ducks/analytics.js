@@ -1,6 +1,3 @@
-import {CustomLink} from './model/CustomLink';
-import {CustomLinkNps} from './model/CustomLinkNps';
-
 export const Types = {
   PAGE_NAME_ITEM_CLICKED: 'analytics/PAGE_NAME_ITEM_CLICKED',
   EVENT_CATEGORY_EVENT_LABEL: 'analytics/EVENT_CATEGORY_EVENT_LABEL',

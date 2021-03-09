@@ -32,7 +32,7 @@ async function pagesBuilder(routesJson) {
 
 function importCssTheme(cssTheme) {
   if (cssTheme) {
-    require(`../../../../libs/shared/assets/src/assets/themes/${cssTheme}.scss`);
+    require(`../../../../libs/shared/assets/src/assets/themes/${cssTheme}.css`);
   }
 }
 

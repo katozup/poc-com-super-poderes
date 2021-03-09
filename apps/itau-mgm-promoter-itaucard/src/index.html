@@ -2,11 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>ItauMgmPromoterItaucard</title>
-    <base href="/" />
+    <script
+      id="importLibJSFrameworkDA"
+      type="text/javascript"
+      src="https://www.itau.com.br/_arquivosestaticos/Itau/defaultTheme/js/da/framework/importLibJSFrameworkDA.js?T34Z5CT"
+    ></script>
+    <script
+      id="frameworkDA"
+      type="text/javascript"
+      src="https://www.itau.com.br/_arquivosestaticos/Itau/defaultTheme/js/da/framework/frameworkDA.js?T34Z5CT"
+    ></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <script>
+      // Receptor de funções de callback do SDK
+      let callBackFunction = null;
+
+      setCallBackFunction = (newFunction) => {
+        callBackFunction = newFunction;
+      };
+
+      execCallBackFunction = (callBackReturn) =>
+        callBackFunction(callBackReturn);
+    </script>
   </head>
   <body>
     <div id="root"></div>

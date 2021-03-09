@@ -4,9 +4,9 @@ import {CustomLinkNps} from './model/CustomLinkNps';
 export const Types = {
   PAGE_NAME_ITEM_CLICKED: 'analytics/PAGE_NAME_ITEM_CLICKED',
   EVENT_CATEGORY_EVENT_LABEL: 'analytics/EVENT_CATEGORY_EVENT_LABEL',
-  PAGE_NAME: 'analytics/PAGE_NAME',
-  TRACK_PAGE_LOAD_ERROR: 'analytics/TRACK_PAGE_LOAD_ERROR',
-  SET_TRIGGER_PAGE_LOAD_GA: 'analytics/SET_TRIGGER_PAGE_LOAD_GA',
+  PAGE_LOAD: 'analytics/PAGE_LOAD',
+  // TRACK_PAGE_LOAD_ERROR: 'analytics/TRACK_PAGE_LOAD_ERROR',
+  // SET_TRIGGER_PAGE_LOAD_GA: 'analytics/SET_TRIGGER_PAGE_LOAD_GA',
 };
 
 const INITIAL_STATE = {
@@ -30,19 +30,19 @@ export default function analyticsReducer(state = INITIAL_STATE, action) {
         [action.payload.componentId]: action.payload.customLinkNps,
       };
 
-    case Types.PAGE_NAME:
+    case Types.PAGE_LOAD:
       return {
         ...state,
-        shouldTriggerPageLoadGA: action.payload.shouldTriggerPageLoadGA,
+        pageLoad: action.payload.pageLoad,
       };
 
-    case Types.SET_TRIGGER_PAGE_LOAD_GA:
-      return {
-        ...state,
-        pageLoad: {
-          pageName: action.payload.pageName,
-        },
-      };
+    // case Types.SET_TRIGGER_PAGE_LOAD_GA:
+    //   return {
+    //     ...state,
+    //     pageLoad: {
+    //       pageName: action.payload.pageName,
+    //     },
+    //   };
 
     default:
       return state;
@@ -66,18 +66,18 @@ export const Creators = {
     },
   }),
 
-  addPageLoad: (page) => ({
-    type: Types.PAGE_NAME,
-    payload: { page },
+  addPageLoad: (pageLoad) => ({
+    type: Types.PAGE_LOAD,
+    payload: { pageLoad },
   }),
 
-  trackPageLoadError: () => ({
-    type: Types.TRACK_PAGE_LOAD_ERROR,
-    payload: {},
-  }),
+  // trackPageLoadError: () => ({
+  //   type: Types.TRACK_PAGE_LOAD_ERROR,
+  //   payload: {},
+  // }),
 
-  setTriggerPageLoadGA: (shouldTriggerPageLoadGA) => ({
-    type: Types.SET_TRIGGER_PAGE_LOAD_GA,
-    payload: {shouldTriggerPageLoadGA},
-  })
+  // setTriggerPageLoadGA: (shouldTriggerPageLoadGA) => ({
+  //   type: Types.SET_TRIGGER_PAGE_LOAD_GA,
+  //   payload: {shouldTriggerPageLoadGA},
+  // })
 };

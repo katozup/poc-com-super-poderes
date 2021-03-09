@@ -32,7 +32,7 @@ export function* getCustomLinkPayload(customLinkRequest) {
     yield put(AppActions.setBearerToken(bearerToken));
     return customLink;
   } catch(error) {
-    yield call(trackGAPageLoad);
+    yield call(trackGAPageLoad, GET_GA_PAYLOAD);
     yield put(ErrorActions.callErrorHandler(error, GET_GA_PAYLOAD));
   }
 }

@@ -1,5 +1,5 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import { call, put, select } from 'redux-saga/effects';
+import { call, put, select, all } from 'redux-saga/effects';
 import { getShareLink, shareLinkSdk } from '@zup-mgm/utils';
 import { trackGACustomLink } from './analytics/customLink';
 import { Creators as ErrorActions } from '../ducks/error';
@@ -18,6 +18,7 @@ export function* getLinkAndShare(action) {
     const { chpras } = yield select((state) => state.sdk);
     const { dn } = yield select((state) => state.app.sduiPayload);
     
+    //TODO: Fazer chamada do getShare e trackGACustomLink asyn?
     const { shareMessage,  bearerToken } = yield call(getShareLink, dn, chpras);
     const shareMethod = action.payload.type;
 

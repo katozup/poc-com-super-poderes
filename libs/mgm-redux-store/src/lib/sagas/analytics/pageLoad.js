@@ -7,13 +7,13 @@ import { DefaultPageLoad } from '../models/analytics/pageLoad/DefaultPageLoad';
 
 const {
   ANALYTICS: { GET_GA_PAYLOAD }, 
+  FLOW: { INIT_APP },
 } = ERROR_TYPES;
 
-export function* trackGAPageLoad() {
+export default function* trackGAPageLoad() {
   let { pageLoad } = yield select(state => state.analytics);
   const pageLoadRequest = yield buildPageLoadRequest(pageLoad);
   pageLoad = yield getPageLoadPayload (pageLoadRequest);
-  AnalyticsActions.setTriggerPageLoadGA(false);
   track(pageLoad);
 }
 
@@ -40,13 +40,15 @@ function* getPageLoadPayload(pageLoadRequest) {
     yield put(AppActions.setBearerToken(bearerToken));
     return pageLoad;
   } catch(error) {
-    yield put(ErrorActions.callErrorHandler(error, GET_GA_PAYLOAD));
-    return yield buildDefaultPageLoad();
+    const errorName = resolveErrorName(pageLoadRequest);
+    return yield buildDefaultPageLoad(errorName);
   }
 }
 
-function* buildDefaultPageLoad() {
+const resolveErrorName = (pageLoadRequest) => pageLoadRequest.errorName ? pageLoadRequest.errorName : GET_GA_PAYLOAD;
+
+function* buildDefaultPageLoad(errorName) {
   const { cardType } = yield select(state => state.app);
   const dnFromSdk = yield select((state) => state.sdk.dn);
-  return new DefaultPageLoad(cardType, dnFromSdk, GET_GA_PAYLOAD);
+  return new DefaultPageLoad(cardType, dnFromSdk, errorName);
 }

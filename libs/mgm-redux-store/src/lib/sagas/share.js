@@ -17,8 +17,6 @@ export function* getLinkAndShare(action) {
   try {
     const { chpras } = yield select((state) => state.sdk);
     const { dn } = yield select((state) => state.app.sduiPayload);
-    
-    //TODO: Fazer chamada do getShare e trackGACustomLink asyn?
     const { shareMessage,  bearerToken } = yield call(getShareLink, dn, chpras);
     const shareMethod = action.payload.type;
 

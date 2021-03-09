@@ -37,9 +37,8 @@ const ActionButton = ({
 
 const clickHandler = (onClick, styling, componentId) => {
   const { actionFunction, analytics } = onClick;
-  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
   if (actionFunction) {
-    actionFunction(type, componentId, analytics);
+    actionFunction(componentId, analytics);
   } else {
     onClick();
   }

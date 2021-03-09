@@ -26,6 +26,5 @@ export function* initApp() {
     return yield put(stopLoading());
   } catch (error) {
     return yield put(callErrorHandler(error, INIT_APP));
-    // yield call(trackGAPageLoad, INIT_APP);
   }
 }

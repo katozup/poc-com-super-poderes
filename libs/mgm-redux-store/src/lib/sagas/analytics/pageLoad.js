@@ -1,13 +1,10 @@
 import { call, select, put } from 'redux-saga/effects';
 import { Creators as AppActions } from '../../ducks/app';
-import { Creators as ErrorActions } from '../../ducks/error';
-import { Creators as AnalyticsActions } from '../../ducks/analytics';
 import { getPageLoad, track, ERROR_TYPES } from '@zup-mgm/utils';
 import { DefaultPageLoad } from '../models/analytics/pageLoad/DefaultPageLoad';
 
 const {
   ANALYTICS: { GET_GA_PAYLOAD }, 
-  FLOW: { INIT_APP },
 } = ERROR_TYPES;
 
 export default function* trackGAPageLoad() {
@@ -45,7 +42,8 @@ function* getPageLoadPayload(pageLoadRequest) {
   }
 }
 
-const resolveErrorName = (pageLoadRequest) => pageLoadRequest.errorName ? pageLoadRequest.errorName : GET_GA_PAYLOAD;
+const resolveErrorName = (pageLoadRequest) => 
+pageLoadRequest.errorName ? pageLoadRequest.errorName : GET_GA_PAYLOAD;
 
 function* buildDefaultPageLoad(errorName) {
   const { cardType } = yield select(state => state.app);

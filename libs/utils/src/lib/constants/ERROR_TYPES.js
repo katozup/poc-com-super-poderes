@@ -10,6 +10,7 @@ export default {
   },
   ANALYTICS: {
     ITAU_TRACK: 'itauTrack',
+    GET_GA_PAYLOAD: "getGaPayload",
   },
   SDK: {
     CLOSE_WEBVIEW: 'closeWebview',

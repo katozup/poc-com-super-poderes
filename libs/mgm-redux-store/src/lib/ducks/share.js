@@ -1,9 +1,12 @@
 export const Types = {
   SHARE_REQUEST: 'share/REQUEST',
   SHARE_SUCCESS: 'share/SUCCESS',
+  SET_TRIGGER_ANALYTICS: 'share/SET_TRIGGER_ANALYTICS',
 };
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+
+};
 
 export default function shareReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -17,6 +20,14 @@ export default function shareReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         [action.payload.componentId]: { isLoading: false },
+      };
+
+    case Types.SET_TRIGGER_ANALYTICS:
+      return {
+        ...state,
+        [action.payload.componentId]: { 
+          shouldTriggerAnalytics: action.payload.shouldTriggerAnalytics 
+        },
       };
 
     default:
@@ -33,5 +44,10 @@ export const Creators = {
   shareSuccess: (componentId) => ({
     type: Types.SHARE_SUCCESS,
     payload: { componentId },
+  }),
+
+  setTriggerAnalytics: (shouldTriggerAnalytics, componentId) => ({
+    type: Types.SET_TRIGGER_ANALYTICS,
+    payload: { shouldTriggerAnalytics, componentId },
   }),
 };

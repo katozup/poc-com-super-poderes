@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
-import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
+import { analyticsActions, appActions, errorActions } from '@zup-mgm/mgm-redux-store';
 import { closeWebview } from '@zup-mgm/mdr-engine';
 import { CARD_TYPE } from '@zup-mgm/utils';
 import { Loading } from '@zup-mgm/ui-components';
@@ -13,6 +13,7 @@ function App() {
   const loading = useSelector((state) => state.app.loading);
   const hasCriticalError = useSelector((state) => state.error.hasCriticalError);
   const { whiteLabel } = useSelector((state) => state.app.sduiPayload);
+  const { shouldTriggerPageLoadGA } = useSelector((state) => state.analytics);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,8 +29,11 @@ function App() {
   };
 
   if (hasCriticalError) {
+    if(shouldTriggerPageLoadGA) {
+      dispatch(analyticsActions.trackPageLoadError());
+    }
     return (
-      <div id='defaultError' className={`App ${whiteLabel.cssTheme}`}>
+      <div id='defaultError' className={`App credicard-theme-default`}>
         <DefaultError
           retryAction={setRetryActionButton}
           backAction={setBackAction}

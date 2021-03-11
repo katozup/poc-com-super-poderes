@@ -4,7 +4,7 @@ export default function (enumValue){
     case 'SECTION': return 'section';
     case 'COMPONENT': return 'component';
 
-    case 'PAGE_LOAD': return 'pageLoad';
+    case 'PAGE_LOAD': return 'trackPageLoad';
     case 'CUSTOM_LINK': return 'trackCustomLink';
     
     case 'ON_CLICK': return 'onClick';

@@ -1,14 +1,12 @@
 import React from 'react';
-import libFunctions from './functions';
-import enumTranslator from '../helpers/enumTranslator';
-import analyticsArchitect from './analyticsArchitect';
+import actionsArchitect from './actionsArchitect';
 
 export default async function componentArchitect(type, component, props, actions, analytics, componentId, children) {
   const reactElement = await reactElementBuilder(type, component, componentId);
   const propsAndActions = {
     ...props,
     componentId,
-    ...actionsBuilder(actions, analytics)
+    ...actionsArchitect(actions, analytics)
   };
   const newReactElement = React.cloneElement(
     reactElement,
@@ -34,21 +32,4 @@ async function reactElementBuilder(type, component, componentId) {
   } catch {
     return emptyElement;
   }
-}
-
-function actionsBuilder(actions, analytics) {
-  // TODO add support to other events
-  let componentActions = {};
-
-  if (actions) actions.forEach(action => {
-    componentActions[enumTranslator(action.event)] = {
-      actionFunction: libFunctions[action.functionName],
-      actionEvent: action.event,
-      actionParameter: action.parameter,
-    };
-
-    componentActions[enumTranslator(action.event)].analytics = analyticsArchitect(analytics);    
-  });
-
-  return componentActions;
 }

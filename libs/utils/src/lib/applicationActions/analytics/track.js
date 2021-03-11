@@ -1,4 +1,10 @@
 import { environment } from '../../config/environment'
+import { store, errorActions, analyticsActions } from '@zup-mgm/mgm-redux-store';
+import { ERROR_TYPES } from '@zup-mgm/utils';
+
+const {
+  ANALYTICS: { ITAU_TRACK },
+} = ERROR_TYPES;
 
 const isDebugModeOn = (environment) => environment.DEBUG_MODE;
 const isGoogleAnalyticsOn = (environment) => environment.TURN_GOOGLE_ANALYTICS_ON;
@@ -8,12 +14,10 @@ export const track = (data) => {
     window.analyticsData = data;
     if (isDebugModeOn(environment)) console.log(data.rule, data);
     if (isGoogleAnalyticsOn(environment)) {
-      console.log("vai disparar :)");
       window._frameworkDA.Track();
-      console.log("disparouu :)");
     }
+    analyticsActions.setTriggerPageLoadGA(true);
   } catch(error) {
-    //TODO: Implementar tratamento de erro igual ao repo legado (será feito em outra task)
-    console.log(error);
+    store.dispatch(errorActions.callErrorHandler(error, ITAU_TRACK));
   }
 }

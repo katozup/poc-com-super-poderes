@@ -29,7 +29,7 @@ function App() {
 
   if (hasCriticalError) {
     return (
-      <div id='defaultError' className={`App ${whiteLabel.cssTheme}`}>
+      <div id='defaultError' className={`App credicard-theme-default`}>
         <DefaultError
           backgroundImage={'/shared-assets/img/default_error_credicard.png'}
           retryAction={setRetryActionButton}

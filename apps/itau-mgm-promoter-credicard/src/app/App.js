@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
-import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
+import { analyticsActions, appActions, errorActions } from '@zup-mgm/mgm-redux-store';
 import { closeWebview } from '@zup-mgm/mdr-engine';
 import { CARD_TYPE } from '@zup-mgm/utils';
 import { Loading } from '@zup-mgm/ui-components';

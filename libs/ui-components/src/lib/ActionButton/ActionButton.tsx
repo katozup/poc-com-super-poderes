@@ -38,20 +38,14 @@ const ActionButton = ({
   );
 };
 
-const clickHandler = (onClick, styling, componentId, history) => {
-  history.push('/rewards');
-  // window.location.href="?sdk=false&dn=2063&id=00257578340/rewards"
-  // const history = use
-  // const { actionFunction, analytics } = onClick;
-  // const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
-  // if (actionFunction) {
-  //   actionFunction(type, componentId);
-  // } else {
-  //   onClick();
-  // }
-  // if (analytics) {
-  //   analytics.analyticsFunction(analytics.analyticsParameter);
-  // }
+const clickHandler = (onClick, styling, componentId) => {
+  const { actionFunction, analytics } = onClick;
+  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
+  if (actionFunction) {
+    actionFunction(type, componentId, analytics);
+  } else {
+    onClick();
+  }
 };
 
 const isButtonLoading = (componentId, shareButton) => {

@@ -1,12 +1,11 @@
-import { put } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 
 import extractEndpointUrlWithError from '../extractors/extractEndpointUrlWithError';
 import extractErrorStatus from '../extractors/extractErrorStatus';
-import { Creators as AnalyticsActions } from '../../../ducks/analytics';
 import { Creators as AppActions } from '../../../ducks/app';
 import { Creators as ErrorActions } from '../../../ducks/error';
+import trackGAPageLoad from '../../analytics/pageLoad';
 
-const { setPage } = AnalyticsActions;
 const { stopLoading } = AppActions;
 const { setErrorConditions } = ErrorActions;
 
@@ -22,14 +21,7 @@ export default function* genericErrorHandler(error, whereErrorOccurred) {
     hasCriticalError,
   };
 
-  const errorPageAnalytics = {
-    secao: 'MemberGetMember',
-    subSecao1: 'IndicarAmigo',
-    subSecao2: '',
-    subSecao3: '',
-  };
-
-  yield put(setPage(errorPageAnalytics));
   yield put(setErrorConditions(errorConditionsObject));
+  yield call(trackGAPageLoad);
   return yield put(stopLoading());
 }

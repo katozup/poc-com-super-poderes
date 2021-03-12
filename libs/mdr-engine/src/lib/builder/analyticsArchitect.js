@@ -1,9 +1,13 @@
 import libFunctions from './functions';
 import enumTranslator from '../helpers/enumTranslator';
 
-const buildAnalyticsParameter = (analytics) => ({
+const buildCustomLinkParameter = (analytics) => ({
     pageName: analytics.pageName,
     itemClicked: analytics.itemClicked
+});
+
+const buildPageLoadParameter = (analytics) => ({
+  pageName: analytics.pageName
 });
 
 export default function componentAnalytics(analytics) {
@@ -11,8 +15,17 @@ export default function componentAnalytics(analytics) {
     const cumstomLinkGAFuncion = enumTranslator(analytics.event);
     return {
       analyticsFunction: libFunctions[cumstomLinkGAFuncion],
-      analyticsParameter: buildAnalyticsParameter(analytics)
+      analyticsParameter: buildCustomLinkParameter(analytics)
     }
   }
+
+  if(analytics.event === "PAGE_LOAD"){
+    const pageLoadGAFuncion = enumTranslator(analytics.event);
+    return {
+      analyticsFunction: libFunctions[pageLoadGAFuncion],
+      analyticsParameter: buildPageLoadParameter(analytics)
+    }
+  }
+
   return;
 }

@@ -12,7 +12,7 @@ const { CRASH_REPORT_ON } = environment;
 const { MAX_AUTOMATIC_RETRY } = BUSINESS_RULES;
 const { UNAUTHORIZED } = HTTP_STATUS;
 const {
-  ANALYTICS: { ITAU_TRACK },
+  ANALYTICS: { ITAU_TRACK, GET_GA_PAYLOAD },
   SDK: { CLOSE_WEBVIEW, GET_SDK_ITEM },
 } = ERROR_TYPES;
 
@@ -36,7 +36,7 @@ export default function* errorHandler(action) {
 }
 
 const isAnalyticsError = (whereErrorOccurred) => {
-  return whereErrorOccurred === ITAU_TRACK;
+  return whereErrorOccurred === ITAU_TRACK || whereErrorOccurred === GET_GA_PAYLOAD;
 }
 
 const isSdkError = (whereErrorOccurred) => {

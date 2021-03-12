@@ -16,12 +16,7 @@ const getSdkData = async () => {
     return userData;
   }
 
-  const cpf = await getSDKItem('CUSTOMER_CPF');
   const autenticacao = await getSDKItem('MGM_AUTHENTICATION');
-  const customerId = await getSDKItem('CUSTOMER_ID');
-  const cardVariant = await getSDKItem('CARD_VARIANT');
-  const cardName = await getSDKItem('CARD_NAME');
-  const cardFlag = await getSDKItem('CARD_FLAG');
   const dn = await getSDKItem('DN');
   const name = getFirstName(await getSDKItem('CUSTOMER_NAME'));
   const chpras = await getSDKItem('CHPRAS');
@@ -35,18 +30,11 @@ const getSdkData = async () => {
     featureCashback = false;
   }
 
-  const lastDigits = await getSDKItem('LAST_FOUR_CHARACTERS');
   const userData = {
-    cpf,
     autenticacao,
     chpras,
     dn,
     name,
-    customerId,
-    cardVariant,
-    cardName,
-    cardFlag,
-    lastDigits,
     featureCashback,
     cpfHashed,
     customerType,

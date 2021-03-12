@@ -9,7 +9,7 @@ const { setErrorConditions } = ErrorActions;
 export default function* analyticsErrorHandler(whereErrorOccurred) {
   const errorStatus = '';
   const endpointUrl = '';
-  const hasCriticalError = false;
+  let hasCriticalError = false;
 
   const errorConditionsObject = {
     errorStatus,

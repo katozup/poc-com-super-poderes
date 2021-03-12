@@ -25,7 +25,6 @@ export const sdkDataMock = () => {
       dn: dnParam,
       token: 'token123',
       name: nameParam,
-      cpf: 86277191012,
       autenticacao:
         'YuoHvkNfpiDy75+5JtFzVbvzuAvMbdAOHzCyeGQXsGsYg+CGb7Wr3+Z1eEoep2qXZFHXXG4aq3wGGKvBCnfWgJri62G77XUWTPxqVz0oLOyj81wBLEai8RIw+3kVTzrMr/F450V2oZeryTr4uLqN7h4yWmu9DnfMe0Os8JRIsapL7XdmGUjHRn3Z/TVG14gl',
       cashback: cashbackParam,

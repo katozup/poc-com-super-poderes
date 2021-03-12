@@ -2,13 +2,18 @@
 .credicard-theme-default,
 .credicard-theme-cashback {
   .button-list-content {
+    position: fixed;
+    bottom: 88px;
+    width: calc(100% - 32px);
     .action-button + .action-button {
       margin-top: 12px;
     }
   }
 }
 
-.itaucard-theme-default, .hipercard-theme-default, .cartaoluiza-theme-default {
+.itaucard-theme-default,
+.hipercard-theme-default,
+.cartaoluiza-theme-default {
   .button-list-content {
     position: fixed;
     bottom: 16px;

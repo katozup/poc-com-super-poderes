@@ -1,10 +1,28 @@
 @import '../../../../shared/assets/src/assets/colors/itauColors';
 @import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
-.head-2-title {
+.credicard,
+.credicard-theme-default,
+.credicard-theme-cashback {
+  .head-2-title {
+    font-weight: 300;
+    font-size: 24px;
+    width: 76vw;
+    color: var(--text-primary);
+    line-height: 30px;
+    font-family: $itauRegular;
+    margin: 17px 0 21px 0;
+  }
+}
+
+.itaucard-theme-default,
+.hipercard-theme-default,
+.cartaoluiza-theme-default {
+  .head-2-title {
     font-weight: 300;
     font-size: 24px;
     color: var(--text-primary);
     line-height: 30px;
     font-family: $itauRegular;
+  }
 }

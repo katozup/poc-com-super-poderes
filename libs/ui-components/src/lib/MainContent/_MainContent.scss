@@ -6,26 +6,18 @@
 .credicard-theme-cashback {
   .main-content-wrapper {
     flex: auto;
-    padding: 16px 16px 16px 24px;
     font-family: $itauRegular;
+    padding-left: 12px;
   }
 }
 
-.itaucard-theme-default {
-  .main-container {
-    .main-content-wrapper {
-      font-family: $itauRegular;
-      padding: 32px 8px 0 16px;
-    }
-  }
-}
-
+.itaucard-theme-default,
 .hipercard-theme-default,
 .cartaoluiza-theme-default {
   .main-container {
     .main-content-wrapper {
-      font-family: $itauRegular;
       padding: 32px 8px 0 16px;
+      font-family: $itauRegular;
     }
   }
 }

@@ -1,6 +1,6 @@
 
 export default function extractErrorStatus(error) {
-  if (error.response) {
+  if (error && error.response) {
     return error.response.status;
   }
   return '';

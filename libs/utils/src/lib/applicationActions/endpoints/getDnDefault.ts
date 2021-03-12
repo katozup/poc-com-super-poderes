@@ -7,8 +7,7 @@ const { DN_DEFAULT } = ENDPOINTS_CONSTANTS;
 const { GATEWAY_APP_KEY } = environment;
 
 export function* getDnDefault() {
-  const { cardType } = yield select((state) => state.app);
-  const { bearerToken } = yield select((state) => state.app);
+  const { bearerToken, cardType } = yield select((state) => state.app);
   const config = { headers: { Authorization: `Bearer ${bearerToken}` } };
 
   const response = yield api.get(

@@ -47,6 +47,6 @@ pageLoadRequest.errorName ? pageLoadRequest.errorName : GET_GA_PAYLOAD;
 
 function* buildDefaultPageLoad(errorName) {
   const { cardType } = yield select(state => state.app);
-  const { dnFromSdk, cpfHashed, customerType } = yield select((state) => state.sdk);
-  return new DefaultPageLoad(cardType, dnFromSdk, errorName, cpfHashed, customerType);
+  const { dn, cpfHashed, customerType } = yield select((state) => state.sdk);
+  return new DefaultPageLoad(cardType, dn, errorName, cpfHashed, customerType);
 }

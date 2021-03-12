@@ -1,5 +1,9 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
+
 .card-details-container {
-    display: flex;
-    flex-direction: row;
-    padding-left: 48px;
+  display: flex;
+  flex-direction: row;
+  font-family: $itauRegular;
+  padding: 32px 8px 0 16px;
 }

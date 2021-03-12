@@ -13,6 +13,7 @@ export { default as ListItem } from './lib/ListItem/ListItem';
 export { default as IconCardDetails } from './lib/IconCardDetails/IconCardDetails';
 export { default as IconComponent } from './lib//IconComponent/IconComponent';
 export { default as CardDetailsGroup } from './lib/CardDetailsGroup/CardDetailsGroup';
+export { default as MainContainer } from './lib/MainContainer/MainContainer';
 export { default as MobileHeader } from './lib/MobileHeader/MobileHeader';
 export { default as MainContent } from './lib/MainContent/MainContent';
 export { default as MainButtonGroup } from './lib/MainButtonGroup/MainButtonGroup';

@@ -4,9 +4,11 @@ import './_SimpleText.scss';
 
 export function SimpleText({ text, componentId }) {
   return (
-    <p className='content-text' id={componentId}>
-      {text}
-    </p>
+    <div className="content-text-container">
+      <p className='content-text' id={componentId}>
+        {text}
+      </p>
+    </div>
   );
 }
 

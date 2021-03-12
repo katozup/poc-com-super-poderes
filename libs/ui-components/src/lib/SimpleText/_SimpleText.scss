@@ -1,13 +1,14 @@
 @import '../../../../shared/assets/src/assets/colors/itauColors';
 @import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
-.itaucard-theme-default,
-.hipercard-theme-default,
-.cartaoluiza-theme-default {
-  .content-text {
-    font-family: $itauRegular;
-    font-size: 12px;
-    color: $text-secondary;
+.itaucard-theme-default, .hipercard-theme-default, .cartaoluiza-theme-default {
+  .content-text-container {
+    line-height: 18px;
+    .content-text {
+      font-family: $itauRegular;
+      font-size: 12px;
+      color: $text-secondary;
+    }
   }
 }
 

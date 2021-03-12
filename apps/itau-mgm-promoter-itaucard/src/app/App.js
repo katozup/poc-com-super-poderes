@@ -13,10 +13,11 @@ function App() {
   const loading = useSelector((state) => state.app.loading);
   const hasCriticalError = useSelector((state) => state.error.hasCriticalError);
   const { whiteLabel } = useSelector((state) => state.app.sduiPayload);
+  const cardType = useSelector((state) => state.app.cardType);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(appActions.initApp(CARD_TYPE.CREDICARD));
+    dispatch(appActions.initApp(CARD_TYPE.ITAUCARD));
   }, []);
 
   const setRetryActionButton = () => {
@@ -27,9 +28,16 @@ function App() {
     closeWebview();
   };
 
+  const getDefaultTheme = () => {
+    if (cardType === CARD_TYPE.LUIZACARD) return 'cartaoluiza-theme-default';
+    if (cardType === CARD_TYPE.HIPERCARD) return 'hipercard-theme-default';
+    return 'itaucard-theme-default';
+  };
+
   if (hasCriticalError) {
+    const defaultTheme = getDefaultTheme();
     return (
-      <div id='defaultError' className={`App ${whiteLabel.cssTheme}`}>
+      <div id='defaultError' className={`App ${defaultTheme}`}>
         <DefaultError
           backgroundImage={'/shared-assets/img/default_error_itaucard.png'}
           retryAction={setRetryActionButton}
@@ -51,7 +59,4 @@ function App() {
     </div>
   );
 }
-
-
-
 export default App;

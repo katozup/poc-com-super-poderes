@@ -1,3 +1,4 @@
+export { default as MainContainer } from './lib/MainContainer/MainContainer';
 export { default as NavigationButtonList } from './lib/NavigationButtonList/NavigationButtonList';
 export { default as NavigationButton } from './lib/NavigationButton/NavigationButton';
 export { default as RegulationList } from './lib/RegulationList/RegulationList';

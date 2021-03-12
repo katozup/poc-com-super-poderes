@@ -1,10 +1,21 @@
 @import '../../../../shared/assets/src/assets/colors/itauColors';
 @import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
-.itaucard-theme-default, .hipercard-theme-default, .cartaoluiza-theme-default {
+.itaucard-theme-default,
+.hipercard-theme-default,
+.cartaoluiza-theme-default {
   .content-text {
     font-family: $itauRegular;
     font-size: 12px;
     color: $text-secondary;
+  }
+}
+
+.credicard-theme-default {
+  #p_rewardMainContent_text {
+    padding-top: 16px;
+    font-family: $itauRegular;
+    font-size: 14px;
+    color: $accent;
   }
 }

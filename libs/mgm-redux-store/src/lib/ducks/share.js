@@ -1,3 +1,5 @@
+import { Share } from './model/Share';
+
 export const Types = {
   SHARE_REQUEST: 'share/REQUEST',
   SHARE_SUCCESS: 'share/SUCCESS',
@@ -12,13 +14,13 @@ export default function shareReducer(state = INITIAL_STATE, action) {
     case Types.SHARE_REQUEST:
       return {
         ...state,
-        [action.payload.componentId]: { isLoading: true },
+        [action.payload.componentId]: action.payload.share,
       };
 
     case Types.SHARE_SUCCESS:
       return {
         ...state,
-        [action.payload.componentId]: { isLoading: false },
+        [action.payload.componentId]: action.payload.share,
       };
 
     default:
@@ -27,13 +29,19 @@ export default function shareReducer(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  shareRequest: (componentId) => ({
+  shareRequest: (type, componentId) => ({
     type: Types.SHARE_REQUEST,
-    payload: { componentId },
+    payload: {
+      componentId,
+      share: new Share(type, true),
+    },
   }),
 
-  shareSuccess: (componentId) => ({
+  shareSuccess: (type, componentId) => ({
     type: Types.SHARE_SUCCESS,
-    payload: { componentId },
+    payload: {
+      componentId,
+      share: new Share(type, false),
+    },
   }),
 };

@@ -22,7 +22,7 @@ const ActionButton = ({
       id={componentId}
       disabled={hasLoading && isButtonDisabled(shareButton)}
       aria-label={alt}
-      onClick={() => clickHandler(onClick, componentId)}
+      onClick={() => clickHandler(onClick, styling, componentId)}
       type='button'
       className={`action-button ${getButtonStyle(styling)}`}
     >
@@ -35,10 +35,11 @@ const ActionButton = ({
   );
 };
 
-const clickHandler = (onClick, componentId) => {
+const clickHandler = (onClick, styling, componentId) => {
   const { actionFunction, analytics } = onClick;
+  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
   if (actionFunction) {
-    actionFunction(componentId, analytics);
+    actionFunction(type, componentId, analytics);
   } else {
     onClick();
   }

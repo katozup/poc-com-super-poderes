@@ -34,6 +34,7 @@ export default function* tryAgainHandler() {
   const { manualRetryCount, whereErrorOccurred } = yield select(
     state => state.error
   );
+  const { cardType } = yield select(state => state.app);
   const canManualRetry = manualRetryCount < MAX_MANUAL_RETRY;
 
   if (canManualRetry) {
@@ -41,7 +42,7 @@ export default function* tryAgainHandler() {
 
     switch (whereErrorOccurred) {
       case INIT_APP:
-        yield put(initApp());
+        yield put(initApp(cardType));
         break;
       case GET_LINK_AND_SHARE:
         yield put(shareRequest());

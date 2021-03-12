@@ -3,7 +3,6 @@ import enumTranslator from '../helpers/enumTranslator';
 import analyticsArchitect from './analyticsArchitect';
 
 export default function actionsArchitect(actions, analytics) {
-  // TODO add support to other events
   let componentActions = {};
 
   if (actions) actions.forEach(action => {

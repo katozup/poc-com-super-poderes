@@ -1,7 +1,6 @@
 export const Types = {
   ADD_TO_AUTO_RETRY: 'error/ADD_TO_AUTO_RETRY',
   ADD_TO_MANUAL_RETRY: 'error/ADD_TO_MANUAL_RETRY',
-  SET_MANUAL_RETRY: 'error/SET_MANUAL_RETRY',
 
   SET_ERROR_CONDITIONS: 'error/SET_ERROR_CONDITIONS',
   CLEAN_ERROR_CONDITIONS_AND_RETRY_COUNTS:
@@ -61,12 +60,6 @@ export default function errorReducer(state = INITIAL_STATE, action) {
         manualRetryCount: 0,
       };
 
-    case Types.SET_MANUAL_RETRY:
-      return {
-        ...state,
-        manualRetryCount: action.payload.manualRetryCount,
-      };
-
     default:
       return state;
   }
@@ -98,10 +91,5 @@ export const Creators = {
   callErrorHandler: (error, whereErrorOccurred) => ({
     type: Types.CALL_ERROR_HANDLER,
     payload: { error, whereErrorOccurred },
-  }),
-
-  setManualRetryCount: (manualRetryCount) => ({
-    type: Types.SET_MANUAL_RETRY,
-    payload: { manualRetryCount },
   }),
 };

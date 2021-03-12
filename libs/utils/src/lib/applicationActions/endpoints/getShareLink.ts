@@ -14,7 +14,7 @@ export function* getShareLink(dn: string, chpras: string) {
     config
   );
   return {
-    shareMessage: response.mensagem,
+    shareMessage: response.data.mensagem,
     bearerToken: response.headers['x-access-token'],
   }
 }

@@ -4,7 +4,7 @@ export default function (type, componentId, analytics) {
   store.dispatch(shareActions.shareRequest(type, componentId));
 
   if (analytics && analytics.customLink) {
-    analytics.customLink.analyticsFunction(analytics.customLink.analyticsParameter, componentId);
+    analytics.customLink.analyticsFunction(analytics.customLink.analyticsParameter);
   }
 
   return;

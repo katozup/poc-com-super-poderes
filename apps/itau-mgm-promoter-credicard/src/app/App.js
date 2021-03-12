@@ -13,7 +13,6 @@ function App() {
   const loading = useSelector((state) => state.app.loading);
   const hasCriticalError = useSelector((state) => state.error.hasCriticalError);
   const { whiteLabel } = useSelector((state) => state.app.sduiPayload);
-  const { shouldTriggerPageLoadGA } = useSelector((state) => state.analytics);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,9 +28,6 @@ function App() {
   };
 
   if (hasCriticalError) {
-    if(shouldTriggerPageLoadGA) {
-      dispatch(analyticsActions.trackPageLoadError());
-    }
     return (
       <div id='defaultError' className={`App credicard-theme-default`}>
         <DefaultError

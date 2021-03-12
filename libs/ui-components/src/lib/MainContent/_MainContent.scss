@@ -1,15 +1,31 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
+
 .credicard,
 .credicard-theme-default,
 .credicard-theme-cashback {
   .main-content-wrapper {
     flex: auto;
     padding: 16px 16px 16px 24px;
+    font-family: $itauRegular;
   }
 }
 
+.itaucard-theme-default {
+  .main-container {
+    .main-content-wrapper {
+      font-family: $itauRegular;
+      padding: 32px 8px 0 16px;
+    }
+  }
+}
 
-.itaucard-theme-default, .hipercard-theme-default, .cartaoluiza-theme-default{
-  .main-content-wrapper {
-    padding: 0px 32px 24px;
+.hipercard-theme-default,
+.cartaoluiza-theme-default {
+  .main-container {
+    .main-content-wrapper {
+      font-family: $itauRegular;
+      padding: 32px 8px 0 16px;
+    }
   }
 }

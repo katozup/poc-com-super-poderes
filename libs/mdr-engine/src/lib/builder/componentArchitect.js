@@ -18,7 +18,7 @@ export default async function componentArchitect(type, component, props, actions
 }
 
 async function reactElementBuilder(type, component, componentId) {
-  const emptyElement = React.createElement('div'); // creates an empty react element for safe coding
+  const emptyElement = React.createElement('div');
   try {
     const Component = await import(`@zup-mgm/ui-components`).then((defaultComponent) => {
       return defaultComponent[component];

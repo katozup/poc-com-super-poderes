@@ -1,8 +1,8 @@
 import closeWebview from './sdkFunctions/closeWebview';
 import shareLink from './sdkFunctions/shareLink';
 import setSdkData from './sdkFunctions/sdkData';
-import trackCustomLink from './sdkFunctions/trackCustomLink';
-import trackPageLoad from './sdkFunctions/trackPageLoad';
+import trackCustomLink from './appFunctions/trackCustomLink';
+import trackPageLoad from './appFunctions/trackPageLoad';
 
 const libFunctions = {
   closeWebview,

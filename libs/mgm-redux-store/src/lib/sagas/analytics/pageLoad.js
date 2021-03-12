@@ -1,7 +1,5 @@
 import { call, select, put } from 'redux-saga/effects';
 import { Creators as AppActions } from '../../ducks/app';
-import { Creators as ErrorActions } from '../../ducks/error';
-import { Creators as AnalyticsActions } from '../../ducks/analytics';
 import { getPageLoad, track, ERROR_TYPES } from '@zup-mgm/utils';
 import { DefaultPageLoad } from '../models/analytics/pageLoad/DefaultPageLoad';
 
@@ -9,23 +7,21 @@ const {
   ANALYTICS: { GET_GA_PAYLOAD }, 
 } = ERROR_TYPES;
 
-export function* trackGAPageLoad() {
+export default function* trackGAPageLoad() {
   let { pageLoad } = yield select(state => state.analytics);
   const pageLoadRequest = yield buildPageLoadRequest(pageLoad);
   pageLoad = yield getPageLoadPayload (pageLoadRequest);
-  AnalyticsActions.setTriggerPageLoadGA(false);
   track(pageLoad);
 }
 
 function* buildPageLoadRequest(pageLoad) {
-  const dnFromSdk = yield select((state) => state.sdk.dn);
-  const { chpras, cpfHashed, customerType } = yield select((state) => state.sdk);
+  const { dn, chpras, cpfHashed, customerType } = yield select((state) => state.sdk);
   const { cardType } = yield select(state => state.app);
   const { hasError, whereErrorOccurred } = yield select((state) => state.error);
 
   return {
     pageName: pageLoad.pageName,
-    dn: parseInt(dnFromSdk, 10),
+    dn: parseInt(dn, 10),
     chpras,
     idpf: cpfHashed,
     clientType: customerType,
@@ -40,13 +36,16 @@ function* getPageLoadPayload(pageLoadRequest) {
     yield put(AppActions.setBearerToken(bearerToken));
     return pageLoad;
   } catch(error) {
-    yield put(ErrorActions.callErrorHandler(error, GET_GA_PAYLOAD));
-    return yield buildDefaultPageLoad();
+    const errorName = resolveErrorName(pageLoadRequest);
+    return yield buildDefaultPageLoad(errorName);
   }
 }
 
-function* buildDefaultPageLoad() {
+const resolveErrorName = (pageLoadRequest) => 
+pageLoadRequest.errorName ? pageLoadRequest.errorName : GET_GA_PAYLOAD;
+
+function* buildDefaultPageLoad(errorName) {
   const { cardType } = yield select(state => state.app);
-  const dnFromSdk = yield select((state) => state.sdk.dn);
-  return new DefaultPageLoad(cardType, dnFromSdk, GET_GA_PAYLOAD);
+  const { dn, cpfHashed, customerType } = yield select((state) => state.sdk);
+  return new DefaultPageLoad(cardType, dn, errorName, cpfHashed, customerType);
 }

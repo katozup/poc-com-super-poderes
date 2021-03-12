@@ -14,7 +14,7 @@ export class Page {
   }
 
   resolveName(cardType: string): string {
-    return `${this.getCardTypeAcronym(cardType)}:${this.secao}:${this.subSecao1}:${this.subSecao2}:${this.nomeDoErro}`
+    return `${this.getCardTypeAcronym(cardType)}:${this.secao}:${this.subSecao1}:${this.subSecao2}:Erro`
   }
 
   getCardTypeAcronym(cardType): string {

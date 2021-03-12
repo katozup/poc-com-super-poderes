@@ -1,4 +1,3 @@
-// TODO implementar o saga com a chamada do endpoint de geracao de link antes de finalizar a task
 declare global {
   interface Window {
     native: {

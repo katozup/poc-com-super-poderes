@@ -1,5 +1,5 @@
 import { environment } from '../../config/environment'
-import { store, errorActions, analyticsActions } from '@zup-mgm/mgm-redux-store';
+import { store, errorActions } from '@zup-mgm/mgm-redux-store';
 import { ERROR_TYPES } from '@zup-mgm/utils';
 
 const {
@@ -16,7 +16,6 @@ export const track = (data) => {
     if (isGoogleAnalyticsOn(environment)) {
       window._frameworkDA.Track();
     }
-    analyticsActions.setTriggerPageLoadGA(true);
   } catch(error) {
     store.dispatch(errorActions.callErrorHandler(error, ITAU_TRACK));
   }

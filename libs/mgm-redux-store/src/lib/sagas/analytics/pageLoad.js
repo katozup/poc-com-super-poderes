@@ -15,14 +15,13 @@ export default function* trackGAPageLoad() {
 }
 
 function* buildPageLoadRequest(pageLoad) {
-  const dnFromSdk = yield select((state) => state.sdk.dn);
-  const { chpras, cpfHashed, customerType } = yield select((state) => state.sdk);
+  const { dn, chpras, cpfHashed, customerType } = yield select((state) => state.sdk);
   const { cardType } = yield select(state => state.app);
   const { hasError, whereErrorOccurred } = yield select((state) => state.error);
 
   return {
     pageName: pageLoad.pageName,
-    dn: parseInt(dnFromSdk, 10),
+    dn: parseInt(dn, 10),
     chpras,
     idpf: cpfHashed,
     clientType: customerType,

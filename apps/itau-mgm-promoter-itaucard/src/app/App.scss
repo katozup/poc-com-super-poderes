@@ -1,0 +1,36 @@
+.App {
+  height: 100%;
+
+  .theme {
+    height: 100%;
+  }
+}
+
+a{
+  text-decoration: underline;
+}
+
+.itau-loading-wrapper {
+  height: 100%;
+  width: 100%;
+
+  .itau-global-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -30px;
+    margin-top: -30px;
+    height: 60px;
+    width: auto;
+  }
+
+  .itauloadingwhitelabel {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    height: 40px;
+    width: auto;
+  }
+}

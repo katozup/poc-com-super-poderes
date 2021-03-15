@@ -1,10 +1,17 @@
 @import '../../../../shared/assets/src/assets/colors/itauColors';
 @import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
-.simple-text-parsed {
+.credicard, .credicard-theme-default, .credicard-theme-cashback .simple-text-parsed {
   font-size: 16px;
   color: $text-primary;
   letter-spacing: 0;
   line-height: 22px;
   font-family: $itauRegular;
+}
+
+.itaucard-theme-default .simple-text-parsed, .hipercard-theme-default .simple-text-parsed, .cartaoluiza-theme-default .simple-text-parsed{
+  margin-top: 16px;
+  font-size: 14px;
+  color: $text-secondary;
+  line-height: 24px;
 }

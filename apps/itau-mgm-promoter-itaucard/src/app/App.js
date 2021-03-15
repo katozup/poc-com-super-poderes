@@ -29,6 +29,7 @@ function App() {
   };
 
   const getDefaultTheme = () => {
+    if (whiteLabel && whiteLabel.cssTheme) return whiteLabel.cssTheme;
     if (cardType === CARD_TYPE.LUIZACARD) return 'cartaoluiza-theme-default';
     if (cardType === CARD_TYPE.HIPERCARD) return 'hipercard-theme-default';
     return 'itaucard-theme-default';

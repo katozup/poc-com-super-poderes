@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
 import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
 import { closeWebview } from '@zup-mgm/mdr-engine';
-import { CARD_TYPE } from '@zup-mgm/utils';
+import { CARD_TYPE, importCssTheme } from '@zup-mgm/utils';
 import { Loading } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';
@@ -36,6 +36,7 @@ function App() {
 
   if (hasCriticalError) {
     const defaultTheme = getDefaultTheme();
+    importCssTheme(defaultTheme);
     return (
       <div id='defaultError' className={`App ${defaultTheme}`}>
         <DefaultError

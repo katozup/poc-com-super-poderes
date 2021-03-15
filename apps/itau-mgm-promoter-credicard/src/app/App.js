@@ -1,13 +1,14 @@
 import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
-import { analyticsActions, appActions, errorActions } from '@zup-mgm/mgm-redux-store';
+import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
 import { closeWebview } from '@zup-mgm/mdr-engine';
-import { CARD_TYPE } from '@zup-mgm/utils';
+import { CARD_TYPE, importCssTheme } from '@zup-mgm/utils';
 import { Loading } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';
 
 const LazyComponent = lazy(async () => await import('../routes/routes'));
+const CREDICARD_THEME_DEFAULT = 'credicard-theme-default';
 
 function App() {
   const loading = useSelector((state) => state.app.loading);
@@ -28,9 +29,11 @@ function App() {
   };
 
   if (hasCriticalError) {
+    importCssTheme(CREDICARD_THEME_DEFAULT);
     return (
       <div id='defaultError' className={`App credicard-theme-default`}>
         <DefaultError
+          backgroundImage={'/shared-assets/img/default_error_credicard.png'}
           retryAction={setRetryActionButton}
           backAction={setBackAction}
         />
@@ -39,12 +42,18 @@ function App() {
   }
 
   if (loading) {
-    return <Loading loadPrimary={false} />;
+    return (
+      <Loading loadPrimary={false} />
+    );
   }
 
   return (
     <div id='app' className={`App ${whiteLabel.cssTheme}`}>
-      <Suspense fallback={<Loading loadPrimary={false} />}>
+      <Suspense
+        fallback={
+          <Loading loadPrimary={false} />
+        }
+      >
         <LazyComponent></LazyComponent>
       </Suspense>
     </div>

@@ -1,8 +1,36 @@
-.button-list-content {
-  margin-bottom: 88px;
-  padding: 0px 16px;
+.credicard,
+.credicard-theme-default,
+.credicard-theme-cashback {
+  .button-list-content {
+    position: fixed;
+    bottom: 88px;
+    width: 100%;
+    padding: 0 16px;
+    .action-button + .action-button {
+      margin-top: 12px;
+    }
+  }
+}
 
-  .action-button + .action-button {
-    margin-top: 12px;
+.itaucard-theme-default,
+.cartaoluiza-theme-default {
+  .button-list-content {
+    position: fixed;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    .action-button + .action-button {
+      margin-top: 8px;
+    }
+  }
+}
+
+.hipercard-theme-default {
+  .button-list-content {
+    position: fixed;
+    bottom: 16px;
+    width: calc(100% - 32px);
+    .action-button + .action-button {
+      margin-top: 8px;
+    }
   }
 }

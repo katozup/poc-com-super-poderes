@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zup-mgm/mdr-engine';
 import { useSelector } from 'react-redux';
+import { importCssTheme } from '@zup-mgm/utils'
 
 async function routesBuilder(payload) {
   const pages = await pagesBuilder(payload.whiteLabel.routes);
@@ -28,12 +29,6 @@ async function pagesBuilder(routesJson) {
       page: await mdrEngine(route.page),
     }))
   );
-}
-
-function importCssTheme(cssTheme) {
-  if (cssTheme) {
-    require(`../../../../libs/shared/assets/src/assets/themes/${cssTheme}.css`);
-  }
 }
 
 export default function Routes() {

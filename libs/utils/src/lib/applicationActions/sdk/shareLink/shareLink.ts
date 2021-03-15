@@ -28,7 +28,7 @@ export const shareLinkSdk = (shareContent, shareType) => {
   }
 
   jsonProtocol.category = 'com.itau.category.DEFAULT';
-  jsonProtocol.data = `${shareContent.message}`;
+  jsonProtocol.data = `${shareContent}`;
 
   const jsonString = JSON.stringify(jsonProtocol);
   native.requestNativeFeature(jsonString, 'responseNativeFeature');

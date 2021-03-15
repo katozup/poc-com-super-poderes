@@ -31,6 +31,7 @@ export const shareLinkSdk = (shareContent, shareType) => {
   jsonProtocol.data = `${shareContent}`;
 
   const jsonString = JSON.stringify(jsonProtocol);
+  console.log(jsonString);
   native.requestNativeFeature(jsonString, 'responseNativeFeature');
 };
 

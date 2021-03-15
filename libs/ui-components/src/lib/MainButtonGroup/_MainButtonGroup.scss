@@ -4,7 +4,8 @@
   .button-list-content {
     position: fixed;
     bottom: 88px;
-    width: calc(100% - 32px);
+    padding: 0 16px;
+    width: 100%;
     .action-button + .action-button {
       margin-top: 12px;
     }
@@ -12,8 +13,19 @@
 }
 
 .itaucard-theme-default,
-.hipercard-theme-default,
 .cartaoluiza-theme-default {
+  .button-list-content {
+    position: fixed;
+    bottom: 16px;
+    width: 100%;
+    padding: 0 16px;
+    .action-button + .action-button {
+      margin-top: 8px;
+    }
+  }
+}
+
+.hipercard-theme-default {
   .button-list-content {
     position: fixed;
     bottom: 16px;

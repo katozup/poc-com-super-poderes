@@ -9,7 +9,7 @@ const Loading = ({ loadPrimary }) => (
       loadPrimary ? 'load-primary' : 'load-secondary'
     }`}
     src='/shared-assets/img/loading.png'
-    alt="Carregando"
+    alt='Carregando'
   />
 );
 

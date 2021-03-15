@@ -3,7 +3,7 @@ import './App.scss';
 import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
 import { closeWebview } from '@zup-mgm/mdr-engine';
 import { CARD_TYPE, importCssTheme } from '@zup-mgm/utils';
-import { Loading } from '@zup-mgm/ui-components';
+import { AndroidLoading } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';
 
@@ -49,12 +49,12 @@ function App() {
   }
 
   if (loading) {
-    return <Loading loadPrimary={false} />;
+    return <AndroidLoading />;
   }
 
   return (
     <div id='app' className={`App ${whiteLabel.cssTheme}`}>
-      <Suspense fallback={<Loading loadPrimary={false} />}>
+      <Suspense fallback={<AndroidLoading />}>
         <LazyComponent></LazyComponent>
       </Suspense>
     </div>

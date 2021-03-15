@@ -1,6 +1,5 @@
 import React from 'react';
 import './_DefaultError.scss';
-import DefaultErrorIcon from './default_error.png';
 import ActionButton from '../ActionButton/ActionButton';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import { RESOURCES } from '@zup-mgm/utils';
@@ -15,7 +14,7 @@ export function DefaultError(props) {
   return (
     <div className='default-error'>
       <div className='error-header-block'>
-        <img alt='' src={DefaultErrorIcon} className='error-img' />
+        <img alt="Imagem de erro" src={props.backgroundImage} className='error-img' />
       </div>
       <div className='error-content-block'>
         <h1

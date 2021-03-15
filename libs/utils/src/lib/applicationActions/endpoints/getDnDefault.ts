@@ -1,4 +1,4 @@
-import { select } from "redux-saga/effects";
+import { select } from 'redux-saga/effects';
 import api from '../../config/api';
 import ENDPOINTS_CONSTANTS from './ENDPOINTS_CONSTANTS';
 import { environment } from '../../config/environment';

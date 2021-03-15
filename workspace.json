@@ -194,20 +194,70 @@
           "options": {
             "outputPath": "dist/apps/itau-mgm-promoter-itaucard",
             "index": "apps/itau-mgm-promoter-itaucard/src/index.html",
-            "main": "apps/itau-mgm-promoter-itaucard/src/main.tsx",
+            "main": "apps/itau-mgm-promoter-itaucard/src/index.js",
             "polyfills": "apps/itau-mgm-promoter-itaucard/src/polyfills.ts",
             "tsConfig": "apps/itau-mgm-promoter-itaucard/tsconfig.app.json",
-            "assets": ["apps/itau-mgm-promoter-itaucard/src/assets"],
-            "styles": ["apps/itau-mgm-promoter-itaucard/src/styles.scss"],
+            "assets": [
+              {
+                "input": "libs/shared/assets/src/assets",
+                "glob": "**/*",
+                "output": "shared-assets"
+              }
+            ],
+            "styles": ["apps/itau-mgm-promoter-itaucard/src/index.scss"],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-itaucard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-itaucard/src/environments/environment.prod.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "hml": {
+              "fileReplacements": [
+                {
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.hml.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            },
+            "qa": {
+              "fileReplacements": [
+                {
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.qa.ts"
                 }
               ],
               "optimization": true,
@@ -228,11 +278,11 @@
             "dev": {
               "fileReplacements": [
                 {
-                  "replace": "apps/itau-mgm-promoter-itaucard/src/environments/environment.ts",
-                  "with": "apps/itau-mgm-promoter-itaucard/src/environments/environment.dev.ts"
+                  "replace": "libs/utils/src/lib/config/environment.ts",
+                  "with": "libs/utils/src/lib/config/environment.dev.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": false,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,

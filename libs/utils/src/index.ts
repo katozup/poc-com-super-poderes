@@ -12,3 +12,4 @@ export * from './lib/applicationActions/analytics/track';
 export { default as getFirstName } from './lib/applicationActions/sdk/getFirstName';
 export { default as getSDKItem } from './lib/applicationActions/sdk/getSDKItem';
 export { default as getSdkData } from './lib/applicationActions/sdk/getSdkData';
+export { default as importCssTheme } from './lib/importCssTheme';

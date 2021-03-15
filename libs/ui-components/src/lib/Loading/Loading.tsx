@@ -8,8 +8,8 @@ const Loading = ({ loadPrimary }) => (
     className={`global-loading ${
       loadPrimary ? 'load-primary' : 'load-secondary'
     }`}
-    src='/shared-assets/images/loading.png'
-    alt="Carregando"
+    src='/shared-assets/img/loading.png'
+    alt='Carregando'
   />
 );
 

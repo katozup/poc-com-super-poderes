@@ -10,7 +10,7 @@ const ButtonLoading = ({ loadPrimary }) => (
     className={`button-loading ${
       loadPrimary ? 'load-primary' : 'load-secondary'
     }`}
-    src='/shared-assets/images/loading.png'
+    src='/shared-assets/img/loading.png'
     alt='Carregando'
   />
 );

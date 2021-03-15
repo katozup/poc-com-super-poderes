@@ -9,7 +9,7 @@
 .credicard-theme-default,
 .credicard-theme-cashback {
   .main-container {
-    padding: 16px;
+    overflow-y: hidden;
     height: calc(100% - 52.8px);
   }
 }

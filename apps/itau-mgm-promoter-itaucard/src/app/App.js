@@ -2,8 +2,8 @@ import React, { lazy, Suspense, useEffect } from 'react';
 import './App.scss';
 import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
 import { closeWebview } from '@zup-mgm/mdr-engine';
-import { CARD_TYPE } from '@zup-mgm/utils';
-import { Loading } from '@zup-mgm/ui-components';
+import { CARD_TYPE, importCssTheme } from '@zup-mgm/utils';
+import { AndroidLoading } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';
 
@@ -29,6 +29,7 @@ function App() {
   };
 
   const getDefaultTheme = () => {
+    if (whiteLabel && whiteLabel.cssTheme) return whiteLabel.cssTheme;
     if (cardType === CARD_TYPE.LUIZACARD) return 'cartaoluiza-theme-default';
     if (cardType === CARD_TYPE.HIPERCARD) return 'hipercard-theme-default';
     return 'itaucard-theme-default';
@@ -36,6 +37,7 @@ function App() {
 
   if (hasCriticalError) {
     const defaultTheme = getDefaultTheme();
+    importCssTheme(defaultTheme);
     return (
       <div id='defaultError' className={`App ${defaultTheme}`}>
         <DefaultError
@@ -48,12 +50,12 @@ function App() {
   }
 
   if (loading) {
-    return <Loading loadPrimary={false} />;
+    return <AndroidLoading />;
   }
 
   return (
     <div id='app' className={`App ${whiteLabel.cssTheme}`}>
-      <Suspense fallback={<Loading loadPrimary={false} />}>
+      <Suspense fallback={<AndroidLoading />}>
         <LazyComponent></LazyComponent>
       </Suspense>
     </div>

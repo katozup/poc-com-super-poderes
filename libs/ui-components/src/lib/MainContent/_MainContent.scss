@@ -4,10 +4,12 @@
 .credicard,
 .credicard-theme-default,
 .credicard-theme-cashback {
-  .main-content-wrapper {
-    flex: auto;
-    font-family: $itauRegular;
-    padding-left: 12px;
+  .main-container {
+    .main-content-wrapper {
+      height: 100%;
+      font-family: $itauRegular;
+      padding: 16px 16px 16px 24px;
+    }
   }
 }
 
@@ -16,6 +18,7 @@
 .cartaoluiza-theme-default {
   .main-container {
     .main-content-wrapper {
+      height: 100%;
       padding: 32px 8px 0 16px;
       font-family: $itauRegular;
     }

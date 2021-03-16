@@ -1,57 +1,123 @@
 @import '../../../../shared/assets/src/assets/colors/itauColors';
 @import '../../../../shared/assets/src//assets/fonts/itauFonts';
 
-.default-error {
-  height: 100vw;
-  background-color: $background-content;
-  z-index: 9999;
+.itaucard-theme-default,
+.cartaoluiza-theme-default,
+.hipercard-theme-default {
+  .default-error {
+    height: 100vw;
+    background-color: $background-content;
+    z-index: 9999;
 
-  .error-header-block {
-    padding-top: 16.9vw;
-    text-align: center;
-    padding-bottom: 5.4vw;
+    .error-header-block {
+      padding-top: 16.9vw;
+      text-align: center;
+      padding-bottom: 5.4vw;
 
-    .error-img {
-      width: 46.9vw;
-      height: auto;
+      .error-img {
+        width: 46.9vw;
+        height: auto;
+      }
+    }
+    .error-content-block {
+      padding: 0 32px;
+
+      .error-title {
+        color: $error-title;
+        font-size: 24px;
+        margin: 0 0 20px;
+        font-family: $itauLight;
+        line-height: 28px;
+        font-weight: 200;
+      }
+
+      .error-description {
+        color: $error-text;
+        font-size: 16px;
+        margin: 0 0 16px 0;
+        font-family: $itauRegular;
+      }
+
+      .retry-button {
+        color: $link-default;
+        font-size: 16px;
+        margin: 0;
+        font-family: $itauRegular;
+        text-decoration: underline;
+      }
+    }
+
+    .error-footer-block {
+      padding: 16px;
+      text-align: center;
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+      left: 0px;
+
+      .action-button {
+        font-size: 18px;
+      }
     }
   }
-  .error-content-block {
-    padding: 0 32px;
+}
 
-    .error-title {
-      color: $title-primary;
-      font-size: 30px;
-      margin: 0 0 20px 0;
-      font-family: $itauRegular;
+.credicard,
+.credicard-theme-default,
+.credicard-theme-cashback {
+  .default-error {
+    height: 100vw;
+    background-color: $background-content;
+    z-index: 9999;
+
+    .error-header-block {
+      padding-top: 16.9vw;
+      text-align: center;
+      padding-bottom: 5.4vw;
+
+      .error-img {
+        width: 46.9vw;
+        height: auto;
+      }
+    }
+    .error-content-block {
+      padding: 0 32px;
+
+      .error-title {
+        color: $error-title;
+        font-size: 30px;
+        margin: 0 0 20px 0;
+        font-family: $itauRegular;
+        line-height: 30px;
+      }
+
+      .error-description {
+        color: $error-text;
+        font-size: 16px;
+        margin: 0 0 16px 0;
+        font-family: $itauRegular;
+      }
+
+      .retry-button {
+        color: $link-default;
+        font-size: 16px;
+        margin: 0;
+        font-family: $itauRegular;
+        text-decoration: underline;
+      }
     }
 
-    .error-description {
-      color: $text-secondary;
-      font-size: 16px;
-      margin: 0 0 16px 0;
-      font-family: $itauRegular;
-    }
+    .error-footer-block {
+      padding: 16px;
+      text-align: center;
+      position: fixed;
+      bottom: 0px;
+      width: 100%;
+      left: 0px;
 
-    .retry-button {
-      color: $link-default;
-      font-size: 16px;
-      margin: 0;
-      font-family: $itauRegular;
-      text-decoration: underline;
-    }
-  }
-
-  .error-footer-block {
-    padding: 16px;
-    text-align: center;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    left: 0px;
-
-    .action-button {
-      font-size: 18px;
+      .action-button {
+        font-size: 18px;
+      }
     }
   }
 }

@@ -1,0 +1,10 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
+
+.navigation-button-container {
+    flex: 1 1;
+    padding: 16px 24px 16px 16px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 2px 0px $shadow;
+    text-align: start;
+}

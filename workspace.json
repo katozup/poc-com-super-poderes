@@ -305,8 +305,17 @@
             "buildTarget": "itau-mgm-promoter-itaucard:build"
           },
           "configurations": {
-            "production": {
+            "prod": {
               "buildTarget": "itau-mgm-promoter-itaucard:build:production"
+            },
+            "hml": {
+              "buildTarget": "itau-mgm-promoter-itaucard:build:hml"
+            },
+            "qa": {
+              "buildTarget": "itau-mgm-promoter-itaucard:build:qa"
+            },
+            "dev": {
+              "buildTarget": "itau-mgm-promoter-itaucard:build:dev"
             }
           }
         },

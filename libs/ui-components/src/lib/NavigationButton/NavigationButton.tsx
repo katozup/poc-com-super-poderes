@@ -1,14 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import "./navigation-button.module.scss";
+import './_NavigationButton.scss';
 
-/* eslint-disable-next-line */
-export interface NavigationButtonProps {}
+function NavigationButton({ componentId, onClick, children }) {
 
-export function NavigationButton(props: NavigationButtonProps) {
+  const clickHandler = (onClick) => {
+    const { actionFunction, actionParameter } = onClick;
+    if (actionFunction) {
+      actionFunction(actionParameter);
+    }
+  };
+
   return (
-    <div>
-      <h1>Welcome to NavigationButton!</h1>
+    <div
+      id={componentId}
+      onClick={() => clickHandler(onClick)}
+      className='navigation-button-container'
+    >
+      {children}
     </div>
   );
 }

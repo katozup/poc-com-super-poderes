@@ -2,9 +2,22 @@
 @import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
 .navigation-button-container {
-    flex: 1 1;
-    padding: 16px 24px 16px 16px;
-    border-radius: 4px;
-    box-shadow: 0px 2px 2px 0px $shadow;
-    text-align: start;
+  flex: 1 1;
+  padding: 16px 24px 16px 16px;
+  border-radius: 4px;
+  box-shadow: 0px 2px 2px 0px $shadow;
+  text-align: start;
+
+  .icon {
+    font-size: 24px !important;
+    color: var(--icon) !important;
+  }
+
+  #p_navigationButton_tips, #p_navigationButton_regulation {
+    padding-top: 4px;
+    font-size: 14px;
+    font-family: $itauLight;
+    color: var(--accent);
+    max-width: 100px;
+  }
 }

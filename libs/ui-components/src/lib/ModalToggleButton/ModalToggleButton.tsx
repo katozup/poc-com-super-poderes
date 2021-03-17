@@ -1,16 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import "./modal-toggle-button.module.scss";
+import './_ModalToggleButton.scss';
 
-/* eslint-disable-next-line */
-export interface ModalToggleButtonProps {}
-
-export function ModalToggleButton(props: ModalToggleButtonProps) {
-  return (
-    <div>
-      <h1>Welcome to ModalToggleButton!</h1>
-    </div>
-  );
+export function ModalToggleButton({ children }) {
+  return <div className="modal-toggle-button-container">{children}</div>;
 }
 
 export default ModalToggleButton;

@@ -1,16 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import "./navigation-button-list.module.scss";
+import './_NavigationButtonList.scss';
 
-/* eslint-disable-next-line */
-export interface NavigationButtonListProps {}
-
-export function NavigationButtonList(props: NavigationButtonListProps) {
-  return (
-    <div>
-      <h1>Welcome to NavigationButtonList!</h1>
-    </div>
-  );
+export function NavigationButtonList({ componentId, children }) {
+  return <div className="navigation-button-list-container">{children}</div>;
 }
 
 export default NavigationButtonList;

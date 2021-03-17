@@ -1,24 +1,53 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import './_IconButton.scss';
-import { store } from '@zup-mgm/mgm-redux-store';
+import { useHistory } from 'react-router-dom';
+import { ActionName } from '@zup-mgm/mdr-engine';
+import { slideDown } from '@zup-mgm/utils';
+import { modalActions } from '@zup-mgm/mgm-redux-store';
+import { useDispatch } from 'react-redux';
+function IconButton({ onClick, alt, iconName, componentId }) {
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-const clickHandler = (onClick) => {
-  const { actionFunction, actionParameter } = onClick;
-  actionFunction(actionParameter, store);
-};
+  const clickHandler = (onClick) => {
+    const { actionFunction, actionParameter, actionName } = onClick;
+    if (actionFunction) {
+      const actionFunctionPayload = getActionFunctionPayload(
+        actionName,
+        actionParameter
+      );
+      actionFunction(actionFunctionPayload);
+    }
+  };
 
-const IconButton = ({ onClick, alt, iconName }) => (
-  <button
-    aria-label={alt}
-    onClick={() => clickHandler(onClick)}
-    type="button"
-    className="button-back"
-  >
-    <i className={`icon ${iconName}`} /> 
-  </button>
-);
+  const getActionFunctionPayload = (actionName, actionParameter) => {
+    if (actionName === ActionName.NAVIGATION_BACK) {
+      return {
+        history,
+      };
+    }
+    if (actionName === ActionName.CLOSE_MODAL) {
+      slideDown();
+      return {
+        actionParameter,
+      };
+    }
+  };
+
+  return (
+    <button
+      id={componentId}
+      aria-label={alt}
+      onClick={() => clickHandler(onClick)}
+      type='button'
+      className='button-back'
+    >
+      <i className={`icon ${iconName}`} />
+    </button>
+  );
+}
 
 IconButton.propTypes = {
   alt: PropTypes.string,

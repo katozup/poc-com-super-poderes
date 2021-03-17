@@ -5,7 +5,6 @@ import { RootStateOrAny, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
 import './_ActionButton.scss';
-import { createBrowserHistory } from 'history';
 export interface ActionButtonProps {
   isLoading: boolean;
 }
@@ -38,14 +37,22 @@ const ActionButton = ({
   );
 };
 
-const clickHandler = (onClick, styling, componentId) => {
-  const { actionFunction, analytics } = onClick;
-  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
-  if (actionFunction) {
-    actionFunction(type, componentId, analytics);
-  } else {
-    onClick();
-  }
+const clickHandler = (onClick, styling, componentId, history) => {
+  history.push('/rewards');
+
+  
+  // window.location.href="?sdk=false&dn=2063&id=00257578340/rewards"
+  // const history = use
+  // const { actionFunction, analytics } = onClick;
+  // const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
+  // if (actionFunction) {
+  //   actionFunction(type, componentId);
+  // } else {
+  //   onClick();
+  // }
+  // if (analytics) {
+  //   analytics.analyticsFunction(analytics.analyticsParameter);
+  // }
 };
 
 const isButtonLoading = (componentId, shareButton) => {

@@ -13,3 +13,4 @@ export { default as getFirstName } from './lib/applicationActions/sdk/getFirstNa
 export { default as getSDKItem } from './lib/applicationActions/sdk/getSDKItem';
 export { default as getSdkData } from './lib/applicationActions/sdk/getSdkData';
 export { default as importCssTheme } from './lib/importCssTheme';
+export { default as slideDown } from './lib/applicationActions/modal/slide-down';

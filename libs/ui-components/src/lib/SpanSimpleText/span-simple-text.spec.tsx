@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
 
-import ModalContent from "./ModalContent";
+import SpanSimpleText from "./SpanSimpleText";
 
-describe("ModalContent", () => {
+describe("SpanSimpleText", () => {
   it("should render successfully", () => {
-    const { baseElement } = render(<ModalContent />);
+    const { baseElement } = render(<SpanSimpleText />);
     expect(baseElement).toBeTruthy();
   });
 });

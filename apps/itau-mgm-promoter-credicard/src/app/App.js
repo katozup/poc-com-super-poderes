@@ -3,7 +3,7 @@ import './App.scss';
 import { appActions, errorActions } from '@zup-mgm/mgm-redux-store';
 import { closeWebview } from '@zup-mgm/mdr-engine';
 import { CARD_TYPE, importCssTheme } from '@zup-mgm/utils';
-import { Loading } from '@zup-mgm/ui-components';
+import { Loading, ModalContent } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';
 
@@ -14,6 +14,7 @@ function App() {
   const loading = useSelector((state) => state.app.loading);
   const hasCriticalError = useSelector((state) => state.error.hasCriticalError);
   const { whiteLabel } = useSelector((state) => state.app.sduiPayload);
+  const { isModalVisible } = useSelector((state) => state.modal);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,18 +43,18 @@ function App() {
   }
 
   if (loading) {
-    return (
-      <Loading loadPrimary={false} />
-    );
+    return <Loading loadPrimary={false} />;
   }
 
+  console.log(isModalVisible);
   return (
     <div id='app' className={`App ${whiteLabel.cssTheme}`}>
-      <Suspense
-        fallback={
-          <Loading loadPrimary={false} />
-        }
-      >
+      {
+        isModalVisible && (
+          <ModalContent />
+        )
+      }
+      <Suspense fallback={<Loading loadPrimary={false} />}>
         <LazyComponent></LazyComponent>
       </Suspense>
     </div>

@@ -1,15 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import "./link.module.scss";
+import './_Link.scss';
 
-/* eslint-disable-next-line */
-export interface LinkProps {}
+const clickHandler = (onClick) => {
+  const { actionFunction, actionParameter } = onClick;
+  actionFunction(actionParameter.componentId);
+};
 
-export function Link(props: LinkProps) {
+export function Link(props) {
   return (
-    <div>
-      <h1>Welcome to Link!</h1>
-    </div>
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
+    <a id={props.componentId} onClick={() => clickHandler(props.onClick)}>
+      {props.text}
+    </a>
   );
 }
 

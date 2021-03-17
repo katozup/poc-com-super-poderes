@@ -1,7 +1,9 @@
 @import '../../../../shared/assets/src/assets/colors/itauColors';
 @import '../../../../shared/assets/src/assets/fonts/itauFonts';
 
-.itaucard-theme-default, .hipercard-theme-default, .cartaoluiza-theme-default {
+.itaucard-theme-default,
+.hipercard-theme-default,
+.cartaoluiza-theme-default {
   .content-text-container {
     line-height: 18px;
     .content-text {
@@ -14,9 +16,17 @@
 
 .credicard-theme-default {
   #p_rewardMainContent_text {
-    padding-top: 16px;
+    padding-top: 32px;
     font-family: $itauRegular;
     font-size: 14px;
     color: $accent;
+  }
+  #p_modalToggleButton_requestedCardText,
+  #p_modalToggleButton_approvedCardText,
+  #p_modalToggleButton_rewardText {
+    font-family: $itauLight;
+    color: var(--text-dark);
+    font-size: 24px;
+    line-height: 36px;
   }
 }

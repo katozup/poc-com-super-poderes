@@ -1,16 +1,29 @@
-import React from "react";
+import React from 'react';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import './_ModalContent.scss';
+import { modalActions } from '@zup-mgm/mgm-redux-store';
+import { slideDown } from '@zup-mgm/utils';
 
-import "./modal-content.module.scss";
+function ModalContent({ componentId, children }) {
+  const dispatch = useDispatch();
 
-/* eslint-disable-next-line */
-export interface ModalContentProps {}
+  const clickHandler = () => {
+    slideDown();
+    dispatch(modalActions.closeModal());
+  };
 
-export function ModalContent(props: ModalContentProps) {
-  return (
-    <div>
-      <h1>Welcome to ModalContent!</h1>
-    </div>
-  );
+  const state = useSelector((state: RootStateOrAny) => state.modal);
+  if (state.isModalVisible && componentId === state.componentId) {
+    return (
+      <div className='modal-wrapper'>
+        <div className='backdrop' onClick={() => clickHandler()} />
+        <div className='modal slideInUp' aria-modal>
+          <div className='modal-content'>{children}</div>
+        </div>
+      </div>
+    );
+  }
+  return <div></div>;
 }
 
 export default ModalContent;

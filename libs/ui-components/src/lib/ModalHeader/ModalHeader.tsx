@@ -1,16 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import "./modal-header.module.scss";
+import './_ModalHeader.scss';
 
-/* eslint-disable-next-line */
-export interface ModalHeaderProps {}
-
-export function ModalHeader(props: ModalHeaderProps) {
-  return (
-    <div>
-      <h1>Welcome to ModalHeader!</h1>
-    </div>
-  );
+export function ModalHeader({ children }) {
+  return <div className="modal-header">{children}</div>;
 }
 
 export default ModalHeader;

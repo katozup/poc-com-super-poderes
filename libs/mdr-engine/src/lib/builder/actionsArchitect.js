@@ -7,9 +7,10 @@ export default function actionsArchitect(actions, analytics) {
 
   if (actions) actions.forEach(action => {
     componentActions[enumTranslator(action.event)] = {
+      actionName: action.functionName,
       actionFunction: libFunctions[action.functionName],
       actionEvent: action.event,
-      actionParameter: action.parameter,
+      actionParameter: action.parameters,
     };
 
     componentActions[enumTranslator(action.event)].analytics = {

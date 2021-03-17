@@ -32,7 +32,7 @@ node {
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"
 
-      if (branchName == 'development') {
+      if (branchName == 'development' || branchName == 'qa') {
           buildWithDockerfileAWS {
               dockerRepositoryName =  repo
               dockerFileLocation = "."
@@ -53,7 +53,7 @@ node {
               envProfile = envName
           }
 
-          if (branchName == 'qa' || branchName == 'hml') {
+          if (branchName == 'hml') {
               deployDockerServiceK8s {
                   microservice = repo
                   dockerk8sGroup = "itau"

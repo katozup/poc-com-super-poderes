@@ -11,8 +11,7 @@ export default function* sduiContent() {
       dn,
       chpras,
       'Default',
-      cashback,
-      null
+      cashback
     );
     yield put(AppActions.setSduiContent(response));
     yield put(appActions.setBearerToken(bearerToken));

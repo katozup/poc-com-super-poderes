@@ -20,8 +20,8 @@ export function* initApp() {
     yield call(setSdkData);
     yield call(authentication);
     yield call(sduiContent);
-    yield call(trackGAPageLoad);
     yield call(createCustomer);
+    yield call(trackGAPageLoad);
     yield put(cleanErrorConditionsAndRetryCounts());
     return yield put(stopLoading());
   } catch (error) {

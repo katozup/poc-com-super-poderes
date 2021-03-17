@@ -9,8 +9,7 @@ export function* getSduiContent(
   dn: string,
   chpras: string,
   version: string,
-  cashback: boolean,
-  pageLoadRequest: any,
+  cashback: boolean
 ) {
   const { bearerToken } = yield select((state) => state.app);
   const config = { headers: { Authorization: `Bearer ${bearerToken}` } };
@@ -21,7 +20,6 @@ export function* getSduiContent(
       chpras,
       version,
       cashback,
-      pageLoadRequest
     },
     config
   );

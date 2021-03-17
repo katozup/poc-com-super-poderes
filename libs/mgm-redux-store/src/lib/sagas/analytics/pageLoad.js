@@ -1,6 +1,6 @@
 import { call, select, put } from 'redux-saga/effects';
 import { Creators as AppActions } from '../../ducks/app';
-import { getPageLoad, track, ERROR_TYPES, getSduiContent } from '@zup-mgm/utils';
+import { getPageLoad, track, ERROR_TYPES } from '@zup-mgm/utils';
 import { DefaultPageLoad } from '../models/analytics/pageLoad/DefaultPageLoad';
 
 const {
@@ -10,7 +10,6 @@ const {
 export default function* trackGAPageLoad() {
   let { pageLoad } = yield select(state => state.analytics);
   const pageLoadRequest = yield buildPageLoadRequest(pageLoad);
-  const teste = yield call(getSduiContent, pageLoadRequest.dn, pageLoadRequest.chpras, "Default", false, pageLoadRequest);
   pageLoad = yield getPageLoadPayload (pageLoadRequest);
   track(pageLoad);
 }

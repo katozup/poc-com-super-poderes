@@ -1,9 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Redirect,
+  Router,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { mdrEngine } from '@zup-mgm/mdr-engine';
 import { useSelector } from 'react-redux';
-import { importCssTheme } from '@zup-mgm/utils'
+import { importCssTheme, history } from '@zup-mgm/utils';
 
 async function routesBuilder(payload) {
   const pages = await pagesBuilder(payload.whiteLabel.routes);
@@ -48,7 +54,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        {appRoutes}
+        <Router history={history}>{appRoutes}</Router>
         <Redirect
           from='*'
           to={{

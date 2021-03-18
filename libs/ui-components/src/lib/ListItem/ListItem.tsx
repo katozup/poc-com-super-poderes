@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./list-item.module.scss";
+import "./_ListItem.scss";
 
 /* eslint-disable-next-line */
 export interface ListItemProps {

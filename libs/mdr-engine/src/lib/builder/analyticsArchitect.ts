@@ -18,7 +18,7 @@ export default function componentAnalytics(analyticsParam): Analytics {
     const cumstomLinkGAFuncion = enumTranslator(analyticsParam.event);
     analytics.customLink = {
       analyticsFunction: libFunctions[cumstomLinkGAFuncion],
-      analyticsParameter: buildCustomLinkParameter(analytics)
+      analyticsParameter: buildCustomLinkParameter(analyticsParam)
     }
   }
 

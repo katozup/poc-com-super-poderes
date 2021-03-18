@@ -16,7 +16,8 @@ export default function actionsArchitect(actions, analyticsParam) {
   if (actions) actions.forEach(action => {
     const actionFunction = libFunctions[action.functionName];
     const actionParameter = buildActionParameter(action, analyticsParam);
-    componentActions[enumTranslator(action.event)] = new Action(action.event, actionParameter, actionFunction);
+    componentActions[enumTranslator(action.event)] = new Action(action.event, 
+      actionParameter, actionFunction);
   });
 
 

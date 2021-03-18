@@ -6,6 +6,7 @@ import trackPageLoad from './appFunctions/trackPageLoad';
 import openModal from './appFunctions/openModal';
 import closeModal from './appFunctions/closeModal';
 import navigationBack from './appFunctions/navigationBack'
+import openPage from './appFunctions/openPage'
 
 const libFunctions = {
   closeWebview,
@@ -15,7 +16,7 @@ const libFunctions = {
   trackPageLoad,
   openModal,
   closeModal,
-  navigationBack
+  openPage,
 }
 
 export default libFunctions;

@@ -1,12 +1,12 @@
 import libFunctions from './functions';
 import enumTranslator from '../helpers/enumTranslator';
-import analyticsArchitect from './analyticsArchitect';
+import analyticsCustomLinkArchitect from './analyticsCustomLinkArchitect';
 import { Action } from './model/Action';
 
 const buildActionParameter = (action, analyticsParam) => {
   return {
     ...action.parameters,
-    analytics: analyticsArchitect(analyticsParam),
+    analytics: analyticsCustomLinkArchitect(analyticsParam),
   }
 }
 

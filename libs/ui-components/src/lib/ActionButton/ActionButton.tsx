@@ -4,6 +4,7 @@ import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
 import './_ActionButton.scss';
+
 export interface ActionButtonProps {
   isLoading: boolean;
 }

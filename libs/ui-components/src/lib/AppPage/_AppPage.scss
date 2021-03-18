@@ -6,10 +6,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // background-image: url('/shared-assets/img/background.png'); TODO: Rever aqui, pois a home precisa
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
-    background-size: auto 325px;
+
+    &.background-image {
+      background-repeat: no-repeat;
+      background-position: 50% 100%;
+      background-size: auto 325px;
+    }
   }
 }
-

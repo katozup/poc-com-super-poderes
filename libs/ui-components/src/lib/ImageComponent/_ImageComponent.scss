@@ -10,6 +10,8 @@
   display: flex;
   flex: 1 1;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
 
   .image {
     display: block;

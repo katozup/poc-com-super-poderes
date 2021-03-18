@@ -2,11 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './_IconButton.scss';
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 function IconButton({ onClick, alt, iconName, componentId }) {
-  const history = useHistory();
-  const dispatch = useDispatch();
 
   const clickHandler = (onClick) => {
     const { actionFunction, actionParameter } = onClick;

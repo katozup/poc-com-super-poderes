@@ -1,5 +1,3 @@
-import { Analytics } from './Analytics';
-
 export class Action {
   actionEvent: string;
   actionParameter: any;

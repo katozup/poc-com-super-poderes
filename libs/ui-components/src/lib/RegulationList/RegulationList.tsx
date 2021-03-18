@@ -2,13 +2,10 @@ import React from "react";
 
 import "./regulation-list.module.scss";
 
-/* eslint-disable-next-line */
-export interface RegulationListProps {}
-
-export function RegulationList(props: RegulationListProps) {
+export function RegulationList({children}) {
   return (
-    <div>
-      <h1>Welcome to RegulationList!</h1>
+    <div className="program-regulation-list-wrapper">
+      {children}
     </div>
   );
 }

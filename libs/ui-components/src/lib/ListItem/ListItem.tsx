@@ -3,12 +3,15 @@ import React from "react";
 import "./list-item.module.scss";
 
 /* eslint-disable-next-line */
-export interface ListItemProps {}
+export interface ListItemProps {
+  componentId,
+  children,
+}
 
 export function ListItem(props: ListItemProps) {
   return (
-    <div>
-      <h1>Welcome to ListItem!</h1>
+    <div className='program-regulation-item' id={props.componentId}>
+      {props.children}
     </div>
   );
 }

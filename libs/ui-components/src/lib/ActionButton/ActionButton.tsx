@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
 import './_ActionButton.scss';
 export interface ActionButtonProps {
@@ -17,14 +16,13 @@ const ActionButton = ({
   componentId,
   hasLoading,
 }) => {
-  const history = useHistory();
   const shareButton = useSelector((state: RootStateOrAny) => state.share);
   return (
     <button
       id={componentId}
       disabled={hasLoading && isButtonDisabled(shareButton)}
       aria-label={alt}
-      onClick={() => clickHandler(onClick, styling, componentId, history)}
+      onClick={() => clickHandler(onClick, styling, componentId)}
       type='button'
       className={`action-button ${getButtonStyle(styling)}`}
     >
@@ -37,22 +35,21 @@ const ActionButton = ({
   );
 };
 
-const clickHandler = (onClick, styling, componentId, history) => {
-  history.push('/rewards');
-
-  
-  // window.location.href="?sdk=false&dn=2063&id=00257578340/rewards"
-  // const history = use
-  // const { actionFunction, analytics } = onClick;
-  // const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
-  // if (actionFunction) {
-  //   actionFunction(type, componentId);
-  // } else {
-  //   onClick();
-  // }
-  // if (analytics) {
-  //   analytics.analyticsFunction(analytics.analyticsParameter);
-  // }
+const clickHandler = (onClick, styling, componentId) => {
+  const { actionFunction, actionParameter } = onClick;
+  const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
+  const parameters = {
+    ...actionParameter,
+    type,
+    componentId,
+    actionParameter,
+  };
+  console.log(onClick);
+  if (actionFunction) {
+    actionFunction(parameters);
+  } else {
+    onClick();
+  }
 };
 
 const isButtonLoading = (componentId, shareButton) => {

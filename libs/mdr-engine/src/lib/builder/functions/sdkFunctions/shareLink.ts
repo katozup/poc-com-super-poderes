@@ -1,6 +1,7 @@
 import { store, shareActions } from '@zup-mgm/mgm-redux-store';
 
-export default function (type, componentId, analytics) {
+export default function (actionParameters) {
+  const { type, componentId, analytics } = actionParameters;
   store.dispatch(shareActions.shareRequest(type, componentId));
 
   if (analytics && analytics.customLink) {

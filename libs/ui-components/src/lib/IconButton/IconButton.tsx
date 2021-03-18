@@ -3,36 +3,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './_IconButton.scss';
 import { useHistory } from 'react-router-dom';
-import { ActionName } from '@zup-mgm/mdr-engine';
-import { slideDown } from '@zup-mgm/utils';
-import { modalActions } from '@zup-mgm/mgm-redux-store';
 import { useDispatch } from 'react-redux';
 function IconButton({ onClick, alt, iconName, componentId }) {
   const history = useHistory();
   const dispatch = useDispatch();
 
   const clickHandler = (onClick) => {
-    const { actionFunction, actionParameter, actionName } = onClick;
+    const { actionFunction, actionParameter } = onClick;
     if (actionFunction) {
-      const actionFunctionPayload = getActionFunctionPayload(
-        actionName,
-        actionParameter
-      );
-      actionFunction(actionFunctionPayload);
-    }
-  };
-
-  const getActionFunctionPayload = (actionName, actionParameter) => {
-    if (actionName === ActionName.NAVIGATION_BACK) {
-      return {
-        history,
-      };
-    }
-    if (actionName === ActionName.CLOSE_MODAL) {
-      slideDown();
-      return {
-        actionParameter,
-      };
+      actionFunction(actionParameter);
     }
   };
 

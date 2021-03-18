@@ -1,6 +1,6 @@
-import { store, modalActions } from '@zup-mgm/mgm-redux-store';
+import { history } from '@zup-mgm/utils';
 
-export default function ({ history }) {
+export default function () {
   history.goBack();
   return;
 }

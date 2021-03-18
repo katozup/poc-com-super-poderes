@@ -1,6 +1,6 @@
-import { store, modalActions } from '@zup-mgm/mgm-redux-store';
+import { history } from '@zup-mgm/utils';
 
 export default function (url) {
-//   store.dispatch(modalActions.showModal(componentId));
+  history.push(url);
   return;
 }

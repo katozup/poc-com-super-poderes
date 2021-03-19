@@ -1,3 +1,4 @@
+export { default as MainRegulationContainer } from "./lib/MainRegulationContainer/MainRegulationContainer";
 export { default as SpanSimpleText } from "./lib/SpanSimpleText/SpanSimpleText";
 export { default as AndroidLoading } from "./lib//AndroidLoading/AndroidLoading";
 export { default as IconCardDetails } from "./lib/IconCardDetails/IconCardDetails";

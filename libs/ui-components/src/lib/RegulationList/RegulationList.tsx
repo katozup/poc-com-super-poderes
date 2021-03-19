@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./regulation-list.module.scss";
+import "./_RegulationList.scss";
 
 export function RegulationList({children}) {
   return (

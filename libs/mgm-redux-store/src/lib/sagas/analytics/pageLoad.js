@@ -7,10 +7,13 @@ const {
   ANALYTICS: { GET_GA_PAYLOAD },
 } = ERROR_TYPES;
 
+const { stopLoading } = AppActions;
+
 export default function* trackGAPageLoad() {
   let { pageLoad } = yield select((state) => state.analytics);
   const pageLoadRequest = yield buildPageLoadRequest(pageLoad);
   pageLoad = yield getPageLoadPayload(pageLoadRequest);
+  yield put(stopLoading());
   track(pageLoad);
 }
 

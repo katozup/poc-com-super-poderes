@@ -3,8 +3,9 @@ import React from 'react';
 import './_Link.scss';
 
 const clickHandler = (onClick) => {
+  
   const { actionFunction, actionParameter } = onClick;
-  actionFunction(actionParameter.componentId);
+  actionFunction(actionParameter);
 };
 
 export function Link(props) {

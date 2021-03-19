@@ -1,7 +1,13 @@
 import { history } from '@zup-mgm/utils';
+import { appActions, store} from '@zup-mgm/mgm-redux-store'
+
 
 export default function (actionParameters) {
-  const { url } = actionParameters;
+  const { url, analytics } = actionParameters;
+  if (analytics) {
+    analytics.analyticsFunction(analytics.analyticsParameter);
+  }
+  store.dispatch(appActions.startLoading());
   history.push(url);
   return;
 }

@@ -21,7 +21,6 @@ export function* getLinkAndShare(action) {
     const shareMethod = action.payload.share.type;
     
     yield put(AppActions.setBearerToken(bearerToken));
-    yield call(trackGACustomLink, action);
     //TODO: Remover esse log após ter integração com SDK 100% funcional
     console.log('Vai tentar chamar o SDK nativo para enviar o link');
     yield call(shareLinkSdk, shareMessage, shareMethod);

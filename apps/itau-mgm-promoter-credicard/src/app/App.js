@@ -7,11 +7,10 @@ import { Loading } from '@zup-mgm/ui-components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DefaultError } from '@zup-mgm/ui-components';
 
-const LazyComponent = lazy(async () => await import('../routes/routes'));
 const CREDICARD_THEME_DEFAULT = 'credicard-theme-default';
 
 function App() {
-  const loading = useSelector((state) => state.app.loading);
+
   const hasCriticalError = useSelector((state) => state.error.hasCriticalError);
   const { whiteLabel } = useSelector((state) => state.app.sduiPayload);
   const dispatch = useDispatch();
@@ -41,10 +40,12 @@ function App() {
     );
   }
 
-  if (loading) {
+  if (!whiteLabel) {
     return <Loading loadPrimary={false} />;
   }
 
+  const LazyComponent = lazy(async () => await import('../routes/routes'));
+  
   return (
     <div id='app' className={`App ${whiteLabel.cssTheme}`}>
       <Suspense fallback={<Loading loadPrimary={false} />}>

@@ -4,7 +4,7 @@ import { getPageLoad, track, ERROR_TYPES } from '@zup-mgm/utils';
 import { DefaultPageLoad } from '../models/analytics/pageLoad/DefaultPageLoad';
 
 const {
-  ANALYTICS: { GET_GA_PAYLOAD },
+  ANALYTICS: { GET_GA_PAGELOAD_PAYLOAD },
 } = ERROR_TYPES;
 
 const { stopLoading } = AppActions;
@@ -47,7 +47,7 @@ function* getPageLoadPayload(pageLoadRequest) {
 }
 
 const resolveErrorName = (pageLoadRequest) =>
-  pageLoadRequest.errorName ? pageLoadRequest.errorName : GET_GA_PAYLOAD;
+  pageLoadRequest.errorName ? pageLoadRequest.errorName : GET_GA_PAGELOAD_PAYLOAD;
 
 function* buildDefaultPageLoad(errorName) {
   const { cardType } = yield select((state) => state.app);

@@ -6,6 +6,7 @@ export const Types = {
   SET_SDUI_PAYLOAD: 'app/SET_SDUI_PAYLOAD',
   SET_ENVIRONMENT_VARIABLES: 'app/SET_ENVIRONMENT_VARIABLES',
   SET_CARD_TYPE: 'app/SET_CARD_TYPE',
+  SET_ACTION: 'app/SET_ACTION',
 };
 
 const INITIAL_STATE = {
@@ -13,6 +14,7 @@ const INITIAL_STATE = {
   bearerToken: '',
   sduiPayload: '',
   cardType: '',
+  action: {},
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
@@ -53,6 +55,12 @@ export default function appReducer(state = INITIAL_STATE, action) {
         cardType: action.payload.cardType,
       };
 
+    case Types.SET_ACTION:
+      return {
+        ...state,
+        action: action.payload.action,
+      };
+
     default:
       return state;
   }
@@ -87,5 +95,10 @@ export const Creators = {
   setCardType: (cardType) => ({
     type: Types.SET_CARD_TYPE,
     payload: { cardType },
+  }),
+
+  setAction: (action) => ({
+    type: Types.SET_ACTION,
+    payload: { action },
   }),
 };

@@ -1,6 +1,5 @@
-import { history } from '@zup-mgm/utils';
-import { appActions, store} from '@zup-mgm/mgm-redux-store'
-
+import { navigationHistory } from '@zup-mgm/utils';
+import { appActions, store } from '@zup-mgm/mgm-redux-store';
 
 export default function (actionParameters) {
   const { url, analytics } = actionParameters;
@@ -8,6 +7,6 @@ export default function (actionParameters) {
     analytics.analyticsFunction(analytics.analyticsParameter);
   }
   store.dispatch(appActions.startLoading());
-  history.push(url);
+  navigationHistory.push(url);
   return;
 }

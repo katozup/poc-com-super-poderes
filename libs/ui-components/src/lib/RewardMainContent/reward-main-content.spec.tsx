@@ -1,11 +1,11 @@
-import React from "react";
-import { render } from "@testing-library/react";
+import React from 'react';
+import { render } from '@testing-library/react';
 
-import RewardMainContent from "./reward-main-content";
+import RewardMainContent from './RewardMainContent';
 
-describe("RewardMainContent", () => {
-  it("should render successfully", () => {
-    const { baseElement } = render(<RewardMainContent />);
+describe('RewardMainContent', () => {
+  it('should render successfully', () => {
+    const { baseElement } = render(<RewardMainContent children={[]} />);
     expect(baseElement).toBeTruthy();
   });
 });

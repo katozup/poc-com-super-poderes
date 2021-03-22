@@ -1,34 +1,27 @@
 import { call, put } from 'redux-saga/effects';
 
-import {
-  ERROR_TYPES,
-  REWARDS_SECTION_ID,
-  PROGRAM_REGULATION_SECTION_ID,
-  TIPS_SECTION_ID,
-} from '@zup-mgm/utils';
+import { ERROR_TYPES } from '@zup-mgm/utils';
 import { Creators as AppActions } from '../../../ducks/app';
-import { Creators as ContentActions } from '../../../ducks/content';
-import { Creators as CustomerActions } from '../../../ducks/customer';
 import { Creators as ErrorActions } from '../../../ducks/error';
 import { Creators as ShareActions } from '../../../ducks/share';
 import authentication from '../../authentication';
 import genericErrorHandler from './genericErrorHandler';
+import { trackGACustomLink } from '../../analytics/customLink';
+import trackGAPageLoad from '../../analytics/pageLoad';
 
 const {
+  ANALYTICS: {
+    GET_GA_PAGELOAD_PAYLOAD,
+    GET_GA_CUSTOM_LINK_PAYLOAD,
+  },
   FLOW: {
     INIT_APP,
     GET_LINK_AND_SHARE,
-    GET_CUSTOMER_REFERRALS,
-    GET_ADDITIONAL_INFO_REWARDS,
-    GET_ADDITIONAL_INFO_PROGRAM_REGULATION,
-    GET_ADDITIONAL_INFO_TIPS,
   },
 } = ERROR_TYPES;
 const { initApp } = AppActions;
-const { getReferrals } = CustomerActions;
 const { addOneToAutomaticRetryCount } = ErrorActions;
 const { shareRequest } = ShareActions;
-const { getAdditionalContent } = ContentActions;
 
 export default function* unauthorizedErrorHandler(error, whereErrorOccurred) {
   yield put(addOneToAutomaticRetryCount());
@@ -41,21 +34,13 @@ export default function* unauthorizedErrorHandler(error, whereErrorOccurred) {
       yield authentication();
       yield put(shareRequest());
       break;
-    case GET_CUSTOMER_REFERRALS:
+    case GET_GA_CUSTOM_LINK_PAYLOAD:
       yield authentication();
-      yield put(getReferrals());
+      yield call(trackGACustomLink);
       break;
-    case GET_ADDITIONAL_INFO_REWARDS:
+    case GET_GA_PAGELOAD_PAYLOAD:
       yield authentication();
-      yield put(getAdditionalContent(REWARDS_SECTION_ID));
-      break;
-    case GET_ADDITIONAL_INFO_PROGRAM_REGULATION:
-      yield authentication();
-      yield put(getAdditionalContent(PROGRAM_REGULATION_SECTION_ID));
-      break;
-    case GET_ADDITIONAL_INFO_TIPS:
-      yield authentication();
-      yield put(getAdditionalContent(TIPS_SECTION_ID));
+      yield call(trackGAPageLoad);
       break;
     default:
       yield call(genericErrorHandler, error, whereErrorOccurred);

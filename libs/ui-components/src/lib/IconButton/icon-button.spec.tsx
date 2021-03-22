@@ -6,7 +6,7 @@ import IconButton from "./IconButton";
 describe("IconButton", () => {
   it("should render successfully", () => {
     const mockCallBack = jest.fn();
-    const { baseElement } = render(<IconButton onClick={mockCallBack} />);
+    const { baseElement } = render(<IconButton componentId="" onClick={mockCallBack} />);
     expect(baseElement).toBeTruthy();
   });
 });

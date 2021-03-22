@@ -8,17 +8,17 @@ const sdkDataMock = () => {
     let breakItauTrack = false;
     const paramToBreakItauTracking = 'break-itau-track';
 
-    if (urlSearchParams.get('id')) idParam = getSdkParams('id');
-    if (urlSearchParams.get('dn')) dnParam = getSdkParams('dn');
+    if (urlSearchParams.get('id')) idParam = getSdkParamsWithoutSlashKey('id');
+    if (urlSearchParams.get('dn')) dnParam = getSdkParamsWithoutSlashKey('dn');
     if (urlSearchParams.get('cashback') && urlSearchParams.get('cashback') != 'false') {
-      cashbackParam = Boolean(getSdkParams('cashback'));
+      cashbackParam = Boolean(getSdkParamsWithoutSlashKey('cashback'));
     }
     if (urlSearchParams.get(paramToBreakItauTracking) && urlSearchParams.get(paramToBreakItauTracking) != 'false') {
-      breakItauTrack = Boolean(getSdkParams(paramToBreakItauTracking));
+      breakItauTrack = Boolean(getSdkParamsWithoutSlashKey(paramToBreakItauTracking));
     }
     if (urlSearchParams.get('name')) {
       const separatorRegex = /(-)/g;
-      nameParam = getSdkParams('name').replace(separatorRegex, ' ');
+      nameParam = getSdkParamsWithoutSlashKey('name').replace(separatorRegex, ' ');
     }
 
     const userData = {
@@ -36,7 +36,7 @@ const sdkDataMock = () => {
     return userData;
   };
 
-const getSdkParams = (paramName: string) => {
+const getSdkParamsWithoutSlashKey = (paramName: string) => {
   if (urlSearchParams.get(paramName).includes('/')) {
     return urlSearchParams.get(paramName).split('/')[0];
   }

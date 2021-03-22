@@ -2,8 +2,14 @@ import React from 'react';
 
 import './_ImageComponent.scss';
 
-const ImageComponent = ({ url, alt }) => {
-  return <img className='image' src={url} alt={alt} />;
+export interface ImageComponentProps {
+  url;
+  alt;
+  componentId;
+}
+
+const ImageComponent = (props: ImageComponentProps) => {
+  return <img id={props.componentId} className='image' src={props.url} alt={props.alt} />;
 };
 
 export default ImageComponent;

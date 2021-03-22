@@ -1,16 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import "./tips-list.module.scss";
+import './_TipsList.scss';
+export interface TipsListProps {
+  children;
+}
 
-/* eslint-disable-next-line */
-export interface TipsListProps {}
-
-export function TipsList(props: TipsListProps) {
-  return (
-    <div>
-      <h1>Welcome to TipsList!</h1>
-    </div>
-  );
+export function TipsList(props) {
+  return <ol className='tips-list-container'>{props.children}</ol>;
 }
 
 export default TipsList;

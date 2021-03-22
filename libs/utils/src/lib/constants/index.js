@@ -9,9 +9,6 @@ import SENTRY_CONFIG from './SENTRY_CONFIG';
 import ENDPOINTS_CONSTANTS from '../applicationActions/endpoints/ENDPOINTS_CONSTANTS';
 
 export { default as ANALYTICS_RULES } from './ANALYTICS_RULES';
-export { SECTION_ID as PROGRAM_REGULATION_SECTION_ID } from './PAGES/PROGRAM_REGULATION';
-export { SECTION_ID as REWARDS_SECTION_ID } from './PAGES/REWARDS';
-export { SECTION_ID as TIPS_SECTION_ID } from './PAGES/TIPS';
 
 export {
   BUSINESS_RULES,

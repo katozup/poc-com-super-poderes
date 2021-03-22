@@ -3,11 +3,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './_IconButton.scss';
 function IconButton({ onClick, alt, iconName, componentId }) {
-
   const clickHandler = (onClick) => {
-    const { actionFunction, actionParameter } = onClick;
-    if (actionFunction) {
-      actionFunction(actionParameter);
+    if (onClick) {
+      const { actionFunction, actionParameter } = onClick;
+      if (actionFunction) {
+        actionFunction(actionParameter);
+      }
     }
   };
 

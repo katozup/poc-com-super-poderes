@@ -10,12 +10,8 @@
     border: none;
   }
 
-  .main-wrapper {
-    height: 100%;
-
-    &.modal-open {
-      overflow-y: hidden;
-    }
+  &.modal-open {
+    overflow-y: hidden;
   }
 
   [inert] {

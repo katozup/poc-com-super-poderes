@@ -1,5 +1,23 @@
-.image {
-  width: 55px;
-  height: 38px;
-  padding-right: 16px;
+.card-content-values {
+  .image {
+    width: 55px;
+    height: 38px;
+    padding-right: 16px;
+  }
+}
+
+.reward-container {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px;
+
+  .image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    width: 50%;
+  }
 }

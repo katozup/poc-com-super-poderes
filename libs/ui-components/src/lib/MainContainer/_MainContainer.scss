@@ -9,7 +9,7 @@
 .credicard-theme-default,
 .credicard-theme-cashback {
   .main-container {
-    overflow-y: hidden;
+    overflow-y: scroll;
     height: calc(100% - 52.8px);
   }
 }

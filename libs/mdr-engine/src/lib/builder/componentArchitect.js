@@ -1,13 +1,16 @@
 import React from 'react';
 import actionsArchitect from './actionsArchitect';
+import analyticsPageLoadArchitect from './analyticsPageLoadArchitect';
 
 export default async function componentArchitect(type, component, props, actions, analytics, componentId, children) {
   const reactElement = await reactElementBuilder(type, component, componentId);
   const propsAndActions = {
     ...props,
     componentId,
-    ...actionsArchitect(actions, analytics)
+    ...actionsArchitect(actions, analytics),
+    analytics: analyticsPageLoadArchitect(analytics),
   };
+
   const newReactElement = React.cloneElement(
     reactElement,
     propsAndActions,

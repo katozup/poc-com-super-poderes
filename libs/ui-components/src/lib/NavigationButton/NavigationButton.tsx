@@ -5,9 +5,9 @@ import './_NavigationButton.scss';
 function NavigationButton({ componentId, onClick, children }) {
 
   const clickHandler = (onClick) => {
-    const { actionFunction, actionParameter } = onClick;
+    const { actionFunction } = onClick;
     if (actionFunction) {
-      actionFunction(actionParameter);
+      actionFunction(onClick);
     }
   };
 

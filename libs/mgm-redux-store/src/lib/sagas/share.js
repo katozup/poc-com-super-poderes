@@ -1,7 +1,7 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import { call, put, select, all } from 'redux-saga/effects';
+import { call, put, select } from 'redux-saga/effects';
 import { getShareLink, shareLinkSdk } from '@zup-mgm/utils';
-import { trackGACustomLink } from './analytics/customLink';
+import { trackGACustomLinkForShareLink } from './analytics/customLink';
 import { Creators as ErrorActions } from '../ducks/error';
 import { Creators as ShareActions } from '../ducks/share';
 import { Creators as AppActions } from '../ducks/app';
@@ -19,7 +19,8 @@ export function* getLinkAndShare(action) {
     const { dn } = yield select((state) => state.app.sduiPayload);
     const { shareMessage,  bearerToken } = yield call(getShareLink, dn, chpras);
     const shareMethod = action.payload.share.type;
-    
+
+    yield call(trackGACustomLinkForShareLink);
     yield put(AppActions.setBearerToken(bearerToken));
     //TODO: Remover esse log após ter integração com SDK 100% funcional
     console.log('Vai tentar chamar o SDK nativo para enviar o link');

@@ -1,12 +1,9 @@
-import { store, shareActions } from '@zup-mgm/mgm-redux-store';
+import { store, shareActions, appActions } from '@zup-mgm/mgm-redux-store';
 
-export default function (actionParameters) {
-  const { type, componentId, analytics } = actionParameters;
+export default function (onClick) {
+  const { actionParameter } = onClick;
+  const { type, componentId } = actionParameter;
+  store.dispatch(appActions.setAction(onClick));
   store.dispatch(shareActions.shareRequest(type, componentId));
-
-  if (analytics) {
-    analytics.analyticsFunction(analytics.analyticsParameter);
-  }
-
   return;
 }

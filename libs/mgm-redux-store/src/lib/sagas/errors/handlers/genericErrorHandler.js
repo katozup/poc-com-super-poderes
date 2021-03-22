@@ -1,4 +1,4 @@
-import { put, call } from 'redux-saga/effects';
+import { put, call, select } from 'redux-saga/effects';
 
 import extractEndpointUrlWithError from '../extractors/extractEndpointUrlWithError';
 import extractErrorStatus from '../extractors/extractErrorStatus';
@@ -13,6 +13,7 @@ export default function* genericErrorHandler(error, whereErrorOccurred) {
   const errorStatus = extractErrorStatus(error);
   const endpointUrl = extractEndpointUrlWithError(error);
   const hasCriticalError = true;
+  const { manualRetryCount } = yield select(state => state.error);
 
   const errorConditionsObject = {
     errorStatus,
@@ -22,6 +23,8 @@ export default function* genericErrorHandler(error, whereErrorOccurred) {
   };
 
   yield put(setErrorConditions(errorConditionsObject));
-  yield call(trackGAPageLoad);
+  if(manualRetryCount < 1) {
+    yield call(trackGAPageLoad);
+  }
   return yield put(stopLoading());
 }

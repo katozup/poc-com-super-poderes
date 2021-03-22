@@ -12,7 +12,7 @@ const { CRASH_REPORT_ON } = environment;
 const { MAX_AUTOMATIC_RETRY } = BUSINESS_RULES;
 const { UNAUTHORIZED } = HTTP_STATUS;
 const {
-  ANALYTICS: { ITAU_TRACK, GET_GA_PAYLOAD },
+  ANALYTICS: { ITAU_TRACK, GET_GA_PAGELOAD_PAYLOAD, GET_GA_CUSTOM_LINK_PAYLOAD },
   SDK: { CLOSE_WEBVIEW, GET_SDK_ITEM },
 } = ERROR_TYPES;
 
@@ -21,7 +21,7 @@ export default function* errorHandler(action) {
 
   if (CRASH_REPORT_ON) Sentry.captureException(error);
 
-  if (isAnalyticsError(whereErrorOccurred)) {
+  if (isAnalyticsError(whereErrorOccurred, error)) {
     return yield call(analyticsErrorHandler, whereErrorOccurred);
   }
 
@@ -35,8 +35,9 @@ export default function* errorHandler(action) {
   return yield call(genericErrorHandler, error, whereErrorOccurred);
 }
 
-const isAnalyticsError = (whereErrorOccurred) => {
-  return whereErrorOccurred === ITAU_TRACK || whereErrorOccurred === GET_GA_PAYLOAD;
+const isAnalyticsError = (whereErrorOccurred, error) => {
+  return !isUnauthorizedError(error) && (whereErrorOccurred === ITAU_TRACK || 
+  whereErrorOccurred === GET_GA_PAGELOAD_PAYLOAD || whereErrorOccurred === GET_GA_CUSTOM_LINK_PAYLOAD);
 }
 
 const isSdkError = (whereErrorOccurred) => {

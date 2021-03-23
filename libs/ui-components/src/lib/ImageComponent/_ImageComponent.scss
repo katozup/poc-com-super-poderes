@@ -1,3 +1,7 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src//assets/fonts/itauFonts';
+
+
 .card-content-values {
   .image {
     width: 55px;
@@ -19,5 +23,25 @@
     margin-right: auto;
     object-fit: contain;
     width: 50%;
+  }
+}
+
+.tips-content-container {
+  #img_tipsContent_mainImage {
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+    object-fit: contain;
+  }
+
+  #h2_tipsContent_title {
+    font-family: $itauRegular;
+    font-size: 16px;
+    color: $accent;
+    padding: 24px 24px 0 24px;
+  }
+
+  #p_tipsContent_text {
+    padding: 24px;
   }
 }

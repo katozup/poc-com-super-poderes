@@ -18,6 +18,7 @@ const {
 
 export default function* errorHandler(action) {
   const { error, whereErrorOccurred } = action.payload;
+  const { automaticRetryCount } = yield select(state => state.error);
 
   if (CRASH_REPORT_ON) Sentry.captureException(error);
 
@@ -29,7 +30,7 @@ export default function* errorHandler(action) {
     return yield call(sdkErrorHandler, whereErrorOccurred);
   }
 
-  if (isUnauthorizedError(error) && canAutomaticRetry()) {
+  if (isUnauthorizedError(error) && canAutomaticRetry(automaticRetryCount)) {
     return yield call(unauthorizedErrorHandler, error, whereErrorOccurred);
   }
   return yield call(genericErrorHandler, error, whereErrorOccurred);
@@ -48,8 +49,7 @@ const isUnauthorizedError = (error) => {
   return errorStatus === UNAUTHORIZED;
 };
 
-function* canAutomaticRetry() {
-  const { automaticRetryCount } = yield select(state => state.error);
+const canAutomaticRetry = (automaticRetryCount) => {
   return automaticRetryCount < MAX_AUTOMATIC_RETRY;
 }
 

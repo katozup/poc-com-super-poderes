@@ -1,4 +1,6 @@
-.itaucard-theme-default, .cartaoluiza-theme-default, .hipercard-theme-default {
+.itaucard-theme-default,
+.cartaoluiza-theme-default,
+.hipercard-theme-default {
   .main-container {
     padding: 24px 16px 16px;
     height: calc(100% - 52.8px);
@@ -11,6 +13,8 @@
   .main-container {
     overflow-y: scroll;
     height: calc(100% - 52.8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
-

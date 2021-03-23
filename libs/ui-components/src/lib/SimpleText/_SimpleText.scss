@@ -4,7 +4,8 @@
 .itaucard-theme-default,
 .hipercard-theme-default,
 .cartaoluiza-theme-default {
-  .content-text-container {
+  .card-content-values,
+  .card-details-group-container {
     line-height: 18px;
     .content-text {
       font-family: $itauRegular;
@@ -29,9 +30,9 @@
     font-size: 24px;
     line-height: 36px;
   }
-  
+
   .program-regulation-item {
-    .content-text{
+    .content-text {
       margin-bottom: 24px;
       font-family: $itauLight;
       font-size: 14px;

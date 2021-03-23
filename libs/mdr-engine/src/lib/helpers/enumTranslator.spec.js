@@ -17,11 +17,11 @@ const elementTests = [
 const analyticsTests = [
   {
     enum: 'PAGE_LOAD',
-    string: 'pageLoad'
+    string: 'trackPageLoad'
   },
   {
     enum: 'CUSTOM_LINK',
-    string: 'customLink'
+    string: 'trackCustomLink'
   }
 ];
 

@@ -1,11 +1,23 @@
-import React from "react";
-import { render } from "@testing-library/react";
+import React from 'react';
+import { render } from '@testing-library/react';
+import * as reactRedux from 'react-redux';
+import AppPage from './AppPage';
 
-import AppPage from "./AppPage";
+describe('AppPage', () => {
+  const useSelectorMock = jest.spyOn(reactRedux, 'useSelector');
 
-describe("AppPage", () => {
-  it("should render successfully", () => {
-    const { baseElement } = render(<AppPage children={[]} />);
+  beforeEach(() => {
+    useSelectorMock.mockClear();
+  });
+  it('should render successfully', () => {
+    useSelectorMock.mockReturnValue({});
+    const { baseElement } = render(
+      <AppPage
+        analytics={{ analyticsFunction: jest.fn() }}
+        backgroundImage=''
+        children={[]}
+      />
+    );
     expect(baseElement).toBeTruthy();
   });
 });

@@ -1,1 +1,1 @@
-export * from './lib/sdk/sdkDataMock';
+export { default as sdkDataMock } from './lib/sdk/sdkDataMock';

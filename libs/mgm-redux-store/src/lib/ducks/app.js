@@ -1,5 +1,6 @@
 export const Types = {
   STOP_LOADING: 'app/STOP_LOADING',
+  START_LOADING: 'app/START_LOADING',
   INIT_APP: 'app/INIT_APP',
   SET_BEARERTOKEN: 'app/SET_BEARERTOKEN',
   SET_SDUI_PAYLOAD: 'app/SET_SDUI_PAYLOAD',
@@ -11,7 +12,7 @@ const INITIAL_STATE = {
   loading: true,
   bearerToken: '',
   sduiPayload: '',
-  cardType: ''
+  cardType: '',
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
@@ -20,6 +21,12 @@ export default function appReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         loading: false,
+      };
+
+    case Types.START_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
 
     case Types.INIT_APP:
@@ -57,6 +64,11 @@ export const Creators = {
     payload: {},
   }),
 
+  startLoading: () => ({
+    type: Types.START_LOADING,
+    payload: {},
+  }),
+
   initApp: (cardType) => ({
     type: Types.INIT_APP,
     payload: { cardType },
@@ -75,5 +87,5 @@ export const Creators = {
   setCardType: (cardType) => ({
     type: Types.SET_CARD_TYPE,
     payload: { cardType },
-  })
+  }),
 };

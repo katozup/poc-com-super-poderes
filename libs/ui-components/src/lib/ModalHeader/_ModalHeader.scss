@@ -1,0 +1,44 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src/assets/fonts/itauFonts';
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f2ede8;
+  height: 50px;
+
+  .content-text {
+    font-family: $itauRegular;
+    color: $title-modal;
+    font-size: 14px;
+    line-height: 36px;
+    font-weight: 300;
+  }
+
+  #p_modalHeader_reward {
+    font-family: $itauLight;
+    color: $text-dark;
+    font-size: 24px;
+    line-height: 36px;
+
+    #span_modalHeader_monetaryUnitText {
+      font-size: 18px;
+    }
+  }
+
+  h2.title {
+    font-family: $itauLight;
+    color: $text-dark;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+  }
+
+  #h2_modalHeader_reward {
+    font-family: $itauRegular;
+    color: $title-modal;
+    font-size: 14px;
+    line-height: 36px;
+    font-weight: 300;
+  }
+}

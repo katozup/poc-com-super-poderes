@@ -2,13 +2,12 @@ import React from 'react';
 
 import './_SimpleText.scss';
 
-export function SimpleText({ text, componentId }) {
+export function SimpleText(props) {
   return (
-    <div className="content-text-container">
-      <p className='content-text' id={componentId}>
-        {text}
-      </p>
-    </div>
+    <p className='content-text' id={props.componentId}>
+      {props.children}
+      {props.text}
+    </p>
   );
 }
 

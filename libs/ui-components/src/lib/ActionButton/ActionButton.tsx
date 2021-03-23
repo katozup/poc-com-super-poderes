@@ -4,6 +4,7 @@ import React from 'react';
 import { RootStateOrAny, useSelector } from 'react-redux';
 import ButtonLoading from '../ButtonLoading/ButtonLoading';
 import './_ActionButton.scss';
+
 export interface ActionButtonProps {
   isLoading: boolean;
 }
@@ -36,10 +37,15 @@ const ActionButton = ({
 };
 
 const clickHandler = (onClick, styling, componentId) => {
-  const { actionFunction, analytics } = onClick;
+  const { actionFunction, actionParameter } = onClick;
   const type = styling === 'primary' ? 'whatsApp' : 'otherApps';
+  const parameters = {
+    ...actionParameter,
+    type,
+    componentId,
+  };
   if (actionFunction) {
-    actionFunction(type, componentId, analytics);
+    actionFunction(parameters);
   } else {
     onClick();
   }

@@ -1,0 +1,15 @@
+.credicard,
+.credicard-theme-default,
+.credicard-theme-cashback {
+  #btn_modalToggleButton_requestCard,
+  #btn_modalToggleButton_approvedCard,
+  #btn_modalToggleButton_reward {
+    font-family: 'ItauText-Regular';
+    color: var(--link-modal);
+    text-decoration: underline;
+    font-size: 14px;
+    line-height: 24px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}

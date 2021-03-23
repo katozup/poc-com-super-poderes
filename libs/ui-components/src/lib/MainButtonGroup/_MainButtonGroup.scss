@@ -2,19 +2,17 @@
 .credicard-theme-default,
 .credicard-theme-cashback {
   .button-list-content {
-    position: fixed;
-    bottom: 88px;
-    width: 100%;
+    margin-bottom: 88px;
     padding: 0 16px;
     .action-button + .action-button {
       margin-top: 12px;
     }
   }
 
-  .reward-regulation-container {
+  #div_MainContainer_wrapper {
     .button-list-content {
-      padding: 0px;
-      position: initial;
+      margin: 0;
+      padding: 24px 16px 32px 16px;
     }
   }
 }

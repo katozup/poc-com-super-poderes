@@ -1,14 +1,12 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import * as Sentry from '@sentry/browser';
 import { call, select } from 'redux-saga/effects';
-import { BUSINESS_RULES, HTTP_STATUS, ERROR_TYPES, environment } from '@zup-mgm/utils';
+import { BUSINESS_RULES, HTTP_STATUS, ERROR_TYPES } from '@zup-mgm/utils';
 import extractErrorStatus from '../extractors/extractErrorStatus';
 import analyticsErrorHandler from './analyticsErrorHandler';
 import genericErrorHandler from './genericErrorHandler';
 import sdkErrorHandler from './sdkErrorHandler';
 import unauthorizedErrorHandler from './unauthorizedErrorHandler';
 
-const { CRASH_REPORT_ON } = environment;
 const { MAX_AUTOMATIC_RETRY } = BUSINESS_RULES;
 const { UNAUTHORIZED } = HTTP_STATUS;
 const {
@@ -18,8 +16,6 @@ const {
 
 export default function* errorHandler(action) {
   const { error, whereErrorOccurred } = action.payload;
-
-  if (CRASH_REPORT_ON) Sentry.captureException(error);
 
   if (isAnalyticsError(whereErrorOccurred)) {
     return yield call(analyticsErrorHandler, whereErrorOccurred);

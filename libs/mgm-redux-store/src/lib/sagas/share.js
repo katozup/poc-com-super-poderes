@@ -1,5 +1,5 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import { ERROR_TYPES, getShareLink, shareLinkSdk } from '@zup-mgm/utils';
+import { BUSINESS_RULES, ERROR_TYPES, CARD_TYPE, getShareLink, shareLinkSdk } from '@zup-mgm/utils';
 import { call, put, select } from 'redux-saga/effects';
 import { Creators as AppActions } from '../ducks/app';
 import { Creators as ErrorActions } from '../ducks/error';
@@ -11,16 +11,23 @@ const {
 const { shareSuccess } = ShareActions;
 const { cleanErrorConditionsAndRetryCounts, callErrorHandler } = ErrorActions;
 
+const resolveAppName = (cardType) => {
+  if (cardType === CARD_TYPE.HIPERCARD || cardType === CARD_TYPE.LUIZACARD) {
+    return BUSINESS_RULES.CUSTOM;
+  }
+  return BUSINESS_RULES.NORMAL;
+}
+
 export function* getLinkAndShare(action) {
   try {
     const { chpras } = yield select((state) => state.sdk);
     const { dn } = yield select((state) => state.app.sduiPayload);
-    const { shareMessage,  bearerToken } = yield call(getShareLink, dn, chpras);
+    const { cardType } = yield select((state) => state.app);
+    const app = resolveAppName(cardType);
+    const { shareMessage,  bearerToken } = yield call(getShareLink, dn, chpras, app);
     const shareMethod = action.payload.share.type;
     
     yield put(AppActions.setBearerToken(bearerToken));
-    //TODO: Remover esse log após ter integração com SDK 100% funcional
-    console.log('Vai tentar chamar o SDK nativo para enviar o link');
     yield call(shareLinkSdk, shareMessage, shareMethod);
     yield put(shareSuccess(shareMethod, action.payload.componentId));
     return yield put(cleanErrorConditionsAndRetryCounts());

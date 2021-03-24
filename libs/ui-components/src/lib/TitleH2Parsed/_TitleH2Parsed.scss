@@ -12,6 +12,10 @@
     line-height: 30px;
     font-family: $itauRegular;
     margin: 17px 0 21px 0;
+
+    span {
+      font-weight: bold;
+    }
   }
 }
 
@@ -24,5 +28,9 @@
     color: var(--text-primary);
     line-height: 30px;
     font-family: $itauRegular;
+
+    span {
+      font-weight: bold;
+    }
   }
 }

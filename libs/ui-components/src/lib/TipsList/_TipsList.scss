@@ -1,0 +1,37 @@
+@import '../../../../shared/assets/src/assets/colors/itauColors';
+@import '../../../../shared/assets/src//assets/fonts/itauFonts';
+
+.tips-list-container {
+  counter-reset: my-ol-counter;
+  padding: 24px 24px 8px 16px;
+  margin-top: 24px;
+  font-size: 14px;
+  color: $accent;
+  line-height: 20px;
+  background-color: rgba(242, 237, 232, 0.4);
+  font-family: $itauRegular;
+
+  .program-regulation-item {
+    position: relative;
+    padding-left: 56px;
+    list-style: none;
+  }
+
+  .program-regulation-item:before {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 4px;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    text-align: center;
+    background-color: $icon;
+    content: counter(my-ol-counter, decimal);
+    counter-increment: my-ol-counter;
+    font-size: 16px;
+    border-radius: 50%;
+  }
+}

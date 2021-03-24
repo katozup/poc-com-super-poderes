@@ -1,14 +1,12 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import * as Sentry from '@sentry/browser';
 import { call, select } from 'redux-saga/effects';
-import { BUSINESS_RULES, HTTP_STATUS, ERROR_TYPES, environment } from '@zup-mgm/utils';
+import { BUSINESS_RULES, HTTP_STATUS, ERROR_TYPES } from '@zup-mgm/utils';
 import extractErrorStatus from '../extractors/extractErrorStatus';
 import analyticsErrorHandler from './analyticsErrorHandler';
 import genericErrorHandler from './genericErrorHandler';
 import sdkErrorHandler from './sdkErrorHandler';
 import unauthorizedErrorHandler from './unauthorizedErrorHandler';
 
-const { CRASH_REPORT_ON } = environment;
 const { MAX_AUTOMATIC_RETRY } = BUSINESS_RULES;
 const { UNAUTHORIZED } = HTTP_STATUS;
 const {
@@ -18,8 +16,7 @@ const {
 
 export default function* errorHandler(action) {
   const { error, whereErrorOccurred } = action.payload;
-
-  if (CRASH_REPORT_ON) Sentry.captureException(error);
+  const { automaticRetryCount } = yield select(state => state.error);
 
   if (isAnalyticsError(whereErrorOccurred, error)) {
     return yield call(analyticsErrorHandler, whereErrorOccurred);
@@ -29,7 +26,7 @@ export default function* errorHandler(action) {
     return yield call(sdkErrorHandler, whereErrorOccurred);
   }
 
-  if (isUnauthorizedError(error) && canAutomaticRetry()) {
+  if (isUnauthorizedError(error) && canAutomaticRetry(automaticRetryCount)) {
     return yield call(unauthorizedErrorHandler, error, whereErrorOccurred);
   }
   return yield call(genericErrorHandler, error, whereErrorOccurred);
@@ -49,8 +46,7 @@ const isUnauthorizedError = (error) => {
   return errorStatus === UNAUTHORIZED;
 };
 
-function* canAutomaticRetry() {
-  const { automaticRetryCount } = yield select(state => state.error);
+const canAutomaticRetry = (automaticRetryCount) => {
   return automaticRetryCount < MAX_AUTOMATIC_RETRY;
 }
 

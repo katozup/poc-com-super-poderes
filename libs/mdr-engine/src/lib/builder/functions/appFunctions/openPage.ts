@@ -1,10 +1,10 @@
-import { history } from '@zup-mgm/utils';
+import { navigationHistory } from '@zup-mgm/utils';
 import { appActions, store} from '@zup-mgm/mgm-redux-store'
 
 const openPage = (url) => {
-  const currentPath = history.location.pathname;
+  const currentPath = navigationHistory.location.pathname;
   if(currentPath !== url){
-    history.push(url);
+    navigationHistory.push(url);
   }
 }
 

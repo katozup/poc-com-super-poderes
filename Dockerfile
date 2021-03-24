@@ -1,4 +1,4 @@
-FROM node:12-alpine AS build
+FROM node:14-alpine AS build
 
 ARG envProfile
 ARG repoName
@@ -9,7 +9,7 @@ WORKDIR /app
 COPY . .
 
 RUN yarn install
-RUN yarn nx build ${repoName} --configuration=${envProfile}
+RUN yarn nx build ${repoName} --configuration=${envProfile} --skip-nx-cache
 
 FROM nginx:stable-alpine
 

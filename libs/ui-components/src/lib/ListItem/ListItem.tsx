@@ -10,9 +10,9 @@ export interface ListItemProps {
 
 export function ListItem(props: ListItemProps) {
   return (
-    <div className='program-regulation-item' id={props.componentId}>
+    <li className='program-regulation-item' id={props.componentId}>
       {props.children}
-    </div>
+    </li>
   );
 }
 

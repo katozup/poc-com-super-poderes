@@ -5,7 +5,6 @@ import RESOURCES from './RESOURCES';
 import CARD_TYPE from './CARD_TYPE';
 import PAGE_CATEGORY from './PAGE_CATEGORY';
 import ROUTES from './ROUTES';
-import SENTRY_CONFIG from './SENTRY_CONFIG';
 import ENDPOINTS_CONSTANTS from '../applicationActions/endpoints/ENDPOINTS_CONSTANTS';
 
 export { default as ANALYTICS_RULES } from './ANALYTICS_RULES';
@@ -17,7 +16,6 @@ export {
   HTTP_STATUS,
   ROUTES,
   RESOURCES,
-  SENTRY_CONFIG,
   CARD_TYPE,
   PAGE_CATEGORY
 };

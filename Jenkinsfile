@@ -4,7 +4,6 @@ node {
   def projectName = jobName.split('-').first()
   def branchName = jobName.split('/').last().split('-').first()
   def envName = 'localhost'
-  def dockerSwarm = 'itau-mgm-mono-promoter'
   def nxDefaultBuildPath = '/app/dist/apps/'
   def arg = '--build-arg'
 
@@ -60,7 +59,7 @@ node {
               }
           } else {
               deployDockerServiceK8s {
-                  microservice = dockerSwarm
+                  microservice = repo
                   dockerk8sGroup = "cartoes"
               }
           }

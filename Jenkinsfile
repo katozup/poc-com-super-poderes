@@ -1,10 +1,9 @@
 node {
-  def repos = ['itau-mgm-promoter-credicard', 'itau-mgm-promoter-itaucard']
+  def repos = ['itau-mgm-promoter-credicard']
   def jobName = "${env.JOB_NAME}"
   def projectName = jobName.split('-').first()
   def branchName = jobName.split('/').last().split('-').first()
   def envName = 'localhost'
-  def dockerSwarm = 'itau-mgm-mono-promoter'
   def nxDefaultBuildPath = '/app/dist/apps/'
   def arg = '--build-arg'
 
@@ -32,7 +31,7 @@ node {
       echo "Ambiente ${envName}"
       echo "Job ${jobName}"
 
-      if (branchName == 'development') {
+      if (branchName == 'development' || branchName == 'qa') {
           buildWithDockerfileAWS {
               dockerRepositoryName =  repo
               dockerFileLocation = "."
@@ -53,14 +52,14 @@ node {
               envProfile = envName
           }
 
-          if (branchName == 'qa' || branchName == 'hml') {
+          if (branchName == 'hml') {
               deployDockerServiceK8s {
                   microservice = repo
                   dockerk8sGroup = "itau"
               }
           } else {
               deployDockerServiceK8s {
-                  microservice = dockerSwarm
+                  microservice = repo
                   dockerk8sGroup = "cartoes"
               }
           }

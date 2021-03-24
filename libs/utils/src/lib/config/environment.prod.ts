@@ -1,4 +1,4 @@
-const environment = {
+export const environment = {
   PRODUCTION: true,
   ENVIRONMENT: 'production',
   HAS_EXPERIMENT: false,

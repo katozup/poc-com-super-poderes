@@ -31,13 +31,25 @@
     line-height: 36px;
   }
 
-  .program-regulation-item {
-    .content-text {
-      margin-bottom: 24px;
-      font-family: $itauLight;
+  .program-regulation-list-wrapper {
+    .program-regulation-item {
+      .content-text {
+        margin-bottom: 24px;
+        font-family: $itauLight;
+        font-size: 14px;
+        color: var(--text-dark);
+        line-height: 24px;
+      }
+    }
+  }
+
+  .tips-list-container {
+    .program-regulation-item {
+      margin-bottom: 16px;
       font-size: 14px;
-      color: var(--text-dark);
-      line-height: 24px;
+    }
+    .program-regulation-item:last-child {
+      margin-bottom: 0;
     }
   }
 }

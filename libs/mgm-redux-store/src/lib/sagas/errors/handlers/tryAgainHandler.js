@@ -1,10 +1,9 @@
-import { put, select, call } from 'redux-saga/effects';
+import { put, select } from 'redux-saga/effects';
 
 import { BUSINESS_RULES, ERROR_TYPES } from '@zup-mgm/utils';
 import { Creators as AppActions } from '../../../ducks/app';
 import { Creators as ErrorActions } from '../../../ducks/error';
 import { Creators as ShareActions } from '../../../ducks/share';
-import { trackGACustomLink } from '../../analytics/customLink';
 
 const { MAX_MANUAL_RETRY } = BUSINESS_RULES;
 const {

@@ -1,6 +1,8 @@
 export const Types = {
   STOP_LOADING: 'app/STOP_LOADING',
   START_LOADING: 'app/START_LOADING',
+  DISPATCH_PAGE_LOAD: 'app/DISPATCH_PAGE_LOAD',
+  STOP_PAGE_LOAD: 'app/STOP_PAGE_LOAD',
   INIT_APP: 'app/INIT_APP',
   SET_BEARERTOKEN: 'app/SET_BEARERTOKEN',
   SET_SDUI_PAYLOAD: 'app/SET_SDUI_PAYLOAD',
@@ -15,6 +17,11 @@ const INITIAL_STATE = {
   sduiPayload: '',
   cardType: '',
   action: {},
+  pageLoad: {
+    PAGE: true,
+    MODAL: false,
+  },
+  pageLoadType: 'PAGE'
 };
 
 export default function appReducer(state = INITIAL_STATE, action) {
@@ -30,6 +37,23 @@ export default function appReducer(state = INITIAL_STATE, action) {
         ...state,
         loading: true,
       };
+
+    case Types.DISPATCH_PAGE_LOAD:
+      return {
+        ...state,
+        pageLoad: {
+          [action.payload.pageLoadType]: true,
+        },
+      };
+
+    case Types.STOP_PAGE_LOAD:
+      return {
+        ...state,
+        pageLoad: {
+        [action.payload.pageLoadType]: false,
+      },
+      pageLoadType: action.payload.pageLoadType,
+    };
 
     case Types.INIT_APP:
       return {
@@ -75,6 +99,16 @@ export const Creators = {
   startLoading: () => ({
     type: Types.START_LOADING,
     payload: {},
+  }),
+
+  dispatchPageLoad: (pageLoadType) => ({
+    type: Types.DISPATCH_PAGE_LOAD,
+    payload: { pageLoadType },
+  }),
+
+  stopPageLoad: (pageLoadType) => ({
+    type: Types.STOP_PAGE_LOAD,
+    payload: { pageLoadType },
   }),
 
   initApp: (cardType) => ({

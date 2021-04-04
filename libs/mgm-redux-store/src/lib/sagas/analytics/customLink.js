@@ -21,13 +21,14 @@ export function* trackGACustomLinkForShareLink() {
 }
 
 function* trackCustomLink(customLink) {
-  const { cardType } = yield select(state => state.app);
+  const { cardType, pageLoadType } = yield select(state => state.app);
   customLink.cardType = cardType;
   customLink = yield getCustomLinkPayload(customLink);
   if(customLink){
     track(customLink);
     yield put(cleanErrorConditionsAndRetryCounts());
   }
+  yield put(AppActions.dispatchPageLoad(pageLoadType));
 }
 
 export function* trackGACustomLinkNPS() {

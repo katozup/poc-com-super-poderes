@@ -10,7 +10,7 @@ import unauthorizedErrorHandler from './unauthorizedErrorHandler';
 const { MAX_AUTOMATIC_RETRY } = BUSINESS_RULES;
 const { UNAUTHORIZED } = HTTP_STATUS;
 const {
-  ANALYTICS: { ITAU_TRACK, GET_GA_PAGELOAD_PAYLOAD, GET_GA_CUSTOM_LINK_PAYLOAD },
+  ANALYTICS: { ITAU_TRACK, GET_GA_PAGELOAD_PAYLOAD },
   SDK: { CLOSE_WEBVIEW, GET_SDK_ITEM },
 } = ERROR_TYPES;
 
@@ -34,7 +34,7 @@ export default function* errorHandler(action) {
 
 const isAnalyticsError = (whereErrorOccurred, error) => {
   return !isUnauthorizedError(error) && (whereErrorOccurred === ITAU_TRACK || 
-  whereErrorOccurred === GET_GA_PAGELOAD_PAYLOAD || whereErrorOccurred === GET_GA_CUSTOM_LINK_PAYLOAD);
+  whereErrorOccurred === GET_GA_PAGELOAD_PAYLOAD);
 }
 
 const isSdkError = (whereErrorOccurred) => {

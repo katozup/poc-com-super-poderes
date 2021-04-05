@@ -29,7 +29,7 @@ function ModalContent({ componentId, children, analytics }) {
     };
 
     trackPageLoad(analytics);
-  }, [analytics, componentId, modalState, pageLoad]);
+  }, [analytics, componentId, modalState.isModalVisible, pageLoad[MODAL]]);
 
   if (canShowModal()) {
     return (

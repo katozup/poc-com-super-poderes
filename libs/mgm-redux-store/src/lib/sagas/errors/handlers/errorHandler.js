@@ -10,7 +10,7 @@ import unauthorizedErrorHandler from './unauthorizedErrorHandler';
 const { MAX_AUTOMATIC_RETRY } = BUSINESS_RULES;
 const { UNAUTHORIZED } = HTTP_STATUS;
 const {
-  ANALYTICS: { ITAU_TRACK, GET_GA_PAYLOAD },
+  ANALYTICS: { ITAU_TRACK, GET_GA_PAGELOAD_PAYLOAD },
   SDK: { CLOSE_WEBVIEW, GET_SDK_ITEM },
 } = ERROR_TYPES;
 
@@ -18,7 +18,7 @@ export default function* errorHandler(action) {
   const { error, whereErrorOccurred } = action.payload;
   const { automaticRetryCount } = yield select(state => state.error);
 
-  if (isAnalyticsError(whereErrorOccurred)) {
+  if (isAnalyticsError(whereErrorOccurred, error)) {
     return yield call(analyticsErrorHandler, whereErrorOccurred);
   }
 
@@ -32,8 +32,9 @@ export default function* errorHandler(action) {
   return yield call(genericErrorHandler, error, whereErrorOccurred);
 }
 
-const isAnalyticsError = (whereErrorOccurred) => {
-  return whereErrorOccurred === ITAU_TRACK || whereErrorOccurred === GET_GA_PAYLOAD;
+const isAnalyticsError = (whereErrorOccurred, error) => {
+  return !isUnauthorizedError(error) && (whereErrorOccurred === ITAU_TRACK || 
+  whereErrorOccurred === GET_GA_PAGELOAD_PAYLOAD);
 }
 
 const isSdkError = (whereErrorOccurred) => {

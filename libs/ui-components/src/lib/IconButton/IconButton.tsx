@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import './_IconButton.scss';
 function IconButton({ onClick, alt, iconName, componentId }) {
   const clickHandler = (onClick) => {
-    if (onClick) {
-      const { actionFunction, actionParameter } = onClick;
+    if(onClick){
+      const { actionFunction } = onClick;
       if (actionFunction) {
-        actionFunction(actionParameter);
+        actionFunction(onClick);
       }
     }
   };

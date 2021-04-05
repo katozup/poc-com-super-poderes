@@ -1,32 +1,19 @@
 import { put, select } from 'redux-saga/effects';
 
-import {
-  BUSINESS_RULES,
-  ERROR_TYPES,
-  REWARDS_SECTION_ID,
-  PROGRAM_REGULATION_SECTION_ID,
-  TIPS_SECTION_ID,
-} from '@zup-mgm/utils';
+import { BUSINESS_RULES, ERROR_TYPES } from '@zup-mgm/utils';
 import { Creators as AppActions } from '../../../ducks/app';
-import { Creators as ContentActions } from '../../../ducks/content';
-import { Creators as CustomerActions } from '../../../ducks/customer';
 import { Creators as ErrorActions } from '../../../ducks/error';
 import { Creators as ShareActions } from '../../../ducks/share';
 
 const { MAX_MANUAL_RETRY } = BUSINESS_RULES;
 const {
+  ANALYTICS: { GET_GA_CUSTOM_LINK_PAYLOAD },
   FLOW: {
     INIT_APP,
     GET_LINK_AND_SHARE,
-    GET_CUSTOMER_REFERRALS,
-    GET_ADDITIONAL_INFO_REWARDS,
-    GET_ADDITIONAL_INFO_PROGRAM_REGULATION,
-    GET_ADDITIONAL_INFO_TIPS,
   },
 } = ERROR_TYPES;
 const { initApp } = AppActions;
-const { getAdditionalContent } = ContentActions;
-const { getReferrals } = CustomerActions;
 const { addOneToManualRetryCount } = ErrorActions;
 const { shareRequest } = ShareActions;
 
@@ -35,6 +22,8 @@ export default function* tryAgainHandler() {
     state => state.error
   );
   const { cardType } = yield select(state => state.app);
+  const { action } = yield select(state => state.app);
+  
   const canManualRetry = manualRetryCount < MAX_MANUAL_RETRY;
 
   if (canManualRetry) {
@@ -47,20 +36,16 @@ export default function* tryAgainHandler() {
       case GET_LINK_AND_SHARE:
         yield put(shareRequest());
         break;
-      case GET_CUSTOMER_REFERRALS:
-        yield put(getReferrals());
-        break;
-      case GET_ADDITIONAL_INFO_REWARDS:
-        yield put(getAdditionalContent(REWARDS_SECTION_ID));
-        break;
-      case GET_ADDITIONAL_INFO_PROGRAM_REGULATION:
-        yield put(getAdditionalContent(PROGRAM_REGULATION_SECTION_ID));
-        break;
-      case GET_ADDITIONAL_INFO_TIPS:
-        yield put(getAdditionalContent(TIPS_SECTION_ID));
+      case GET_GA_CUSTOM_LINK_PAYLOAD:
+        handleCustomLinkTryAgain(action);
         break;
       default:
         break;
     }
   }
+}
+
+const handleCustomLinkTryAgain = (action) => {
+  const { actionFunction } = action;
+  actionFunction(action);
 }

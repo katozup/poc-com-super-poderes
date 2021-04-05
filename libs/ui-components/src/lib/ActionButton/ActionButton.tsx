@@ -44,8 +44,9 @@ const clickHandler = (onClick, styling, componentId) => {
     type,
     componentId,
   };
+  onClick.actionParameter = parameters;
   if (actionFunction) {
-    actionFunction(parameters);
+    actionFunction(onClick);
   } else {
     onClick();
   }

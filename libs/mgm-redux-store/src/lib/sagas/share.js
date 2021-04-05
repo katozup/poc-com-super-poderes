@@ -1,9 +1,10 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
-import { BUSINESS_RULES, ERROR_TYPES, CARD_TYPE, getShareLink, shareLinkSdk } from '@zup-mgm/utils';
 import { call, put, select } from 'redux-saga/effects';
-import { Creators as AppActions } from '../ducks/app';
+import { BUSINESS_RULES, ERROR_TYPES, CARD_TYPE, getShareLink, shareLinkSdk } from '@zup-mgm/utils';
+import { trackGACustomLinkForShareLink } from './analytics/customLink';
 import { Creators as ErrorActions } from '../ducks/error';
 import { Creators as ShareActions } from '../ducks/share';
+import { Creators as AppActions } from '../ducks/share';
 
 const {
   FLOW: { GET_LINK_AND_SHARE },
@@ -26,7 +27,8 @@ export function* getLinkAndShare(action) {
     const app = resolveAppName(cardType);
     const { shareMessage,  bearerToken } = yield call(getShareLink, dn, chpras, app);
     const shareMethod = action.payload.share.type;
-    
+
+    yield call(trackGACustomLinkForShareLink);
     yield put(AppActions.setBearerToken(bearerToken));
     yield call(shareLinkSdk, shareMessage, shareMethod);
     yield put(shareSuccess(shareMethod, action.payload.componentId));

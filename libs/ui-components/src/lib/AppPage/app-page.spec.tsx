@@ -10,7 +10,7 @@ describe('AppPage', () => {
     useSelectorMock.mockClear();
   });
   it('should render successfully', () => {
-    useSelectorMock.mockReturnValue({});
+    useSelectorMock.mockReturnValue({pageLoad: {PAGE:true}});
     const { baseElement } = render(
       <AppPage
         analytics={{ analyticsFunction: jest.fn() }}

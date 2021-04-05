@@ -4,8 +4,8 @@ import './_Link.scss';
 
 const clickHandler = (onClick) => {
   
-  const { actionFunction, actionParameter } = onClick;
-  actionFunction(actionParameter);
+  const { actionFunction } = onClick;
+  actionFunction(onClick);
 };
 
 export function Link(props) {

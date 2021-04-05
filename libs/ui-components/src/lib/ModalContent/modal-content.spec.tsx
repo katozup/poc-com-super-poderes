@@ -15,7 +15,7 @@ describe('ModalContent', () => {
   });
   it('should render successfully', () => {
     useDispatchMock.mockReturnValue(mockedDispatch);
-    useSelectorMock.mockReturnValue({});
+    useSelectorMock.mockReturnValue({pageLoad: {MODAL:true}});
     const { baseElement } = render(
       <ModalContent componentId='' analytics={{}} children={[]} />
     );

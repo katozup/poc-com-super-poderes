@@ -1,5 +1,25 @@
 {
   "version": 2,
+  "cli": {
+    "defaultCollection": "@nrwl/react"
+  },
+  "defaultProject": "itau-mgm-promoter-credicard",
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "style": "scss",
+        "linter": "eslint",
+        "babel": true
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "style": "scss",
+        "linter": "eslint"
+      }
+    }
+  },
   "projects": {
     "itau-mgm-promoter-credicard": {
       "root": "apps/itau-mgm-promoter-credicard",
@@ -8,7 +28,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/itau-mgm-promoter-credicard",
             "index": "apps/itau-mgm-promoter-credicard/src/index.html",
@@ -147,7 +169,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/itau-mgm-promoter-credicard"],
+          "outputs": [
+            "coverage/apps/itau-mgm-promoter-credicard"
+          ],
           "options": {
             "jestConfig": "apps/itau-mgm-promoter-credicard/jest.config.js",
             "passWithNoTests": true
@@ -190,7 +214,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/itau-mgm-promoter-itaucard",
             "index": "apps/itau-mgm-promoter-itaucard/src/index.html",
@@ -204,7 +230,9 @@
                 "output": "shared-assets"
               }
             ],
-            "styles": ["apps/itau-mgm-promoter-itaucard/src/index.scss"],
+            "styles": [
+              "apps/itau-mgm-promoter-itaucard/src/index.scss"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -329,7 +357,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/itau-mgm-promoter-itaucard"],
+          "outputs": [
+            "coverage/apps/itau-mgm-promoter-itaucard"
+          ],
           "options": {
             "jestConfig": "apps/itau-mgm-promoter-itaucard/jest.config.js",
             "passWithNoTests": true
@@ -373,12 +403,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/mdr-engine/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/mdr-engine/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mdr-engine"],
+          "outputs": [
+            "coverage/libs/mdr-engine"
+          ],
           "options": {
             "jestConfig": "libs/mdr-engine/jest.config.js",
             "passWithNoTests": true
@@ -394,7 +428,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui-components/**/*.{ts,tsx,js,jsx}"],
+            "lintFilePatterns": [
+              "libs/ui-components/**/*.{ts,tsx,js,jsx}"
+            ],
             "assets": [
               {
                 "input": "libs/shared/assets/src/assets",
@@ -407,7 +443,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui-components"],
+          "outputs": [
+            "coverage/libs/ui-components"
+          ],
           "options": {
             "jestConfig": "libs/ui-components/jest.config.js",
             "passWithNoTests": true
@@ -423,12 +461,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/utils/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/utils/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/utils"],
+          "outputs": [
+            "coverage/libs/utils"
+          ],
           "options": {
             "jestConfig": "libs/utils/jest.config.js",
             "passWithNoTests": true
@@ -444,12 +486,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/mgm-redux-store/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/mgm-redux-store/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mgm-redux-store"],
+          "outputs": [
+            "coverage/libs/mgm-redux-store"
+          ],
           "options": {
             "jestConfig": "libs/mgm-redux-store/jest.config.js",
             "passWithNoTests": true
@@ -465,7 +511,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/shared/**/*.{ts,tsx,js,jsx}"],
+            "lintFilePatterns": [
+              "libs/shared/**/*.{ts,tsx,js,jsx}"
+            ],
             "assets": [
               {
                 "input": "libs/shared/assets/src/assets",
@@ -477,7 +525,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared"],
+          "outputs": [
+            "coverage/libs/shared"
+          ],
           "options": {
             "jestConfig": "libs/shared/jest.config.js",
             "passWithNoTests": true
@@ -493,38 +543,132 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/mock/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "libs/mock/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mock"],
+          "outputs": [
+            "coverage/libs/mock"
+          ],
           "options": {
             "jestConfig": "libs/mock/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "generators": {
-    "@nrwl/react": {
-      "application": {
-        "style": "scss",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "scss"
-      },
-      "library": {
-        "style": "scss",
-        "linter": "eslint"
+    },
+    "jins-poc": {
+      "root": "apps/jins-poc",
+      "sourceRoot": "apps/jins-poc/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/apps/jins-poc",
+            "index": "apps/jins-poc/src/index.html",
+            "main": "apps/jins-poc/src/main.js",
+            "polyfills": "apps/jins-poc/src/polyfills.js",
+            "tsConfig": "apps/jins-poc/tsconfig.app.json",
+            "assets": [
+              "apps/jins-poc/src/favicon.ico",
+              "apps/jins-poc/src/assets"
+            ],
+            "styles": [
+              "apps/jins-poc/src/styles.scss"
+            ],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/jins-poc/src/environments/environment.js",
+                  "with": "apps/jins-poc/src/environments/environment.prod.js"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "jins-poc:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "jins-poc:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/jins-poc/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/jins-poc"
+          ],
+          "options": {
+            "jestConfig": "apps/jins-poc/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "jins-poc-e2e": {
+      "root": "apps/jins-poc-e2e",
+      "sourceRoot": "apps/jins-poc-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/jins-poc-e2e/cypress.json",
+            "tsConfig": "apps/jins-poc-e2e/tsconfig.e2e.json",
+            "devServerTarget": "jins-poc:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "jins-poc:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/jins-poc-e2e/**/*.js"
+            ]
+          }
+        }
       }
     }
-  },
-  "defaultProject": "itau-mgm-promoter-credicard"
+  }
 }

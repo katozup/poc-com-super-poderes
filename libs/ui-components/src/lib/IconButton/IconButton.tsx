@@ -20,7 +20,9 @@ function IconButton({ onClick, alt, iconName, componentId }) {
       type='button'
       className='button-back'
     >
-      <i className={`icon ${iconName}`} />
+      <i className={`icon ${iconName}`}>
+        💩
+      </i>
     </button>
   );
 }

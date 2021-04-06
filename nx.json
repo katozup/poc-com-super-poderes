@@ -1,8 +1,4 @@
 {
-  "npmScope": "itau-mgm",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": {
@@ -14,11 +10,20 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": {
+    "defaultBase": "master"
+  },
+  "npmScope": "itau-mgm",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
@@ -28,14 +33,18 @@
     },
     "itau-mgm-promoter-credicard-e2e": {
       "tags": [],
-      "implicitDependencies": ["itau-mgm-promoter-credicard"]
+      "implicitDependencies": [
+        "itau-mgm-promoter-credicard"
+      ]
     },
     "itau-mgm-promoter-itaucard": {
       "tags": []
     },
     "itau-mgm-promoter-itaucard-e2e": {
       "tags": [],
-      "implicitDependencies": ["itau-mgm-promoter-itaucard"]
+      "implicitDependencies": [
+        "itau-mgm-promoter-itaucard"
+      ]
     },
     "ui-components": {
       "tags": []
@@ -54,6 +63,15 @@
     },
     "mock": {
       "tags": []
+    },
+    "jins-poc": {
+      "tags": []
+    },
+    "jins-poc-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "jins-poc"
+      ]
     }
   }
 }

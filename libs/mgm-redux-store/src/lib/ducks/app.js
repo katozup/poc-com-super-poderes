@@ -12,7 +12,7 @@ export const Types = {
 };
 
 const INITIAL_STATE = {
-  loading: true,
+  loading: false,
   bearerToken: '',
   sduiPayload: '',
   cardType: '',
